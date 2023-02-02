@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 
-public class ObstaclesController : MonoBehaviour
+public class S01ObstaclesController : MonoBehaviour
 {
     public List<GameObject> obstacles;
     

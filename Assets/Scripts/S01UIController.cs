@@ -2,30 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class UIController : MonoBehaviour
+public class S01UIController : MonoBehaviour
 {
-    public ScoreManager scoreManager;
-    public ApplicationManager applicationManager;
+    [FormerlySerializedAs("scoreManager")] public S01ScoreManager s01ScoreManager;
+    [FormerlySerializedAs("applicationManager")] public S01ApplicationManager s01ApplicationManager;
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
     
     public void GameOver()
     {
-        scoreManager.GameOver();
+        s01ScoreManager.GameOver();
         gameOverMenu.SetActive(true);
-        applicationManager.Pause();
+        s01ApplicationManager.Pause();
     }
 
     public void Resume()
     {
-        applicationManager.Resume();
+        s01ApplicationManager.Resume();
         pauseMenu.SetActive(false);
     }
 
     public void Retry()
     {
-        applicationManager.Retry();
+        s01ApplicationManager.Retry();
         gameOverMenu.SetActive(false);
     }
     
@@ -38,6 +39,6 @@ public class UIController : MonoBehaviour
     private void OnPause()
     {
         pauseMenu.SetActive(true);
-        applicationManager.Pause();
+        s01ApplicationManager.Pause();
     }
 }

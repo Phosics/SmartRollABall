@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickupsController : MonoBehaviour
+public class S01PickupsController : MonoBehaviour
 {
     public List<GameObject> pickUps;
 

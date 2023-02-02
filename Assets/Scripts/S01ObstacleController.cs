@@ -1,7 +1,7 @@
 using UnityEngine;
 using Random = System.Random;
 
-public class ObstacleController : MonoBehaviour
+public class S01ObstacleController : MonoBehaviour
 {
     public int speed;
 

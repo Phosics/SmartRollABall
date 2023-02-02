@@ -1,13 +1,14 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class ApplicationManager : MonoBehaviour
+public class S01ApplicationManager : MonoBehaviour
 {
     public AudioSource ambientSound;
-    public PlayerController playerController;
-    public ObstaclesController obstaclesController;
-    public ScoreManager scoreManager;
-    public PickupsController pickupsController;
+    [FormerlySerializedAs("playerController")] public S01PlayerController s01PlayerController;
+    [FormerlySerializedAs("obstaclesController")] public S01ObstaclesController s01ObstaclesController;
+    [FormerlySerializedAs("scoreManager")] public S01ScoreManager s01ScoreManager;
+    [FormerlySerializedAs("pickupsController")] public S01PickupsController s01PickupsController;
     
     public void Quit()
     {
@@ -42,11 +43,11 @@ public class ApplicationManager : MonoBehaviour
 
     public void Retry()
     {
-        playerController.Reset();
-        obstaclesController.Reset();
+        s01PlayerController.Reset();
+        s01ObstaclesController.Reset();
         ambientSound.Play();
-        scoreManager.Reset();
-        pickupsController.Reset();
+        s01ScoreManager.Reset();
+        s01PickupsController.Reset();
         Time.timeScale = 1;
     }
 

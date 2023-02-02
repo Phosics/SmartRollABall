@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PostProcessManager : MonoBehaviour
+public class S01PostProcessManager : MonoBehaviour
 {
     public const int TimeForEffect = 2;
     public GameObject volumn;

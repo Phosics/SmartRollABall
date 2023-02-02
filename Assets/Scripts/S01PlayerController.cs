@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using Random = System.Random;
 
-public class PlayerController : MonoBehaviour
+public class S01PlayerController : MonoBehaviour
 {
     private const float Floor = 0.5f;
 
@@ -11,9 +12,9 @@ public class PlayerController : MonoBehaviour
     
     public float speed;
     public float jump;
-    public ScoreManager scoreManager;
+    [FormerlySerializedAs("scoreManager")] public S01ScoreManager s01ScoreManager;
     public UnityEvent onLavaTouch;
-    public PostProcessManager postProcessManager;
+    [FormerlySerializedAs("postProcessManager")] public S01PostProcessManager s01PostProcessManager;
     
     private Rigidbody _rb;
     private float _movementX;
@@ -82,11 +83,11 @@ public class PlayerController : MonoBehaviour
     {
         other.gameObject.transform.position = new Vector3(Rand.Next(-9, 9), other.gameObject.transform.position.y, Rand.Next(-9, 9));
         other.GetComponent<AudioSource>().Play();
-        scoreManager.Increase();
+        s01ScoreManager.Increase();
 
         if (other.gameObject.CompareTag("Post Process Pickup"))
         {
-            postProcessManager.ActiveEffect();
+            s01PostProcessManager.ActiveEffect();
         }
     }
 }
