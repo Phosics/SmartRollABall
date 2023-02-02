@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3026736547858827182}
   - component: {fileID: 3026736547858827181}
   m_Layer: 5
-  m_Name: Quit Botton
+  m_Name: s01_Quit Botton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
