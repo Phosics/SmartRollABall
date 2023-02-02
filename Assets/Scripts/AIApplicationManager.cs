@@ -1,10 +1,8 @@
 using UnityEngine;
 
-public class S01ApplicationManager : MonoBehaviour
+public class AIApplicationManager : MonoBehaviour
 {
-    public AudioSource ambientSound;
     public S01PlayerController playerController;
-    public S01ObstaclesController obstaclesController;
     public S01ScoreManager scoreManager;
     public S01PickupsController pickupsController;
     
@@ -24,7 +22,6 @@ public class S01ApplicationManager : MonoBehaviour
             return; 
         }
         
-        ambientSound.Pause();
         Time.timeScale = 0;
     }
 
@@ -35,15 +32,12 @@ public class S01ApplicationManager : MonoBehaviour
             return;
         }
         
-        ambientSound.UnPause();
         Time.timeScale = 1;
     }
 
     public void Retry()
     {
         playerController.Reset();
-        obstaclesController.Reset();
-        ambientSound.Play();
         scoreManager.Reset();
         pickupsController.Reset();
         Time.timeScale = 1;

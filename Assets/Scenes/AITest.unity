@@ -278,7 +278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 285559256}
-  - component: {fileID: 285559255}
+  - component: {fileID: 285559257}
   m_Layer: 0
   m_Name: Application Manager
   m_TagString: Untagged
@@ -286,23 +286,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &285559255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285559254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34b1b4b2cb317d047ad190b4d1ace0db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ambientSound: {fileID: 0}
-  playerController: {fileID: 2020354448}
-  obstaclesController: {fileID: 0}
-  scoreManager: {fileID: 269576763}
-  pickupsController: {fileID: 1424516492}
 --- !u!4 &285559256
 Transform:
   m_ObjectHideFlags: 0
@@ -318,6 +301,21 @@ Transform:
   m_Father: {fileID: 335541735}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &285559257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285559254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc668e3fe94348438f377fb8315a6944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 2020354448}
+  scoreManager: {fileID: 269576763}
+  pickupsController: {fileID: 1424516492}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,7 +1009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 269576763}
-  applicationManager: {fileID: 285559255}
+  applicationManager: {fileID: 0}
   pauseMenu: {fileID: 1985894213}
   gameOverMenu: {fileID: 1218093438}
 --- !u!1 &629929675
@@ -1842,7 +1840,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 285559255}
+      objectReference: {fileID: 0}
     - target: {fileID: 3026736547858827181, guid: 86414f165f2a3854daecc6191f2710a9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2774,7 +2772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jump: 35
-  scoreManager: {fileID: 269576763}
+  scoreManager: {fileID: 0}
   onLavaTouch:
     m_PersistentCalls:
       m_Calls:
@@ -2943,7 +2941,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 285559255}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86414f165f2a3854daecc6191f2710a9, type: 3}
 --- !u!1001 &7429811230960107146
@@ -2953,18 +2951,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1424516491}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_Pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7429811232269186722, guid: 10a1749dd5b68d24da900ad1a138dbe1,
         type: 3}
       propertyPath: m_RootOrder
