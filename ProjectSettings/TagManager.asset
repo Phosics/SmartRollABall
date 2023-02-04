@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Lava
+  - Wall
+  - Pause Menu
+  - Pickup
+  - Obstacle
+  - Post Process Pickup
+  - Boundary
   layers:
   - Default
   - TransparentFX

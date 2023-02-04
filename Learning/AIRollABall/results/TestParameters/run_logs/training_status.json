@@ -1,0 +1,65 @@
+{
+    "AIRollABall": {
+        "checkpoints": [
+            {
+                "steps": 3499949,
+                "file_path": "results\\TestParameters\\AIRollABall\\AIRollABall-3499949.onnx",
+                "reward": null,
+                "creation_time": 1675544399.9678662,
+                "auxillary_file_paths": [
+                    "results\\TestParameters\\AIRollABall\\AIRollABall-3499949.pt"
+                ]
+            },
+            {
+                "steps": 3999998,
+                "file_path": "results\\TestParameters\\AIRollABall\\AIRollABall-3999998.onnx",
+                "reward": -23.40999884903431,
+                "creation_time": 1675545067.7203827,
+                "auxillary_file_paths": [
+                    "results\\TestParameters\\AIRollABall\\AIRollABall-3999998.pt"
+                ]
+            },
+            {
+                "steps": 4499983,
+                "file_path": "results\\TestParameters\\AIRollABall\\AIRollABall-4499983.onnx",
+                "reward": -24.01555412511031,
+                "creation_time": 1675545744.2197897,
+                "auxillary_file_paths": [
+                    "results\\TestParameters\\AIRollABall\\AIRollABall-4499983.pt"
+                ]
+            },
+            {
+                "steps": 4999963,
+                "file_path": "results\\TestParameters\\AIRollABall\\AIRollABall-4999963.onnx",
+                "reward": null,
+                "creation_time": 1675546407.1604464,
+                "auxillary_file_paths": [
+                    "results\\TestParameters\\AIRollABall\\AIRollABall-4999963.pt"
+                ]
+            },
+            {
+                "steps": 5000155,
+                "file_path": "results\\TestParameters\\AIRollABall\\AIRollABall-5000155.onnx",
+                "reward": null,
+                "creation_time": 1675546407.2200594,
+                "auxillary_file_paths": [
+                    "results\\TestParameters\\AIRollABall\\AIRollABall-5000155.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 5000155,
+            "file_path": "results\\TestParameters\\AIRollABall.onnx",
+            "reward": null,
+            "creation_time": 1675546407.2200594,
+            "auxillary_file_paths": [
+                "results\\TestParameters\\AIRollABall\\AIRollABall-5000155.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cpu"
+    }
+}
