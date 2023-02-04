@@ -3,7 +3,7 @@ using UnityEngine;
 public class S01UIController : MonoBehaviour
 {
     public S01ScoreManager scoreManager;
-    public S01ApplicationManager applicationManager;
+    public S01ApplicationManagerBase applicationManagerBase;
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
     
@@ -11,18 +11,18 @@ public class S01UIController : MonoBehaviour
     {
         scoreManager.GameOver();
         gameOverMenu.SetActive(true);
-        applicationManager.Pause();
+        applicationManagerBase.Pause();
     }
 
     public void Resume()
     {
-        applicationManager.Resume();
+        applicationManagerBase.Resume();
         pauseMenu.SetActive(false);
     }
 
     public void Retry()
     {
-        applicationManager.Retry();
+        applicationManagerBase.Retry();
         gameOverMenu.SetActive(false);
     }
     
@@ -35,6 +35,6 @@ public class S01UIController : MonoBehaviour
     private void OnPause()
     {
         pauseMenu.SetActive(true);
-        applicationManager.Pause();
+        applicationManagerBase.Pause();
     }
 }

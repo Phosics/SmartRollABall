@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 269576763}
-  applicationManager: {fileID: 285559255}
+  applicationManagerBase: {fileID: 285559255}
   pauseMenu: {fileID: 1985894213}
   gameOverMenu: {fileID: 1218093438}
 --- !u!1 &629929675

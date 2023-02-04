@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc668e3fe94348438f377fb8315a6944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2020354448}
+  playerController: {fileID: 0}
   scoreManager: {fileID: 269576763}
   pickupsController: {fileID: 1424516492}
 --- !u!1 &330585543
@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 269576763}
-  applicationManager: {fileID: 0}
+  applicationManagerBase: {fileID: 285559257}
   pauseMenu: {fileID: 1985894213}
   gameOverMenu: {fileID: 1218093438}
 --- !u!1 &629929675
@@ -2656,7 +2656,7 @@ GameObject:
   - component: {fileID: 2020354442}
   - component: {fileID: 2020354446}
   - component: {fileID: 2020354449}
-  - component: {fileID: 2020354448}
+  - component: {fileID: 2020354450}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2758,37 +2758,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2020354448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2020354441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed99fcc600692d4697c667b9186820c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  jump: 35
-  scoreManager: {fileID: 0}
-  onLavaTouch:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 575445527}
-        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: GameOver
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  postProcessManager: {fileID: 0}
 --- !u!114 &2020354449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2820,6 +2789,21 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &2020354450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020354441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3783e6c298e6410dacf770d87f362f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  jump: 35
+  scoreManager: {fileID: 269576763}
 --- !u!1001 &3026736547613838576
 PrefabInstance:
   m_ObjectHideFlags: 0

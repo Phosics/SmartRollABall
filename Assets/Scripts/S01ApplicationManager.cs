@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class S01ApplicationManager : MonoBehaviour
+public class S01ApplicationManager :  S01ApplicationManagerBase
 {
     public AudioSource ambientSound;
     public S01PlayerController playerController;
@@ -17,7 +17,7 @@ public class S01ApplicationManager : MonoBehaviour
         #endif
     }
 
-    public void Pause()
+    public override void Pause()
     {
         if (IsPaused())
         {
@@ -28,7 +28,7 @@ public class S01ApplicationManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void Resume()
+    public override void Resume()
     {
         if (!IsPaused())
         {
@@ -39,7 +39,7 @@ public class S01ApplicationManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void Retry()
+    public override void Retry()
     {
         playerController.Reset();
         obstaclesController.Reset();

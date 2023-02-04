@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AIApplicationManager : MonoBehaviour
+public class AIApplicationManager : S01ApplicationManagerBase
 {
     public S01PlayerController playerController;
     public S01ScoreManager scoreManager;
@@ -15,7 +15,7 @@ public class AIApplicationManager : MonoBehaviour
         #endif
     }
 
-    public void Pause()
+    public override void Pause()
     {
         if (IsPaused())
         {
@@ -25,7 +25,7 @@ public class AIApplicationManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void Resume()
+    public override void Resume()
     {
         if (!IsPaused())
         {
@@ -35,7 +35,7 @@ public class AIApplicationManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void Retry()
+    public override void Retry()
     {
         playerController.Reset();
         scoreManager.Reset();
