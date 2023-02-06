@@ -8,22 +8,27 @@ public class Coin: MonoBehaviour
 {
 
     public float speed = 1;
-    public GameObject playGround;
 
     private float hight;
     private Vector3 startLocation;
+
     public bool goodCoin;
+
+    [HideInInspector]
+    public PlayGround playGround;
+    
 
     private void Start()
     {
-        SetStartLocation();
+        //SetStartLocation();
+        startLocation = Vector3.zero;
         hight = Random.Range(1.5f, 2.5f);
     }
 
-    private void SetStartLocation()
+    public void SetStartLocation(Vector3 position)
     {
         startLocation = new Vector3(Random.Range(-9.5f, 9.5f), Random.Range(0f, 2f), Random.Range(-9.5f, 9.5f));
-        transform.position = playGround.transform.position + startLocation;
+        transform.position = position + startLocation;
     }
 
     // Update is called once per frame
@@ -40,7 +45,7 @@ public class Coin: MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            SetStartLocation();
+            playGround.OnCoinCollected(this, goodCoin);
         }
     }
 }
