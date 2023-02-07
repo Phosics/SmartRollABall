@@ -4,13 +4,14 @@ using Random = System.Random;
 
 public class AIPlayerController : MonoBehaviour
 {
+    public ScoreManager scoreManager;
+    
     private const float Floor = 0.5f;
 
     private static readonly Random Rand = new();
     
     public float speed;
     public float jump;
-    public S01ScoreManager scoreManager;
 
     private Rigidbody _rb;
     private float _movementX;
@@ -56,7 +57,7 @@ public class AIPlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pickup") || other.gameObject.CompareTag("Post Process Pickup"))
+        if (other.gameObject.CompareTag("Pickup"))
         {
             HandlePickup(other);
         } 

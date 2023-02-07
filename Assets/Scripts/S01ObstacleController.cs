@@ -1,13 +1,10 @@
 using UnityEngine;
-using Random = System.Random;
 
 public class S01ObstacleController : MonoBehaviour
 {
     public int speed;
 
     private static readonly int[] ForcesArray = {-1, 1};
-    
-    private static readonly Random Rand = new();
 
     private Rigidbody _rb;
     
@@ -18,7 +15,7 @@ public class S01ObstacleController : MonoBehaviour
     
     private void FixedUpdate()
     {
-        _rb.AddForce(getRandomOneOrMinusOne() * speed, 0, getRandomOneOrMinusOne() * speed);
+        _rb.AddForce(GetRandomOneOrMinusOne() * speed, 0, GetRandomOneOrMinusOne() * speed);
     }
     
     // private void OnTriggerEnter(Collider other)
@@ -31,8 +28,8 @@ public class S01ObstacleController : MonoBehaviour
     //     _rb.transform.position = new Vector3(Rand.Next(-9, 9), _rb.transform.position.y, Rand.Next(-9, 9));
     // }
 
-    private int getRandomOneOrMinusOne()
+    private int GetRandomOneOrMinusOne()
     {
-        return ForcesArray[Rand.Next(2)];
+        return ForcesArray[Random.Range(0, 2)];
     }
 }

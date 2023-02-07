@@ -2,36 +2,40 @@
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AIPlayerAgent : Agent
 {
+    public ScoreManager scoreManager;
+    
     public float speed = 10f;
     public float jump = 35f;
     public WallsManager wallsManager;
     public Transform pickUpTransform;
+    public Transform obstacleTransform;
 
-    private new Rigidbody rigidbody;
+    private Rigidbody _rb;
     private Vector3 _startingPosition;
-    private AIScoreManager _scoreManager = new(5);
     private float _distance;
+    private bool _collideObstacle;
 
     public override void Initialize()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
         _startingPosition = transform.position;
     }
     
     public override void OnEpisodeBegin()
     {
         // Zero out velocities so that movement stops before a new episode begins
-        rigidbody.velocity = Vector3.zero;
-        rigidbody.angularVelocity = Vector3.zero;
+        _rb.velocity = Vector3.zero;
+        _rb.angularVelocity = Vector3.zero;
 
         // Reset the starting position
         transform.position = _startingPosition;
         
         // Reset the score
-        _scoreManager.Reset();
+        scoreManager.Reset();
         
         // Reset the pickup in a new random location
         ResetPickup();
@@ -54,14 +58,20 @@ public class AIPlayerAgent : Agent
 
             if (transform.position.y - _startingPosition.y <= 0.1f &&  actions.DiscreteActions[0] == 1)
             {
-                moveY.y = jump;
+                moveY.y += jump;
             }
             
+            // Check for collision with the obstacle
+            if (_collideObstacle)
+            {
+                moveY.y += jump * 2;
+            }
+
             // Calculate movement vector
-            Vector3 moveXZ = new Vector3(actions.ContinuousActions[0], 0, actions.ContinuousActions[1]);
+            Vector3 moveXZ = new Vector3(actions.ContinuousActions[0], moveY.y, actions.ContinuousActions[1]);
             
             // Add force in the direction of the move vector
-            rigidbody.AddForce(moveXZ * speed + moveY);
+            _rb.AddForce(moveXZ * speed);
         }
         
         /// <summary>
@@ -71,18 +81,20 @@ public class AIPlayerAgent : Agent
         public override void CollectObservations(VectorSensor sensor)
         {
             // Observe the agent position - 3 observations
-            sensor.AddObservation(transform.position);
+            sensor.AddObservation(transform.position.normalized);
             
             // Observe the agent velocity - 2 observations
-            sensor.AddObservation(rigidbody.angularVelocity.normalized);
-            sensor.AddObservation(rigidbody.velocity.normalized);
+            sensor.AddObservation(_rb.angularVelocity.normalized);
+            sensor.AddObservation(_rb.velocity.normalized);
 
             // Observe a normalized vector pointing to the nearest pickup - 3 observations
             sensor.AddObservation(pickUpTransform.position.normalized);
+            
+            sensor.AddObservation(obstacleTransform.position.normalized);
 
-            // 8 total observations
+            // 11 total observations
         }
-        
+
         /// <summary>
         /// Called when the agent's collide enters a trigger collider
         /// </summary>
@@ -93,27 +105,44 @@ public class AIPlayerAgent : Agent
             {
                 ResetPickup();
 
-                if (_scoreManager.Increase())
+                if (scoreManager.Increase())
                 {
                     AddReward(50);
                     EndEpisode();
                 }
-            
+
                 AddReward(0.5f);
             }
-            else if (other.CompareTag("Boundary"))
+            // else if (other.CompareTag("Boundary"))
+            // {
+            //     // Collided with the area boundary, give a negative reward and finish
+            //     AddReward(-30f);
+            //     EndEpisode();
+            // } 
+            else if (other.gameObject.CompareTag("Obstacle"))
             {
-                // Collided with the area boundary, give a negative reward
-                AddReward(-0.5f);
+                _collideObstacle = true;
             }
         }
-        
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.CompareTag("Obstacle"))
+            {
+                _collideObstacle = false;
+            }
+        }
+
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.collider.CompareTag("Wall"))
             {
                 // Collided with the wall, give a negative reward
                 AddReward(-0.05f);
+            }
+            else if (collision.gameObject.CompareTag("Boundary"))
+            {
+                AddReward(-1f);
             }
         }
         
