@@ -1,0 +1,65 @@
+{
+    "AIRollABall": {
+        "checkpoints": [
+            {
+                "steps": 4499988,
+                "file_path": "results\\BiggerJump\\AIRollABall\\AIRollABall-4499988.onnx",
+                "reward": -21.999998673563823,
+                "creation_time": 1675588226.718649,
+                "auxillary_file_paths": [
+                    "results\\BiggerJump\\AIRollABall\\AIRollABall-4499988.pt"
+                ]
+            },
+            {
+                "steps": 4999989,
+                "file_path": "results\\BiggerJump\\AIRollABall\\AIRollABall-4999989.onnx",
+                "reward": -21.919998928904533,
+                "creation_time": 1675588860.7160509,
+                "auxillary_file_paths": [
+                    "results\\BiggerJump\\AIRollABall\\AIRollABall-4999989.pt"
+                ]
+            },
+            {
+                "steps": 5499955,
+                "file_path": "results\\BiggerJump\\AIRollABall\\AIRollABall-5499955.onnx",
+                "reward": -20.442498875781894,
+                "creation_time": 1675589504.4116905,
+                "auxillary_file_paths": [
+                    "results\\BiggerJump\\AIRollABall\\AIRollABall-5499955.pt"
+                ]
+            },
+            {
+                "steps": 5999976,
+                "file_path": "results\\BiggerJump\\AIRollABall\\AIRollABall-5999976.onnx",
+                "reward": -18.909998670220375,
+                "creation_time": 1675590143.9545922,
+                "auxillary_file_paths": [
+                    "results\\BiggerJump\\AIRollABall\\AIRollABall-5999976.pt"
+                ]
+            },
+            {
+                "steps": 6000296,
+                "file_path": "results\\BiggerJump\\AIRollABall\\AIRollABall-6000296.onnx",
+                "reward": -18.909998670220375,
+                "creation_time": 1675590144.0118268,
+                "auxillary_file_paths": [
+                    "results\\BiggerJump\\AIRollABall\\AIRollABall-6000296.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 6000296,
+            "file_path": "results\\BiggerJump\\AIRollABall.onnx",
+            "reward": -18.909998670220375,
+            "creation_time": 1675590144.0118268,
+            "auxillary_file_paths": [
+                "results\\BiggerJump\\AIRollABall\\AIRollABall-6000296.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cpu"
+    }
+}
