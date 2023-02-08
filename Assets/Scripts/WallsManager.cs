@@ -7,6 +7,8 @@ public class WallsManager : MonoBehaviour
     public GameObject eastWall;
     public GameObject westWall;
 
+    private readonly Random _r = new Random();
+
     public float GetMinX()
     {
         return GetValue(westWall.transform.position.x, false);
@@ -35,5 +37,10 @@ public class WallsManager : MonoBehaviour
         }
         
         return value + 1;
+    }
+
+    public Vector3 RandomLocation(float setHight=0)
+    {
+        new Vector3(Random.Range(GetMinX(), GetMaxX()), setHight, Random.Range(GetMinZ(), GetMaxZ()));
     }
 }

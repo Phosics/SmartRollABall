@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  playGround: {fileID: 0}
   goodCoin: 1
 --- !u!108 &5552102591801395262
 Light:
