@@ -1,18 +1,23 @@
 ﻿using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreManager
 {
-    public int targetScore;
+    private readonly int _targetScore;
+    public int Score { get; private set; } = 0;
 
-    private int _score = 0;
+    public ScoreManager(int targetScore)
+    {
+        _targetScore = targetScore;
+    }
+
 
     public bool Increase()
     {
-        return ++_score >= targetScore;
+        return ++Score >= _targetScore;
     }
 
     public void Reset()
     {
-        _score = 0;
+        Score = 0;
     }
 }
