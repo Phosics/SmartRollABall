@@ -1,10 +1,6 @@
 using Assets.Scripts;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-using Random = System.Random;
 
 public class PlayerController : MonoBehaviour
 {
@@ -64,8 +60,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PickUp"))
         {
-            playGround.OnPickUp(other.gameObject.GetComponent<PickUp>());
             AudioManager.Play(pickUpAudio);
+            playGround.OnPickUp(other.gameObject.GetComponent<PickUp>());
         }
 
         if (other.gameObject.CompareTag("Enemy"))

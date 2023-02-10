@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class S02PauseMenuManager : MonoBehaviour
+public class PauseMenuManager : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject endGameMenu;
     public TextMeshProUGUI highScoreText;
-    public AudioSource ambientAudioSource;
-    
+
     private float _prevTimeScale;
 
     private void Start()
@@ -49,22 +49,20 @@ public class S02PauseMenuManager : MonoBehaviour
     
     public void Quit()
     {
-        if(EditorApplication.isPlaying)
-            EditorApplication.isPlaying = false;
-        else
-            Application.Quit();
+        SceneManager.LoadScene("Main Menu");
+        Time.timeScale = _prevTimeScale;
     }
 
     private void StopTime()
     {
         _prevTimeScale = Time.timeScale;
         Time.timeScale = 0;
-        ambientAudioSource.Pause();
+        AudioManager.Pause("Theme");
     }
     
     private void ResumeTime()
     {
         Time.timeScale = _prevTimeScale;
-        ambientAudioSource.UnPause();
+        AudioManager.UnPause("Theme");
     }
 }

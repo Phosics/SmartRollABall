@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 5128811620208064792, guid: e42dce10de392fb46b7cf553d7658cf4,
         type: 3}
       propertyPath: m_TagString
-      value: Spider
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5505336437074420642, guid: e42dce10de392fb46b7cf553d7658cf4,
         type: 3}
