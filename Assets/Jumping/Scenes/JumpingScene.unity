@@ -1164,6 +1164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 522644902}
+  - component: {fileID: 522644903}
   m_Layer: 0
   m_Name: Canvases
   m_TagString: Untagged
@@ -1189,6 +1190,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &522644903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522644901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba970e304ca3497c8d09fa493df9ce37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countText: {fileID: 793721205}
+  stage: 3
+  targetScore: 10
 --- !u!1 &589371050
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,7 +2334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100ed1121e8b24f089ce8af1da9faa60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallsManager: {fileID: 0}
+  wallsManager: {fileID: 890505824}
+  scoreManager: {fileID: 522644903}
 --- !u!1 &1023676018
 GameObject:
   m_ObjectHideFlags: 0
@@ -3433,7 +3450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 845632b53dd617644bf3d94226a25a34,
+  m_Actions: {fileID: -944628639613478452, guid: f30500eb21371664f9868a400975708e,
     type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
@@ -3449,16 +3466,16 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: f0916851-5714-4bb4-8833-db9f192e4c77
+    m_ActionId: 8ec11a52-ac61-4594-9c93-19f4e9e7ee95
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 9215b6ef-61c1-4fcc-aa23-03f410bd75a4
+    m_ActionId: 218e948f-fc01-4fa6-b2d1-7d0d219a57f6
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 1161fdea-3d9b-4be7-95b3-175cd759ecf6
-    m_ActionName: UI Control/Pause[/Keyboard/p]
+    m_ActionId: 65eb4fb5-73a9-4d0b-9166-2da150331251
+    m_ActionName: Player/Pause[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

@@ -52,7 +52,7 @@ public class Jumping : Enemy
             SetMove();
         }
 
-        if (collision.gameObject.CompareTag("Jumping"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             SetMove();
         }
