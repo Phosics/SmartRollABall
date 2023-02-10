@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1165,6 +1165,8 @@ GameObject:
   m_Component:
   - component: {fileID: 522644902}
   - component: {fileID: 522644903}
+  - component: {fileID: 522644904}
+  - component: {fileID: 522644905}
   m_Layer: 0
   m_Name: Canvases
   m_TagString: Untagged
@@ -1205,6 +1207,52 @@ MonoBehaviour:
   countText: {fileID: 793721205}
   stage: 3
   targetScore: 10
+--- !u!114 &522644904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522644901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79dd60e312a7e474a9d5a9c1c948397c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 2068463647}
+  endGameMenu: {fileID: 165077627}
+  highScoreText: {fileID: 2090202134}
+--- !u!114 &522644905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522644901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 845632b53dd617644bf3d94226a25a34,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI Control
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &589371050
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,13 +2141,13 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 70b2102b1ac5a6b49ac88eb662066934, type: 3}
-    name: Jump
+    name: PickUp
     loop: 0
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 3e9d99cd53fc7af4994fbcdf14dd10fc, type: 3}
-    name: PickUp
+    name: Jump
     loop: 0
     volume: 0.5
     pitch: 1
@@ -2352,7 +2400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1023676019
 Transform:
   m_ObjectHideFlags: 0
@@ -3450,9 +3498,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: f30500eb21371664f9868a400975708e,
+  m_Actions: {fileID: -944628639613478452, guid: 845632b53dd617644bf3d94226a25a34,
     type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -3466,19 +3514,19 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 8ec11a52-ac61-4594-9c93-19f4e9e7ee95
+    m_ActionId: f0916851-5714-4bb4-8833-db9f192e4c77
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 218e948f-fc01-4fa6-b2d1-7d0d219a57f6
+    m_ActionId: 9215b6ef-61c1-4fcc-aa23-03f410bd75a4
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 65eb4fb5-73a9-4d0b-9166-2da150331251
-    m_ActionName: Player/Pause[/Keyboard/p]
+    m_ActionId: 1161fdea-3d9b-4be7-95b3-175cd759ecf6
+    m_ActionName: UI Control/Pause[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: UI Control
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!4 &1588584383
@@ -3510,6 +3558,7 @@ GameObject:
   - component: {fileID: 1638351934}
   - component: {fileID: 1638351933}
   - component: {fileID: 1638351939}
+  - component: {fileID: 1638351940}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3530,7 +3579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  playerJumpForce: 3
+  playerJumpForce: 30
   enemyCollisionJumpForce: 1
   jumpAudio: Jump
   pickUpAudio: PickUp
@@ -3630,6 +3679,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1638351940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638351932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 845632b53dd617644bf3d94226a25a34,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1682941612
 GameObject:
   m_ObjectHideFlags: 0
@@ -4223,7 +4303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2019379628
 MonoBehaviour:
   m_ObjectHideFlags: 0
