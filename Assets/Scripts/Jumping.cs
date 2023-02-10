@@ -1,9 +1,10 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Jumping : MonoBehaviour
+public class Jumping : Enemy
 {
     public UnityEvent miniJumping;
     private Vector3 startLocation;
@@ -19,7 +20,7 @@ public class Jumping : MonoBehaviour
         transform.position = new Vector3(transform.position.x + move.x, 0.025f, transform.position.z + move.y);
     }
 
-    public void SetStartLocation(Vector3 position)
+    public override void SetStartLocation(Vector3 position)
     {
         startLocation = new Vector3(Random.Range(-9f, 9f), 0.025f, Random.Range(-9f, 9f));
         transform.position = position + startLocation;
