@@ -12,11 +12,13 @@ TagManager:
   - Post Process Pickup
   - Boundary
   - Coin
-  - Ground
   - BadCoin
-  - Jumping
-  - Enemy
+  - Floor
+  - Spider
   - PickUp
+  - SpecialPickUp
+  - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX

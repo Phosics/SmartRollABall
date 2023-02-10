@@ -6,19 +6,19 @@ using UnityEngine;
 public class PlayGround : MonoBehaviour
 {
     public WallsManager wallsManager;
-    private readonly ScoreManager _scoreManager = new ScoreManager(20);
+    public ScoreManager scoreManager;
     public List<PickUp> PickUps { get; private set; }
     public List<Enemy> Enemies { get; private set; }
 
-    public void ResetPlayGround()
+    public virtual void ResetPlayGround()
     {
-        _scoreManager.Reset();
+        scoreManager.Reset();
         
-        foreach (var goodCoin in PickUps)
-            goodCoin.SetStartLocation(transform.position);
+        foreach (var pickUp in PickUps)
+            pickUp.SetStartLocation(wallsManager.RandomLocation());
         
         foreach (var enemy in Enemies)
-            enemy.SetStartLocation(transform.position);
+            enemy.SetStartLocation(wallsManager.RandomLocation());
     }
 
     private void Awake()
@@ -49,9 +49,9 @@ public class PlayGround : MonoBehaviour
         }
     }
 
-    public void OnPickUp(PickUp pickUp)
+    public virtual void OnPickUp(PickUp pickUp)
     {
         pickUp.SetStartLocation(wallsManager.RandomLocation());
-        _scoreManager.Increase();
+        scoreManager.Increase();
     }
 }

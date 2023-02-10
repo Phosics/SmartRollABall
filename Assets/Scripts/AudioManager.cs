@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System;
+using System.Linq;
 using Unity.Audio;
 using UnityEngine;
 
@@ -26,7 +27,7 @@ namespace Assets.Scripts
             }
 
             DontDestroyOnLoad(gameObject);
-            foreach (Sound s in sounds)
+            foreach (var s in sounds)
             {
                 s.source = gameObject.AddComponent<AudioSource>();
                 s.source.clip = s.clip;
@@ -46,7 +47,7 @@ namespace Assets.Scripts
         // Update is called once per frame
         public static void Play(string name)
         {
-            Sound s = Array.Find(allSounds, sound => sound.name == name);
+            var s = allSounds.SingleOrDefault(sound => sound.name == name);
             if (s == null)
             {
                 Debug.LogWarning("Error: Sound " + name + " not found");
@@ -58,7 +59,7 @@ namespace Assets.Scripts
 
         public static void Pause(string name)
         {
-            Sound s = Array.Find(allSounds, sound => sound.name == name);
+            var s = allSounds.SingleOrDefault(sound => sound.name == name);
             if (s == null)
             {
                 Debug.LogWarning("Error: Sound " + name + " not found");
@@ -66,6 +67,18 @@ namespace Assets.Scripts
             }
 
             s.source.Pause();
+        }
+        
+        public static void UnPause(string name)
+        {
+            var s = allSounds.SingleOrDefault(sound => sound.name == name);
+            if (s == null)
+            {
+                Debug.LogWarning("Error: Sound " + name + " not found");
+                return;
+            }
+
+            s.source.UnPause();
         }
     }
 }
