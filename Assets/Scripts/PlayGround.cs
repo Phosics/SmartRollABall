@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Assets.Scripts;
 using UnityEngine;
 
 public class PlayGround : MonoBehaviour
@@ -14,11 +13,20 @@ public class PlayGround : MonoBehaviour
     {
         scoreManager.Reset();
         
+        ResetPickUps();
+        ResetEnemies();
+    }
+
+    protected virtual void ResetPickUps()
+    {
         foreach (var pickUp in PickUps)
-            pickUp.SetStartLocation(wallsManager.RandomLocation());
-        
+            pickUp.SetLocation(wallsManager.RandomLocation());
+    }
+    
+    protected virtual void ResetEnemies()
+    {
         foreach (var enemy in Enemies)
-            enemy.SetStartLocation(wallsManager.RandomLocation());
+            enemy.SetLocation(wallsManager.RandomLocation());
     }
 
     private void Awake()
@@ -38,7 +46,7 @@ public class PlayGround : MonoBehaviour
         for (int i = 0; i < parent.childCount; i++)
         {
             var child = parent.GetChild(i);
-            if (child.CompareTag("PickUp"))
+            if (child.CompareTag("PickUp") || child.CompareTag("Post Process Pickup"))
                 PickUps.Add(child.GetComponent<PickUp>());
             
             else if (child.CompareTag("Enemy"))
@@ -51,7 +59,7 @@ public class PlayGround : MonoBehaviour
 
     public virtual void OnPickUp(PickUp pickUp)
     {
-        pickUp.SetStartLocation(wallsManager.RandomLocation());
+        pickUp.SetLocation(wallsManager.RandomLocation());
         scoreManager.Increase();
     }
 }

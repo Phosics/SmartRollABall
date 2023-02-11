@@ -6,10 +6,10 @@ public class PickUp : MonoBehaviour
     [Header("Y Axis Movement")]
     public bool isMoving;
     public float moveSpeed;
-    
-    private const float DefaultHeight = 0.5f;
 
-    public void SetStartLocation(Vector3 newLocation)
+    protected const float DefaultHeight = 0.5f;
+
+    public void SetLocation(Vector3 newLocation)
     {
         newLocation.y = isMoving ? Random.Range(1.5f, 2.5f) : DefaultHeight;
         transform.position = newLocation;

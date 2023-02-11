@@ -1,22 +1,27 @@
-using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody _rb;
+    [Header("Player Attributes")]
     public float speed;
     public float playerJumpForce;
     public float enemyCollisionJumpForce;
-    private float _movementX;
-    private float _movementZ;
-    private bool _isGrounded = false;
-
+    
+    [Space(5)]
+    [Header("Player Audios")]
     public string jumpAudio;
     public string pickUpAudio;
     public string enemyHitAudio;
 
+    [Space(5)]
+    [Header("Other Objects")]
     public PlayGround playGround;
+    
+    private Rigidbody _rb;
+    private float _movementX;
+    private float _movementZ;
+    private bool _isGrounded = false;
 
     private void Start()
     {

@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Assets.Scripts;
 using UnityEditor.UIElements;
 using UnityEngine;
 using Random = System.Random;
@@ -58,7 +57,7 @@ public class SpiderController : Enemy
         _rb.rotation = Quaternion.AngleAxis(newAngle, Vector3.up);
     }
 
-    public override void SetStartLocation(Vector3 location)
+    public override void SetLocation(Vector3 location)
     {
         transform.position = location;
     }

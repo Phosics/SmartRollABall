@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7429811232269186732}
   - component: {fileID: 7429811232269186735}
   - component: {fileID: 3112136302682915354}
-  - component: {fileID: 3436419747241387649}
+  - component: {fileID: -6621465340275709553}
   m_Layer: 0
   m_Name: s01_Pickup
   m_TagString: Pickup
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3436419747241387649
+--- !u!114 &-6621465340275709553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,8 +124,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7429811232269186734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f43b9c348d2bf46e18e536df8250e623, type: 3}
+  m_Script: {fileID: 11500000, guid: 89d94142db4e45f4a51d2b24e2f8d595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
   moveSpeed: 0
+  startXFromWestWall: 0
+  startZFromSouthWall: 0
