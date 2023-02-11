@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
-public class PauseMenuManager : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
+    [Header("Menus")]
     public GameObject pauseMenu;
     public GameObject endGameMenu;
+    
+    [Space(5)]
+    [Header("UI")]
     public TextMeshProUGUI highScoreText;
 
+    private ScoreManager _scoreManager;
     private float _prevTimeScale;
 
     private void Start()
     {
+        _scoreManager = GetComponent<ScoreManager>();
         _prevTimeScale = Time.timeScale;
         pauseMenu.SetActive(false);
         endGameMenu.SetActive(false);
@@ -37,7 +38,7 @@ public class PauseMenuManager : MonoBehaviour
     public void OnEndGame()
     {
         endGameMenu.SetActive(true);
-        highScoreText.text = "High score is " + PlayerPrefs.GetInt("high_score");
+        highScoreText.text = "High score is " + _scoreManager.GetHighScore();
         StopTime();
     }
     

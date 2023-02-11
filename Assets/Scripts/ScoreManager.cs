@@ -1,16 +1,22 @@
-using System;
 using TMPro;
 using UnityEngine;
 
-public enum StageNumber { One = 1, Two = 2, Three = 3 }
+public enum StageNumber { One = 1, Two = 2, Three = 3, Test = 4 }
 
 public class ScoreManager : MonoBehaviour
 {
-    public TextMeshProUGUI countText;
     public StageNumber stage;
     public int targetScore;
+    
+    [Space(5)]
+    [Header("UI")]
+    public TextMeshProUGUI countText;
 
-    private int _score = 0;
+    [Space(5)] [Header("Training")] 
+    public bool isTraining;
+
+
+    private int _score;
     
     private void Start()
     {
@@ -26,13 +32,42 @@ public class ScoreManager : MonoBehaviour
     public bool Increase()
     {
         _score++;
-        PlayerPrefs.SetInt($"high_score_{stage}", Math.Max(PlayerPrefs.GetInt($"high_score{stage}"), _score));
+        UpdateHighScore();
         SetCountText();
+        
         return _score >= targetScore;
     }
     
+    public int GetHighScore()
+    {
+        return PlayerPrefs.GetInt(GetHighScoreText());
+    }
+
+    private void UpdateHighScore()
+    {
+        if (isTraining)
+        {
+            return;
+        }
+        
+        if (_score > GetHighScore())
+        {
+            PlayerPrefs.SetInt(GetHighScoreText(), _score);
+        }
+    }
+
+    private string GetHighScoreText()
+    {
+        return $"high_score{stage}";
+    }
+
     private void SetCountText()
     {
+        if (isTraining)
+        {
+            return;
+        }
+        
         countText.text = $"Score: {_score}";
     }
 }

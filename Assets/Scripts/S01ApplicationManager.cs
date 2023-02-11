@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public class S01ApplicationManager :  S01ApplicationManagerBase
+public class S01ApplicationManager : MonoBehaviour
 {
-    public AudioSource ambientSound;
     public S01PlayerController playerController;
     public S01ObstaclesController obstaclesController;
-    public S01ScoreManager scoreManager;
+    public ScoreManager scoreManager;
     public S01PickupsController pickupsController;
     
     public void Quit()
@@ -17,33 +16,32 @@ public class S01ApplicationManager :  S01ApplicationManagerBase
         #endif
     }
 
-    public override void Pause()
+    public void Pause()
     {
         if (IsPaused())
         {
             return; 
         }
         
-        ambientSound.Pause();
+        AudioManager.Pause("Theme");
         Time.timeScale = 0;
     }
 
-    public override void Resume()
+    public void Resume()
     {
         if (!IsPaused())
         {
             return;
         }
         
-        ambientSound.UnPause();
+        AudioManager.UnPause("Theme");
         Time.timeScale = 1;
     }
 
-    public override void Retry()
+    public void Retry()
     {
         playerController.Reset();
         obstaclesController.Reset();
-        ambientSound.Play();
         scoreManager.Reset();
         pickupsController.Reset();
         Time.timeScale = 1;

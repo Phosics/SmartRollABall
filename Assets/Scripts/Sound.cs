@@ -1,14 +1,15 @@
-﻿using System.Collections;
-using Unity.Audio;
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable]
 public class Sound
 {
+    [Header("Audio Data")]
     public AudioClip clip;
     public string name;
+    
+    [Space(5)]
+    [Header("Audio Parameters")]
     public bool loop;
-
     [Range(0f, 1f)]
     public float volume;
 

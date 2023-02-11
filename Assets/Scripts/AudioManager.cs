@@ -1,84 +1,80 @@
-﻿using System.Collections;
-using System;
-using System.Linq;
-using Unity.Audio;
+﻿using System.Linq;
 using UnityEngine;
 
-namespace Assets.Scripts
+public class AudioManager : MonoBehaviour
 {
-    public class AudioManager : MonoBehaviour
+    public Sound[] sounds;
+
+    public string playOnStart = "Theme";
+
+    private static AudioManager _instance;
+    private static Sound[] _allSounds;
+
+    // Use this for initialization
+    private void Awake()
     {
-        public Sound[] sounds;
-
-        public static AudioManager instance;
-        private static Sound[] allSounds;
-
-        // Use this for initialization
-        void Awake()
+        if (_instance == null)
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            DontDestroyOnLoad(gameObject);
-            foreach (var s in sounds)
-            {
-                s.source = gameObject.AddComponent<AudioSource>();
-                s.source.clip = s.clip;
-                s.source.volume = s.volume;
-                s.source.pitch = s.pitch;
-                s.source.loop = s.loop;
-            }
-
-            allSounds = sounds;
+            _instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
         }
 
-        private void Start()
+        DontDestroyOnLoad(gameObject);
+        foreach (var s in sounds)
         {
-            Play("Theme");
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+            s.source.loop = s.loop;
         }
 
-        // Update is called once per frame
-        public static void Play(string name)
-        {
-            var s = allSounds.SingleOrDefault(sound => sound.name == name);
-            if (s == null)
-            {
-                Debug.LogWarning("Error: Sound " + name + " not found");
-                return;
-            }
-            
-            s.source.Play();
-        }
+        _allSounds = sounds;
+    }
 
-        public static void Pause(string name)
-        {
-            var s = allSounds.SingleOrDefault(sound => sound.name == name);
-            if (s == null)
-            {
-                Debug.LogWarning("Error: Sound " + name + " not found");
-                return;
-            }
+    private void Start()
+    {
+        Play(playOnStart);
+    }
 
-            s.source.Pause();
+    // Update is called once per frame
+    public static void Play(string name)
+    {
+        var s = _allSounds.SingleOrDefault(sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Error: Sound " + name + " not found");
+            return;
         }
         
-        public static void UnPause(string name)
-        {
-            var s = allSounds.SingleOrDefault(sound => sound.name == name);
-            if (s == null)
-            {
-                Debug.LogWarning("Error: Sound " + name + " not found");
-                return;
-            }
+        s.source.Play();
+    }
 
-            s.source.UnPause();
+    public static void Pause(string name)
+    {
+        var s = _allSounds.SingleOrDefault(sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Error: Sound " + name + " not found");
+            return;
         }
+
+        s.source.Pause();
+    }
+    
+    public static void UnPause(string name)
+    {
+        var s = _allSounds.SingleOrDefault(sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Error: Sound " + name + " not found");
+            return;
+        }
+
+        s.source.UnPause();
     }
 }

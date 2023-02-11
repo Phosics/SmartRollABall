@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using Random = System.Random;
 
 public class S01PlayerController : MonoBehaviour
@@ -11,7 +11,7 @@ public class S01PlayerController : MonoBehaviour
     
     public float speed;
     public float jump;
-    public S01ScoreManager scoreManager;
+    public ScoreManager scoreManager;
     public UnityEvent onLavaTouch;
     public S01PostProcessManager postProcessManager;
     
@@ -81,7 +81,7 @@ public class S01PlayerController : MonoBehaviour
     private void HandlePickup(Collider other)
     {
         other.gameObject.transform.position = new Vector3(Rand.Next(-9, 9), other.gameObject.transform.position.y, Rand.Next(-9, 9));
-        other.GetComponent<AudioSource>().Play();
+        AudioManager.Play("Pickup");
         scoreManager.Increase();
 
         if (other.gameObject.CompareTag("Post Process Pickup"))

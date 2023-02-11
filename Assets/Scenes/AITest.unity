@@ -159,7 +159,7 @@ Transform:
   - {fileID: 222370693}
   - {fileID: 1713557369}
   m_Father: {fileID: 155373423}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &104231780
 GameObject:
@@ -357,15 +357,15 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1524005892}
-  - {fileID: 854569833}
   - {fileID: 26515087}
+  - {fileID: 854569833}
   - {fileID: 330585546}
   - {fileID: 1799209575}
   - {fileID: 104231784}
-  - {fileID: 1309214760}
   - {fileID: 2019548105}
-  - {fileID: 2020354445}
+  - {fileID: 1309214760}
   - {fileID: 1815274905}
+  - {fileID: 2020354445}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -640,10 +640,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 455698338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1350e57d43f447f8390a65d253acf90, type: 3}
+  m_Script: {fileID: 11500000, guid: ba970e304ca3497c8d09fa493df9ce37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScore: 10
+  stage: 4
+  targetScore: 20
+  countText: {fileID: 0}
+  isTraining: 1
 --- !u!1 &569335566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,7 +1551,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 155373423}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1958643716
 GameObject:
@@ -1681,7 +1684,7 @@ Transform:
   - {fileID: 1958643717}
   - {fileID: 1672525796}
   m_Father: {fileID: 155373423}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2019548106
 MonoBehaviour:
