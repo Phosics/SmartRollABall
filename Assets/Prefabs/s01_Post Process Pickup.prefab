@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 679332677896624717}
   - component: {fileID: 679332677896624718}
   - component: {fileID: 4991681573692124923}
-  - component: {fileID: 9113652820345756424}
   - component: {fileID: 2402817199099250389}
+  - component: {fileID: 5726056045087147463}
   m_Layer: 0
   m_Name: s01_Post Process Pickup
   m_TagString: Post Process Pickup
@@ -116,18 +116,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &9113652820345756424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679332677896624719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 605d95e6b864c38488d0906a662f705b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &2402817199099250389
 AudioSource:
   m_ObjectHideFlags: 0
@@ -224,3 +212,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5726056045087147463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679332677896624719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43b9c348d2bf46e18e536df8250e623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMoving: 0
+  moveSpeed: 0
