@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rb;
     private float _movementX;
     private float _movementZ;
-    private bool _isGrounded = false;
+    private bool _isGrounded;
 
     private void Start()
     {

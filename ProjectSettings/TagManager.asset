@@ -7,8 +7,6 @@ TagManager:
   - Lava
   - Wall
   - Pause Menu
-  - Pickup
-  - Obstacle
   - Post Process Pickup
   - Boundary
   - Coin

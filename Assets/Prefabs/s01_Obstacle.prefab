@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6064262247776626314}
   m_Layer: 0
   m_Name: s01_Obstacle
-  m_TagString: Obstacle
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,5 +142,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  startX: 5
-  startZ: 5
+  startXFromWestWall: 0
+  startZFromSouthWall: 0
