@@ -10,7 +10,7 @@ public class CubePickUp : PickUp
     
     public void SetStartLocation(WallsManager wallsManager)
     {
-        SetLocation(new Vector3(wallsManager.GetMinX() + startXFromWestWall, DefaultHeight, 
-            wallsManager.GetMinZ() + startZFromSouthWall));
+        SetLocation(new Vector3(wallsManager.GetMinX(true) + startXFromWestWall, DefaultHeight, 
+            wallsManager.GetMinZ(true) + startZFromSouthWall));
     }
 }

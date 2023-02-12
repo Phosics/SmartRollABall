@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyBallController : Enemy
+public class EnemyBall : Enemy
 {
     public int speed;
     
@@ -11,7 +11,7 @@ public class EnemyBallController : Enemy
 
     private static readonly int[] ForcesArray = {-1, 1};
 
-    private const float StartY = 0.25f;
+    private const float StartY = 0.5f;
     
     private Rigidbody _rb;
 
@@ -22,8 +22,8 @@ public class EnemyBallController : Enemy
 
     public void SetStartLocation(WallsManager wallsManager)
     {
-        SetLocation(new Vector3(wallsManager.GetMinX() + startXFromWestWall, StartY, 
-            wallsManager.GetMinZ() + startZFromSouthWall));
+        SetLocation(new Vector3(wallsManager.GetMinX(true) + startXFromWestWall, StartY, 
+            wallsManager.GetMinZ(true) + startZFromSouthWall));
     }
     
     public override void SetLocation(Vector3 location)

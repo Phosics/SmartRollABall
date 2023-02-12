@@ -3,7 +3,7 @@ public class Stage1Playground : PlayGround
 {
     protected override void ResetEnemies()
     { 
-        foreach (EnemyBallController enemy in Enemies) 
+        foreach (EnemyBall enemy in Enemies) 
             enemy.SetStartLocation(wallsManager);
     }
 

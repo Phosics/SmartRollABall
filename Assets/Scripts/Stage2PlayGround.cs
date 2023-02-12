@@ -18,7 +18,7 @@ public class Stage2PlayGround : PlayGround
         base.ResetPlayGround();
     }
     
-    public override void OnPickUp(PickUp pickUp)
+    public override bool OnPickUp(PickUp pickUp)
     {
         var newEnemy = Instantiate(enemyPrefab);
         Enemies.Add(newEnemy.GetComponent<Enemy>());
@@ -27,6 +27,6 @@ public class Stage2PlayGround : PlayGround
         newEnemy.transform.localPosition = new Vector3(0, 0, 0);
         newEnemy.transform.rotation = Quaternion.identity;
         
-        base.OnPickUp(pickUp);
+        return base.OnPickUp(pickUp);
     }
 }

@@ -7,27 +7,35 @@ public class WallsManager : MonoBehaviour
     public GameObject eastWall;
     public GameObject westWall;
 
-    public float GetMinX()
+    public float GetMinX(bool full = false)
     {
-        return GetValue(westWall.transform.position.x, false);
+        var min = westWall.transform.position.x;
+        
+        return !full ? GetValue(min, false) : min;
     }
     
-    public float GetMaxX()
+    public float GetMaxX(bool full = false)
     {
-        return GetValue(eastWall.transform.position.x, true);
+        var max = eastWall.transform.position.x;
+        
+        return !full ? GetValue(max, true) : max;
     }
     
-    public float GetMinZ()
+    public float GetMinZ(bool full = false)
     {
-        return GetValue(southWall.transform.position.z, false);
+        var min = southWall.transform.position.z;
+        
+        return !full ? GetValue(min, false) : min;
     }
     
-    public float GetMaxZ()
+    public float GetMaxZ(bool full = false)
     {
-        return GetValue(northWall.transform.position.z, true);
+        var max = northWall.transform.position.z;
+        
+        return !full ? GetValue(max, true) : max;
     }
 
-    private float GetValue(float value, bool reverse)
+    private static float GetValue(float value, bool reverse)
     {
         if (reverse)
         {

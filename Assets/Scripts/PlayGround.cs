@@ -17,6 +17,35 @@ public class PlayGround : MonoBehaviour
         ResetEnemies();
     }
 
+    public PickUp FindClosestPickUp(Vector3 location)
+    {
+        PickUp closestPickUp = null;
+        float closestDistance = 0;
+
+        foreach (var pickUp in PickUps)
+        {
+            var tempDistance = Vector3.Distance(location, pickUp.transform.position);
+            
+            if (closestPickUp == null)
+            {
+                closestPickUp = pickUp;
+                closestDistance = tempDistance;
+                
+                continue;
+            }
+
+            if (tempDistance >= closestDistance)
+            {
+                continue;
+            }
+            
+            closestPickUp = pickUp;
+            closestDistance = tempDistance;
+        }
+
+        return closestPickUp;
+    }
+
     protected virtual void ResetPickUps()
     {
         foreach (var pickUp in PickUps)
@@ -46,6 +75,10 @@ public class PlayGround : MonoBehaviour
         for (int i = 0; i < parent.childCount; i++)
         {
             var child = parent.GetChild(i);
+            
+            if(!child.gameObject.activeSelf)
+                continue;
+            
             if (child.CompareTag("PickUp") || child.CompareTag("Post Process Pickup"))
                 PickUps.Add(child.GetComponent<PickUp>());
             
@@ -57,9 +90,10 @@ public class PlayGround : MonoBehaviour
         }
     }
 
-    public virtual void OnPickUp(PickUp pickUp)
+    public virtual bool OnPickUp(PickUp pickUp)
     {
         pickUp.SetLocation(wallsManager.RandomLocation());
-        scoreManager.Increase();
+        
+        return scoreManager.Increase();
     }
 }
