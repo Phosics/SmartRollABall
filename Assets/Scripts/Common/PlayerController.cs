@@ -58,6 +58,12 @@ namespace Common
             
             if (collision.gameObject.CompareTag("Boundary"))
                 playGround.OnPlayerExitBoundary();
+
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                AudioManager.Play(enemyHitAudio);
+                _rb.AddForce(new Vector3(0, enemyCollisionJumpForce, 0) * speed);
+            }
         }
 
         private void OnCollisionExit(Collision collision)

@@ -1553,8 +1553,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage: 3
   targetScore: 10
+  topPlaysAmount: 0
   countText: {fileID: 793721205}
-  isTraining: 0
 --- !u!114 &522644904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1569,7 +1569,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 2068463647}
   endGameMenu: {fileID: 165077627}
-  highScoreText: {fileID: 2090202134}
+  player1Name: {fileID: 0}
+  player2Name: {fileID: 0}
+  player3Name: {fileID: 0}
+  player1Time: {fileID: 0}
+  player2Time: {fileID: 0}
+  player3Time: {fileID: 0}
+  endScreenTitle: {fileID: 0}
+  replayButtonText: {fileID: 0}
 --- !u!114 &522644905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1920,7 +1927,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 649429758}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &649429760
+--- !u!114 &649429767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1929,11 +1936,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 423854502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f43b9c348d2bf46e18e536df8250e623, type: 3}
+  m_Script: {fileID: 11500000, guid: dde604573c4884fc7a6ab3b0b48f9ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
   moveSpeed: 0
+  startXFromWestWall: 0
+  startZFromSouthWall: 0
 --- !u!1 &655896018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2715,6 +2724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d732f7ff29cade488a826288610e3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volume: {fileID: 832575517}
   globalLight: {fileID: 410087040}
 --- !u!1 &842421498
 GameObject:
@@ -3121,7 +3131,7 @@ Transform:
   - {fileID: 1682941614}
   - {fileID: 619659958}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &901415652
 MonoBehaviour:
@@ -3137,6 +3147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallsManager: {fileID: 890505824}
   scoreManager: {fileID: 912469962}
+  postProcessingEffector: {fileID: 832575520}
+  menuManager: {fileID: 912469964}
 --- !u!1 &912469961
 GameObject:
   m_ObjectHideFlags: 0
@@ -3173,8 +3185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage: 3
   targetScore: 20
+  topPlaysAmount: 0
   countText: {fileID: 1846702606}
-  isTraining: 0
 --- !u!114 &912469963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3220,7 +3232,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 190308411}
   endGameMenu: {fileID: 462407822}
-  highScoreText: {fileID: 1193264611}
+  player1Name: {fileID: 0}
+  player2Name: {fileID: 0}
+  player3Name: {fileID: 0}
+  player1Time: {fileID: 0}
+  player2Time: {fileID: 0}
+  player3Time: {fileID: 0}
+  endScreenTitle: {fileID: 0}
+  replayButtonText: {fileID: 0}
 --- !u!114 &912469965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3298,7 +3317,7 @@ RectTransform:
   - {fileID: 190308412}
   - {fileID: 462407823}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3349,9 +3368,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe22ea92f04cd244d83f7081ba4c972e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GamePlayCanvas: {fileID: 427449097}
-  PauseCanvas: {fileID: 2068463650}
-  LossCanvas: {fileID: 165077630}
+  GamePlayCanvas: {fileID: 0}
+  PauseCanvas: {fileID: 0}
+  LossCanvas: {fileID: 0}
 --- !u!1 &1053555490
 GameObject:
   m_ObjectHideFlags: 0
@@ -4810,7 +4829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1588584382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6005,7 +6024,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1692090443}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1875673457
+--- !u!114 &1875673464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6014,11 +6033,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1875673456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f43b9c348d2bf46e18e536df8250e623, type: 3}
+  m_Script: {fileID: 11500000, guid: dde604573c4884fc7a6ab3b0b48f9ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
   moveSpeed: 0
+  startXFromWestWall: 0
+  startZFromSouthWall: 0
 --- !u!1 &1956235074
 GameObject:
   m_ObjectHideFlags: 0
@@ -6573,6 +6594,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMoving: 0
   moveSpeed: 0
+--- !u!114 &2128249207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128249199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde604573c4884fc7a6ab3b0b48f9ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMoving: 0
+  moveSpeed: 0
+  startXFromWestWall: 0
+  startZFromSouthWall: 0
 --- !u!1001 &1913142546836552814
 PrefabInstance:
   m_ObjectHideFlags: 0

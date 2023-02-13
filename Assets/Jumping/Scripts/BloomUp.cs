@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class BloomUp : MonoBehaviour
+public class BloomUp : Common.PostProcessingEffector
 {
     private Bloom myBloom;
     private bool beingHandled = false;
@@ -26,10 +26,11 @@ public class BloomUp : MonoBehaviour
 
     public void IncreaceBloom()
     {
+        if (trainingMode)
+            return;
+
         if (!beingHandled)
-        {
             StartCoroutine(HandleIt());
-        }
     }
 
     private IEnumerator HandleIt()

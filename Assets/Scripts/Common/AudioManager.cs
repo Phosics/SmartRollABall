@@ -13,7 +13,7 @@ namespace Common
         private static AudioManager _instance;
         private static Sound[] _allSounds;
     
-        private new static bool _disabled = true;
+        private static bool _disabled = true;
 
         // Use this for initialization
         private void Awake()
@@ -44,7 +44,7 @@ namespace Common
             Play(playOnStart);
         }
 
-        public new static void Disable()
+        public static void Disable()
         {
             _disabled = true;
             foreach (var s in _allSounds)
