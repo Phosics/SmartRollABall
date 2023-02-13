@@ -22,8 +22,7 @@ public class Jumping : Enemy
 
     public override void SetLocation(Vector3 position)
     {
-        startLocation = new Vector3(Random.Range(-9f, 9f), 0.025f, Random.Range(-9f, 9f));
-        transform.position = position + startLocation;
+        transform.position = position;
         SetMove();
     }
 
