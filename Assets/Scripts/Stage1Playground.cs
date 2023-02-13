@@ -1,4 +1,6 @@
 ﻿
+using Common;
+
 public class Stage1Playground : PlayGround
 {
     protected override void ResetEnemies()

@@ -1,4 +1,5 @@
 ﻿
+using Common;
 using UnityEngine;
 
 public class CubePickUp : PickUp

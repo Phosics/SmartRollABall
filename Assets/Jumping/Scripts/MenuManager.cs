@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Common;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class ManuManager : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
     public Canvas GamePlayCanvas;
     public Canvas PauseCanvas;
