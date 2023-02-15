@@ -6,7 +6,7 @@ namespace Common
     {
         protected bool trainingMode = false;
 
-        public void EnterTrainingMode()
+        public virtual void EnterTrainingMode()
         {
             trainingMode = true;
         }

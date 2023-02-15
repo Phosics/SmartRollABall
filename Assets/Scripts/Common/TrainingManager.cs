@@ -11,11 +11,11 @@ namespace Common
             if (!trainingMode)
                 return;
         
+            // AudioManager.Disable();
+            
             var scriptToEnterToTrain = GetComponentsInChildren<TrainLogicable>();
             foreach (var s in scriptToEnterToTrain)
                 s.EnterTrainingMode();
-        
-            AudioManager.Disable();
         }
     }
 }

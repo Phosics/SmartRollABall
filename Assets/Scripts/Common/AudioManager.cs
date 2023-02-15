@@ -13,7 +13,13 @@ namespace Common
         private static AudioManager _instance;
         private static Sound[] _allSounds;
     
-        private static bool _disabled = true;
+        // private static bool _disabled = true;
+
+        public override void EnterTrainingMode()
+        {
+            base.EnterTrainingMode();
+            gameObject.SetActive(false);
+        }
 
         // Use this for initialization
         private void Awake()
@@ -44,33 +50,33 @@ namespace Common
             Play(playOnStart);
         }
 
-        public static void Disable()
-        {
-            _disabled = true;
-            foreach (var s in _allSounds)
-                s.source.Stop();
-        }
+        // public static void Disable()
+        // {
+        //     _disabled = true;
+        //     foreach (var s in _allSounds)
+        //         s.source.Stop();
+        // }
 
         public static void Play(string soundName)
         {
-            if (_disabled)
-                return;
+            // if (_disabled)
+            //     return;
         
             GetSoundByName(soundName)?.source.Play();
         }
 
         public static void Pause(string soundName)
         {
-            if (_disabled)
-                return;
+            // if (_disabled)
+            //     return;
         
             GetSoundByName(soundName)?.source.Pause();
         }
     
         public static void UnPause(string soundName)
         {
-            if (_disabled)
-                return;
+            // if (_disabled)
+            //     return;
         
             GetSoundByName(soundName)?.source.UnPause();
         }

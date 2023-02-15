@@ -72,7 +72,7 @@ namespace Common
         {
             FindCoinsAndEnemies(transform);
             ResetPlayGround();
-            postProcessingEffector.EnterTrainingMode();
+            //postProcessingEffector.EnterTrainingMode();
         }
 
         private void FindCoinsAndEnemies(Transform parent)

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Timers;
 using TMPro;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ namespace Common
 {
     public enum StageNumber { One = 1, Two = 2, Three = 3, Test = 4 }
 
-    public class ScoreManager : TrainLogicable
+    public class ScoreManager : MonoBehaviour
     {
         public StageNumber stage;
         public int targetScore;
@@ -78,7 +77,7 @@ namespace Common
 
         private void SetCountText()
         {
-            if (trainingMode)
+            if (countText == null)
                 return;
         
             countText.text = $"Score: {_score}";
