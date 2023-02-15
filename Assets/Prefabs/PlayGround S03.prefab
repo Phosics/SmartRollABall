@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallsManager: {fileID: 7757476682247652462}
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 8125065078470757119}
   postProcessingEffector: {fileID: 0}
   menuManager: {fileID: 0}
 --- !u!1 &7757476682247652432

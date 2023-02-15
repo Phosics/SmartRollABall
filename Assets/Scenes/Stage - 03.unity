@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2391,7 +2391,6 @@ GameObject:
   - component: {fileID: 912469965}
   - component: {fileID: 912469964}
   - component: {fileID: 912469963}
-  - component: {fileID: 912469962}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2399,22 +2398,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &912469962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912469961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba970e304ca3497c8d09fa493df9ce37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stage: 3
-  targetScore: 20
-  topPlaysAmount: 0
-  countText: {fileID: 1846702606}
 --- !u!114 &912469963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4432,6 +4415,18 @@ RectTransform:
   m_AnchoredPosition: {x: 10, y: -10}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1929189217 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8125065078470757119, guid: 32a9842092a7a6b44b52f738475bd7c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 7757476683001318926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba970e304ca3497c8d09fa493df9ce37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2019379627
 GameObject:
   m_ObjectHideFlags: 0
@@ -4754,7 +4749,7 @@ PrefabInstance:
         type: 3}
       propertyPath: scoreManager
       value: 
-      objectReference: {fileID: 912469962}
+      objectReference: {fileID: 1929189217}
     - target: {fileID: 7757476682236284138, guid: 32a9842092a7a6b44b52f738475bd7c9,
         type: 3}
       propertyPath: postProcessingEffector
@@ -4818,6 +4813,11 @@ PrefabInstance:
     - target: {fileID: 7757476682236284141, guid: 32a9842092a7a6b44b52f738475bd7c9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055237671276844289, guid: 32a9842092a7a6b44b52f738475bd7c9,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
