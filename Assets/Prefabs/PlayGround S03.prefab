@@ -148,7 +148,7 @@ Transform:
   - {fileID: 7757476683609073824}
   - {fileID: 7757476682524789944}
   - {fileID: 3443565728624245941}
-  - {fileID: 9055237671276844293}
+  - {fileID: 9200065235887779780}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1020,7 +1020,7 @@ MonoBehaviour:
   targetScore: 20
   topPlaysAmount: 0
   countText: {fileID: 0}
---- !u!1001 &1068049841199258883
+--- !u!1001 &924893315905349570
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1030,12 +1030,7 @@ PrefabInstance:
     - target: {fileID: 8320632328018266114, guid: 12834655b682ea24883bc8f07ceb050e,
         type: 3}
       propertyPath: m_Name
-      value: AI Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8320632328018266114, guid: 12834655b682ea24883bc8f07ceb050e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: AIPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 8320632328018266118, guid: 12834655b682ea24883bc8f07ceb050e,
         type: 3}
@@ -1096,45 +1091,14 @@ PrefabInstance:
         type: 3}
       propertyPath: playGround
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8320632328018266136, guid: 12834655b682ea24883bc8f07ceb050e,
-        type: 3}
-      propertyPath: scoreManager
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8320632328018266136, guid: 12834655b682ea24883bc8f07ceb050e,
-        type: 3}
-      propertyPath: wallsManager
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8320632328018266136, guid: 12834655b682ea24883bc8f07ceb050e,
-        type: 3}
-      propertyPath: pickUpTransform
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8320632328018266136, guid: 12834655b682ea24883bc8f07ceb050e,
-        type: 3}
-      propertyPath: obstacleTransform
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8320632328018266143, guid: 12834655b682ea24883bc8f07ceb050e,
-        type: 3}
-      propertyPath: m_Model
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: b5a5d83efc04e174da642102b26bc826,
-        type: 3}
-    - target: {fileID: 8320632328018266143, guid: 12834655b682ea24883bc8f07ceb050e,
-        type: 3}
-      propertyPath: m_BrainParameters.VectorObservationSize
-      value: 12
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7757476682236284138}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12834655b682ea24883bc8f07ceb050e, type: 3}
---- !u!4 &9055237671276844293 stripped
+--- !u!4 &9200065235887779780 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8320632328018266118, guid: 12834655b682ea24883bc8f07ceb050e,
     type: 3}
-  m_PrefabInstance: {fileID: 1068049841199258883}
+  m_PrefabInstance: {fileID: 924893315905349570}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7757476682125927543
 PrefabInstance:

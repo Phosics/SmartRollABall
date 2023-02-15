@@ -116,12 +116,11 @@ public class AIPlayerAgent : Agent
             AddReward(0.5f);
             FindClosestPickUp();
         }
-        // else if (other.CompareTag("Boundary"))
-        // {
-        //     // Collided with the area boundary, give a negative reward and finish
-        //     AddReward(-30f);
-        //     EndEpisode();
-        // } 
+        else if (other.CompareTag("Boundary"))
+        {
+            AddReward(-50f);
+            EndEpisode();
+        }
         else if (other.gameObject.CompareTag("Enemy"))
         {
             //_collideObstacle = true;
@@ -142,10 +141,6 @@ public class AIPlayerAgent : Agent
         {
             // Collided with the wall, give a negative reward
             AddReward(-0.05f);
-        }
-        else if (collision.gameObject.CompareTag("Boundary"))
-        {
-            AddReward(-1f);
         }
         else if (collision.gameObject.CompareTag("Ground"))
         {

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Common;
 using UnityEngine;
@@ -12,9 +13,14 @@ namespace Stage2
         {
             foreach (var enemy in Enemies.Skip(1))
             {
-                if(enemy != null)
-                    Destroy(enemy.gameObject);
+                if (enemy != null)
+                {
+                    Destroy(enemy.gameObject);   
+                }
             }
+
+            Enemies = new List<Enemy>() {Enemies.First()};
+            
             base.ResetPlayGround();
         }
     

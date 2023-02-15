@@ -11,7 +11,7 @@ namespace Common
         public MenuManager menuManager;
         
         public List<PickUp> PickUps { get; private set; }
-        public List<Enemy> Enemies { get; private set; }
+        public List<Enemy> Enemies { get; protected set; }
 
         public virtual void ResetPlayGround()
         {

@@ -1,0 +1,29 @@
+{
+    "SmartRollABall": {
+        "checkpoints": [
+            {
+                "steps": 80920,
+                "file_path": "results\\test001\\SmartRollABall\\SmartRollABall-80920.onnx",
+                "reward": -30.440524388300744,
+                "creation_time": 1676473056.3251579,
+                "auxillary_file_paths": [
+                    "results\\test001\\SmartRollABall\\SmartRollABall-80920.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 80920,
+            "file_path": "results\\test001\\SmartRollABall.onnx",
+            "reward": -30.440524388300744,
+            "creation_time": 1676473056.3251579,
+            "auxillary_file_paths": [
+                "results\\test001\\SmartRollABall\\SmartRollABall-80920.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cpu"
+    }
+}

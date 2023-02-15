@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8320632328018266136}
   - component: {fileID: 8320632328018266142}
   m_Layer: 0
-  m_Name: AI Player
+  m_Name: AIPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,10 +140,10 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 2ce66f8b49436a4468d3d23698813a44, type: 3}
   m_InferenceDevice: 3
   m_BehaviorType: 0
-  m_BehaviorName: AIRollABall
+  m_BehaviorName: SmartRollABall
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
@@ -166,8 +166,8 @@ MonoBehaviour:
   MaxStep: 5000
   speed: 10
   jump: 35
-  wallsManager: {fileID: 0}
-  pickUpTransform: {fileID: 0}
+  enemyCollisionJumpForce: 0
+  playGround: {fileID: 0}
 --- !u!114 &8320632328018266142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8320632328788376533}
   - component: {fileID: 8320632328788376532}
+  - component: {fileID: 8348734093836194172}
   m_Layer: 0
   m_Name: Rays Above
   m_TagString: Untagged
@@ -228,9 +229,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SensorName: RayPerceptionSensor
   m_DetectableTags:
-  - Untagged
   - Wall
-  - Boundary
+  - Enemy
   m_RaysPerDirection: 3
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 0
@@ -241,5 +241,18 @@ MonoBehaviour:
   m_ObservationStacks: 1
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
-  m_StartVerticalOffset: 0
+  m_StartVerticalOffset: -0.9
   m_EndVerticalOffset: 0
+--- !u!114 &8348734093836194172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8320632328788376534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2724b19a95346354a9ecc6109c3f0058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8320632328018266114}
