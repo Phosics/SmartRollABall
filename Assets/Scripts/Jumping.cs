@@ -7,17 +7,17 @@ using UnityEngine.Events;
 public class Jumping : Enemy
 {
     public UnityEvent miniJumping;
-    private Vector3 startLocation;
+    private float startYLocation;
     private Vector2 move;
 
     private void Start()
     {
-        startLocation = Vector3.zero;
+        startYLocation = transform.position.y;
     }
 
     void FixedUpdate()
     {
-        transform.position = new Vector3(transform.position.x + move.x, 0.025f, transform.position.z + move.y);
+        transform.position = new Vector3(transform.position.x + move.x, startYLocation, transform.position.z + move.y);
     }
 
     public override void SetLocation(Vector3 position)
