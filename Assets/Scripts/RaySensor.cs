@@ -6,8 +6,8 @@ public class RaySensor : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject player;
+    public GameObject cube;
 
-    private Vector3 location;
     void Start()
     {
         
@@ -16,7 +16,10 @@ public class RaySensor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.rotation = new Quaternion();
+        //transform.rotation = cube.transform.rotation;
+        transform.position = player.transform.position;
+        transform.rotation = new Quaternion(cube.transform.rotation.x, player.transform.rotation.y, cube.transform.rotation.z, cube.transform.rotation.w);
 
+        //transform.position = player.transform.position;
     }
 }
