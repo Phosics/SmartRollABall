@@ -2,22 +2,22 @@
     "SmartRollABall": {
         "checkpoints": [
             {
-                "steps": 80920,
-                "file_path": "results\\test001\\SmartRollABall\\SmartRollABall-80920.onnx",
-                "reward": -30.440524388300744,
-                "creation_time": 1676473056.3251579,
+                "steps": 0,
+                "file_path": "results\\test001\\SmartRollABall\\SmartRollABall-0.onnx",
+                "reward": null,
+                "creation_time": 1676475906.0377984,
                 "auxillary_file_paths": [
-                    "results\\test001\\SmartRollABall\\SmartRollABall-80920.pt"
+                    "results\\test001\\SmartRollABall\\SmartRollABall-0.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 80920,
+            "steps": 0,
             "file_path": "results\\test001\\SmartRollABall.onnx",
-            "reward": -30.440524388300744,
-            "creation_time": 1676473056.3251579,
+            "reward": null,
+            "creation_time": 1676475906.0377984,
             "auxillary_file_paths": [
-                "results\\test001\\SmartRollABall\\SmartRollABall-80920.pt"
+                "results\\test001\\SmartRollABall\\SmartRollABall-0.pt"
             ]
         }
     },

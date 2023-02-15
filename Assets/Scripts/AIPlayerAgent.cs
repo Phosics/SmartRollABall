@@ -24,12 +24,14 @@ public class AIPlayerAgent : Agent
     private PickUp _closestPickUp;
     private Transform _closestPickUpTransform;
     private float _distance;
+    private bool _isClosestPickUpTransformInitialized;
     //private bool _collideObstacle;
 
     public override void Initialize()
     {
         _rb = GetComponent<Rigidbody>();
         _startingPosition = transform.position;
+        _isClosestPickUpTransformInitialized = false;
     }
     
     public override void OnEpisodeBegin()
@@ -119,6 +121,7 @@ public class AIPlayerAgent : Agent
         else if (other.CompareTag("Boundary"))
         {
             AddReward(-50f);
+            _isClosestPickUpTransformInitialized = false;
             EndEpisode();
         }
         else if (other.gameObject.CompareTag("Enemy"))
@@ -158,6 +161,11 @@ public class AIPlayerAgent : Agent
 
     private void FixedUpdate()
     {
+        if (!_isClosestPickUpTransformInitialized)
+        {
+            return;
+        }
+        
         var newDistance = Vector3.Distance(transform.position, _closestPickUpTransform.position);
         
         if (newDistance > _distance)
@@ -182,5 +190,6 @@ public class AIPlayerAgent : Agent
         _closestPickUp = playGround.FindClosestPickUp(position);
         _closestPickUpTransform = _closestPickUp.transform;
         _distance = Vector3.Distance(position, _closestPickUpTransform.position);
+        _isClosestPickUpTransformInitialized = true;
     }
 }
