@@ -165,8 +165,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 5000
   speed: 10
-  jump: 35
-  enemyCollisionJumpForce: 0
+  jump: 20
+  enemyCollisionJumpForce: 40
   playGround: {fileID: 8271461399116789859}
 --- !u!114 &7783722132382909033
 MonoBehaviour:

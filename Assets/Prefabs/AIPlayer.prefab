@@ -135,12 +135,12 @@ MonoBehaviour:
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 3
-      BranchSizes: 02000000
-    VectorActionSize: 
+      BranchSizes: 
+    VectorActionSize: 03000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 2ce66f8b49436a4468d3d23698813a44, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 3
   m_BehaviorType: 0
   m_BehaviorName: SmartRollABall
@@ -163,10 +163,10 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 5000
+  MaxStep: 10000
   speed: 10
-  jump: 35
-  enemyCollisionJumpForce: 0
+  jump: 20
+  enemyCollisionJumpForce: 40
   playGround: {fileID: 0}
 --- !u!114 &8320632328018266142
 MonoBehaviour:

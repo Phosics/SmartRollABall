@@ -10,8 +10,8 @@ public class AIPlayerAgent : Agent
 {
     [Header("Player Attributes")]
     public float speed = 10f;
-    public float jump = 35f;
-    public float enemyCollisionJumpForce;
+    public float jump = 20f;
+    public float enemyCollisionJumpForce = 40f;
     
     [Space(5)]
     [Header("Other Objects")]
@@ -23,10 +23,12 @@ public class AIPlayerAgent : Agent
     
     private PickUp _closestPickUp;
     private Transform _closestPickUpTransform;
-    private float _distance;
+    // private float _distance;
+    private float _minDistance;
+    private float _maxDistance;
     private bool _isClosestPickUpTransformInitialized;
     //private bool _collideObstacle;
-
+    
     public override void Initialize()
     {
         _rb = GetComponent<Rigidbody>();
@@ -41,7 +43,10 @@ public class AIPlayerAgent : Agent
         _rb.angularVelocity = Vector3.zero;
 
         // Reset the starting position
-        transform.position = _startingPosition;
+        if (Random.Range(0f, 1f) < 0.5f)
+            transform.position = _startingPosition;
+        else
+            transform.position = playGround.wallsManager.RandomLocation();
 
         // Reset the pickup in a new random location
         playGround.ResetPlayGround();
@@ -61,14 +66,14 @@ public class AIPlayerAgent : Agent
     /// <param name="actions">The actions to take</param>
     public override void OnActionReceived(ActionBuffers actions)
     {
-        Vector3 moveY = new Vector3(0, 0, 0);
+        float moveY = 0;
 
-        if (_isGrounded && actions.DiscreteActions[0] == 1)
+        if (_isGrounded && actions.ContinuousActions[2] > 0.5)
         {
-            moveY.y += jump;
-            _isGrounded = false;
+            moveY += jump;
+            AddReward(-0.01f);
         }
-        
+            
         // Check for collision with the obstacle
         // if (_collideObstacle)
         // {
@@ -76,10 +81,12 @@ public class AIPlayerAgent : Agent
         // }
 
         // Calculate movement vector
-        Vector3 moveXZ = new Vector3(actions.ContinuousActions[0], moveY.y, actions.ContinuousActions[1]);
+        Vector3 moveXZ = new Vector3(actions.ContinuousActions[0], moveY, actions.ContinuousActions[1]);
         
         // Add force in the direction of the move vector
         _rb.AddForce(moveXZ * speed);
+
+        AddReward(-0.001f);
     }
         
     /// <summary>
@@ -111,22 +118,34 @@ public class AIPlayerAgent : Agent
         {
             if (playGround.OnPickUp(other.gameObject.GetComponent<PickUp>()))
             {
-                AddReward(50);
+                AddReward(10f);
+                Debug.Log("Win!");
                 EndEpisode();
             }
 
-            AddReward(0.5f);
+            if (other.gameObject.transform == _closestPickUpTransform)
+            {
+                Debug.Log("Right pickup");
+                AddReward(1f);
+            }
+            else
+            {
+                Debug.Log("Wrong pickup");
+                AddReward(0.1f);
+            }
             FindClosestPickUp();
+            Debug.Log("Total Picked");
         }
         else if (other.CompareTag("Boundary"))
         {
-            AddReward(-50f);
+            AddReward(-10f);
+            Debug.Log("Loss!");
             _isClosestPickUpTransformInitialized = false;
             EndEpisode();
         }
         else if (other.gameObject.CompareTag("Enemy"))
         {
-            //_collideObstacle = true;
+            _rb.AddForce(new Vector3(0, enemyCollisionJumpForce, 0) * speed);
         }
     }
 
@@ -143,11 +162,15 @@ public class AIPlayerAgent : Agent
         if (collision.collider.CompareTag("Wall"))
         {
             // Collided with the wall, give a negative reward
-            AddReward(-0.05f);
+            // AddReward(-0.01f);
         }
         else if (collision.gameObject.CompareTag("Ground"))
         {
             _isGrounded = true;
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            _rb.AddForce(new Vector3(0, enemyCollisionJumpForce, 0) * speed);
         }
     }
 
@@ -159,21 +182,40 @@ public class AIPlayerAgent : Agent
         }
     }
 
+    private float distanceIgnoeY(Vector3 pos1, Vector3 pos2)
+    {
+        var newDistance = pos1 - pos2;
+        newDistance.y = 0;
+        return newDistance.magnitude;
+    }
+
     private void FixedUpdate()
     {
         if (!_isClosestPickUpTransformInitialized)
         {
             return;
         }
-        
-        var newDistance = Vector3.Distance(transform.position, _closestPickUpTransform.position);
-        
-        if (newDistance > _distance)
+
+        // var newDistance = Vector3.Distance(transform.position, _closestPickUpTransform.position);
+        var distanceToTarget = distanceIgnoeY(transform.position, _closestPickUpTransform.position);
+        if (distanceToTarget < _minDistance)
         {
-            AddReward(-0.01f);
+            AddReward(0.01f * (1 + Mathf.Pow(_minDistance - distanceToTarget, 2)));
+            _minDistance = distanceToTarget;
+
         }
-        
-        _distance = newDistance;
+        else if (distanceToTarget > _maxDistance)
+        {
+            AddReward(-0.01f * (1 + Mathf.Pow(distanceToTarget - _maxDistance, 2)));
+            _maxDistance = distanceToTarget;
+        }
+        else
+        {
+            _minDistance = 0.9f * _minDistance + 0.1f * distanceToTarget;
+            _maxDistance = 0.9f * _maxDistance + 0.1f * distanceToTarget;
+        }
+
+        //_distance = distanceToTarget;
     }
 
     /// <summary>
@@ -189,7 +231,8 @@ public class AIPlayerAgent : Agent
         var position = transform.position;
         _closestPickUp = playGround.FindClosestPickUp(position);
         _closestPickUpTransform = _closestPickUp.transform;
-        _distance = Vector3.Distance(position, _closestPickUpTransform.position);
+        //_distance = Vector3.Distance(position, _closestPickUpTransform.position);
+        _minDistance = _maxDistance = distanceIgnoeY(position, _closestPickUpTransform.position);
         _isClosestPickUpTransformInitialized = true;
     }
 }

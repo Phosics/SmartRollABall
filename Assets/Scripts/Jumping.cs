@@ -17,7 +17,7 @@ public class Jumping : Enemy
 
     void FixedUpdate()
     {
-        transform.position = new Vector3(transform.position.x + move.x, startYLocation, transform.position.z + move.y);
+        transform.position = new Vector3(transform.position.x + move.x, startYLocation+0.025f, transform.position.z + move.y);
     }
 
     public override void SetLocation(Vector3 position)

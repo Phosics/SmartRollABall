@@ -100,8 +100,8 @@ namespace Common
             pickUp.SetLocation(wallsManager.RandomLocation());
             var hasWon = scoreManager.Increase();
 
-            if(hasWon)
-                menuManager.OnWinGame();
+            //if(hasWon)
+            //    menuManager.OnWinGame();
             
             return hasWon;
         }
