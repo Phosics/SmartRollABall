@@ -43,10 +43,13 @@ public class AIPlayerAgent : Agent
         _rb.angularVelocity = Vector3.zero;
 
         // Reset the starting position
-        if (Random.Range(0f, 1f) < 0.5f)
+        if (Random.Range(0f, 1f) < 0.0f)
             transform.position = _startingPosition;
         else
-            transform.position = playGround.wallsManager.RandomLocation();
+        {
+            transform.position = playGround.wallsManager.RandomLocation(0.5f);
+        }
+            
 
         // Reset the pickup in a new random location
         playGround.ResetPlayGround();
@@ -71,7 +74,7 @@ public class AIPlayerAgent : Agent
         if (_isGrounded && actions.ContinuousActions[2] > 0.5)
         {
             moveY += jump;
-            AddReward(-0.01f);
+            // AddReward(-0.001f);
         }
             
         // Check for collision with the obstacle
@@ -86,7 +89,7 @@ public class AIPlayerAgent : Agent
         // Add force in the direction of the move vector
         _rb.AddForce(moveXZ * speed);
 
-        AddReward(-0.001f);
+        AddReward(-0.01f);
     }
         
     /// <summary>
@@ -118,7 +121,7 @@ public class AIPlayerAgent : Agent
         {
             if (playGround.OnPickUp(other.gameObject.GetComponent<PickUp>()))
             {
-                AddReward(10f);
+                AddReward(30f);
                 Debug.Log("Win!");
                 EndEpisode();
             }
@@ -131,14 +134,14 @@ public class AIPlayerAgent : Agent
             else
             {
                 Debug.Log("Wrong pickup");
-                AddReward(0.1f);
+                AddReward(0.5f);
             }
             FindClosestPickUp();
             Debug.Log("Total Picked");
         }
         else if (other.CompareTag("Boundary"))
         {
-            AddReward(-10f);
+            AddReward(-30f);
             Debug.Log("Loss!");
             _isClosestPickUpTransformInitialized = false;
             EndEpisode();
@@ -191,31 +194,38 @@ public class AIPlayerAgent : Agent
 
     private void FixedUpdate()
     {
-        if (!_isClosestPickUpTransformInitialized)
-        {
-            return;
-        }
+        //if (!_isClosestPickUpTransformInitialized)
+        //{
+        //    return;
+        //}
 
-        // var newDistance = Vector3.Distance(transform.position, _closestPickUpTransform.position);
-        var distanceToTarget = distanceIgnoeY(transform.position, _closestPickUpTransform.position);
-        if (distanceToTarget < _minDistance)
-        {
-            AddReward(0.01f * (1 + Mathf.Pow(_minDistance - distanceToTarget, 2)));
-            _minDistance = distanceToTarget;
+        //// var newDistance = Vector3.Distance(transform.position, _closestPickUpTransform.position);
+        //var distanceToTarget = distanceIgnoeY(transform.position, _closestPickUpTransform.position);
+        //if (distanceToTarget < _minDistance)
+        //{
+        //    AddReward(0.01f * (1 + Mathf.Pow(_minDistance - distanceToTarget, 2)));
+        //    _minDistance = distanceToTarget;
 
-        }
-        else if (distanceToTarget > _maxDistance)
-        {
-            AddReward(-0.01f * (1 + Mathf.Pow(distanceToTarget - _maxDistance, 2)));
-            _maxDistance = distanceToTarget;
-        }
-        else
-        {
-            _minDistance = 0.9f * _minDistance + 0.1f * distanceToTarget;
-            _maxDistance = 0.9f * _maxDistance + 0.1f * distanceToTarget;
-        }
+        //}
+        //else if (distanceToTarget > _maxDistance)
+        //{
+        //    AddReward(-0.01f * (1 + Mathf.Pow(distanceToTarget - _maxDistance, 2)));
+        //    _maxDistance = distanceToTarget;
+        //}
+        //else
+        //{
+        //    _minDistance = 0.9f * _minDistance + 0.1f * distanceToTarget;
+        //    _maxDistance = 0.9f * _maxDistance + 0.1f * distanceToTarget;
+        //}
 
         //_distance = distanceToTarget;
+        if (transform.position.y < -2)
+        {
+            Debug.Log("Something bad happen");
+            _isClosestPickUpTransformInitialized = false;
+            EndEpisode();
+        }
+
     }
 
     /// <summary>

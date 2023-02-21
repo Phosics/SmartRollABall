@@ -7,6 +7,7 @@ namespace Common
     {
         [Header("Y Axis Movement")]
         public bool isMoving;
+        public bool isFlying;
         public float moveSpeed;
         private float Height = 0;
 
@@ -14,7 +15,11 @@ namespace Common
 
         public void SetLocation(Vector3 newLocation)
         {
-            newLocation.y = isMoving ? Random.Range(1.5f, 2.5f) : DefaultHeight;
+            if (isFlying || isMoving)
+            {
+                newLocation.y = Random.Range(1.5f, 2.5f);
+            }
+
             Height = newLocation.y;
             transform.position = newLocation;
         }
@@ -29,7 +34,7 @@ namespace Common
 
         private float CalculateHeight(Vector3 position)
         {
-            return isMoving ? Mathf.Lerp(Height - 1, Height + 1, Mathf.PingPong(Time.time / moveSpeed, 1)) : position.y;
+            return isMoving ? Mathf.Max(Mathf.Lerp(Height - 1, Height + 1, Mathf.PingPong(Time.time / moveSpeed, 1)), DefaultHeight) : position.y;
         }
     }
 }

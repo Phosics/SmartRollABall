@@ -47,7 +47,7 @@ namespace Common
             return value + 1;
         }
 
-        public Vector3 RandomLocation(float height = 0)
+        public Vector3 RandomLocation(float height = 0.5f)
         {
             return new Vector3(Random.Range(GetMinX(), GetMaxX()), height, Random.Range(GetMinZ(), GetMaxZ()));
         }

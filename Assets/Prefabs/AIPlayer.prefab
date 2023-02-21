@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 12
+    VectorObservationSize: 32
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -163,10 +163,10 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 10000
+  MaxStep: 5000
   speed: 10
-  jump: 20
-  enemyCollisionJumpForce: 40
+  jump: 15
+  enemyCollisionJumpForce: 30
   playGround: {fileID: 0}
 --- !u!114 &8320632328018266142
 MonoBehaviour:
