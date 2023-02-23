@@ -22,6 +22,7 @@ public class Jumping : Enemy
 
     public override void SetLocation(Vector3 position)
     {
+        position.y = startYLocation;
         transform.position = position;
         SetMove();
     }

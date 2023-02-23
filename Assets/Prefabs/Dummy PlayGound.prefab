@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
-  isFlying: 0
+  isFlying: 1
   moveSpeed: 0
 --- !u!1 &8271461399097872577
 GameObject:
@@ -502,7 +502,7 @@ Transform:
   m_GameObject: {fileID: 8271461399170988292}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 4, z: 10.5}
+  m_LocalScale: {x: 0.5, y: 7, z: 10.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8271461400652660163}
@@ -745,7 +745,7 @@ Transform:
   m_GameObject: {fileID: 8271461400145717861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 4, z: 10.5}
+  m_LocalScale: {x: 0.5, y: 7, z: 10.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8271461400652660163}
@@ -842,7 +842,7 @@ Transform:
   m_GameObject: {fileID: 8271461400206823913}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -5}
-  m_LocalScale: {x: 10.5, y: 4, z: 0.5}
+  m_LocalScale: {x: 10.5, y: 7, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8271461400652660163}
@@ -939,7 +939,7 @@ Transform:
   m_GameObject: {fileID: 8271461400457571854}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 5}
-  m_LocalScale: {x: 10.5, y: 4, z: 0.5}
+  m_LocalScale: {x: 10.5, y: 7, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8271461400652660163}
