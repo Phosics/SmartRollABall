@@ -1,0 +1,920 @@
+{
+    "SmartRollABall": {
+        "checkpoints": [
+            {
+                "steps": 999798,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-999798.onnx",
+                "reward": -49.32182225314054,
+                "creation_time": 1677104611.0557644,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-999798.pt"
+                ]
+            },
+            {
+                "steps": 1499894,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-1499894.onnx",
+                "reward": -50.071367653933436,
+                "creation_time": 1677105353.6791449,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-1499894.pt"
+                ]
+            },
+            {
+                "steps": 1999758,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-1999758.onnx",
+                "reward": -48.97708737850189,
+                "creation_time": 1677106104.979228,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-1999758.pt"
+                ]
+            },
+            {
+                "steps": 2499824,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-2499824.onnx",
+                "reward": -49.355004127209,
+                "creation_time": 1677106868.3060446,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-2499824.pt"
+                ]
+            },
+            {
+                "steps": 2999932,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-2999932.onnx",
+                "reward": -48.53421459699932,
+                "creation_time": 1677107626.7549403,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-2999932.pt"
+                ]
+            },
+            {
+                "steps": 3499985,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-3499985.onnx",
+                "reward": -47.46000385284424,
+                "creation_time": 1677108406.3293624,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-3499985.pt"
+                ]
+            },
+            {
+                "steps": 3999789,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-3999789.onnx",
+                "reward": -54.69667021433512,
+                "creation_time": 1677109164.4282172,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-3999789.pt"
+                ]
+            },
+            {
+                "steps": 4499971,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-4499971.onnx",
+                "reward": -49.56500426928202,
+                "creation_time": 1677109919.9488876,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-4499971.pt"
+                ]
+            },
+            {
+                "steps": 4999974,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-4999974.onnx",
+                "reward": -48.59077321566068,
+                "creation_time": 1677110677.4816415,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-4999974.pt"
+                ]
+            },
+            {
+                "steps": 5499790,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-5499790.onnx",
+                "reward": -49.27818584442139,
+                "creation_time": 1677111433.7872424,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-5499790.pt"
+                ]
+            },
+            {
+                "steps": 5999854,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-5999854.onnx",
+                "reward": -47.97840400695801,
+                "creation_time": 1677112185.066255,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-5999854.pt"
+                ]
+            },
+            {
+                "steps": 6499858,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-6499858.onnx",
+                "reward": -46.833465154354386,
+                "creation_time": 1677112933.114387,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-6499858.pt"
+                ]
+            },
+            {
+                "steps": 6999941,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-6999941.onnx",
+                "reward": -47.08171819959368,
+                "creation_time": 1677113681.8425581,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-6999941.pt"
+                ]
+            },
+            {
+                "steps": 7499777,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-7499777.onnx",
+                "reward": -47.73500418663025,
+                "creation_time": 1677114449.714877,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-7499777.pt"
+                ]
+            },
+            {
+                "steps": 7999804,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-7999804.onnx",
+                "reward": -45.69267063140869,
+                "creation_time": 1677115198.0433118,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-7999804.pt"
+                ]
+            },
+            {
+                "steps": 8499786,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-8499786.onnx",
+                "reward": -48.076542322452255,
+                "creation_time": 1677115948.6938736,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-8499786.pt"
+                ]
+            },
+            {
+                "steps": 8999856,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-8999856.onnx",
+                "reward": -45.97516489028931,
+                "creation_time": 1677116704.5288677,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-8999856.pt"
+                ]
+            },
+            {
+                "steps": 9499863,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-9499863.onnx",
+                "reward": -47.31567091941834,
+                "creation_time": 1677117501.614225,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-9499863.pt"
+                ]
+            },
+            {
+                "steps": 9999830,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-9999830.onnx",
+                "reward": -41.678688174799866,
+                "creation_time": 1677118265.803187,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-9999830.pt"
+                ]
+            },
+            {
+                "steps": 10499795,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-10499795.onnx",
+                "reward": null,
+                "creation_time": 1677119041.5464163,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-10499795.pt"
+                ]
+            },
+            {
+                "steps": 10999944,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-10999944.onnx",
+                "reward": -41.618337313334145,
+                "creation_time": 1677119795.678783,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-10999944.pt"
+                ]
+            },
+            {
+                "steps": 11499991,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-11499991.onnx",
+                "reward": -38.32600402832031,
+                "creation_time": 1677120560.449589,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-11499991.pt"
+                ]
+            },
+            {
+                "steps": 11999870,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-11999870.onnx",
+                "reward": -33.80154237380395,
+                "creation_time": 1677121321.468244,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-11999870.pt"
+                ]
+            },
+            {
+                "steps": 12499975,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-12499975.onnx",
+                "reward": -29.67000384484568,
+                "creation_time": 1677122081.255474,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-12499975.pt"
+                ]
+            },
+            {
+                "steps": 12999921,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-12999921.onnx",
+                "reward": -41.718713421975416,
+                "creation_time": 1677122838.4167576,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-12999921.pt"
+                ]
+            },
+            {
+                "steps": 13499794,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-13499794.onnx",
+                "reward": -31.890753781795503,
+                "creation_time": 1677123597.4411063,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-13499794.pt"
+                ]
+            },
+            {
+                "steps": 13999903,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-13999903.onnx",
+                "reward": -35.390004217624664,
+                "creation_time": 1677124375.4871528,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-13999903.pt"
+                ]
+            },
+            {
+                "steps": 14499820,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-14499820.onnx",
+                "reward": -29.147504051526386,
+                "creation_time": 1677125135.8514745,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-14499820.pt"
+                ]
+            },
+            {
+                "steps": 14999826,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-14999826.onnx",
+                "reward": -34.60133698781331,
+                "creation_time": 1677125900.5102649,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-14999826.pt"
+                ]
+            },
+            {
+                "steps": 15499820,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-15499820.onnx",
+                "reward": -29.76129384194651,
+                "creation_time": 1677126669.246632,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-15499820.pt"
+                ]
+            },
+            {
+                "steps": 15999885,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-15999885.onnx",
+                "reward": -24.056588649749756,
+                "creation_time": 1677127430.1392648,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-15999885.pt"
+                ]
+            },
+            {
+                "steps": 16499794,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-16499794.onnx",
+                "reward": -26.340503668785097,
+                "creation_time": 1677128194.428468,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-16499794.pt"
+                ]
+            },
+            {
+                "steps": 16999977,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-16999977.onnx",
+                "reward": -39.59666967391968,
+                "creation_time": 1677128972.304783,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-16999977.pt"
+                ]
+            },
+            {
+                "steps": 17499846,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-17499846.onnx",
+                "reward": -23.501670281092327,
+                "creation_time": 1677129730.5670469,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-17499846.pt"
+                ]
+            },
+            {
+                "steps": 17999805,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-17999805.onnx",
+                "reward": -24.997503800051554,
+                "creation_time": 1677130494.5083053,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-17999805.pt"
+                ]
+            },
+            {
+                "steps": 18499805,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-18499805.onnx",
+                "reward": -28.36000374385289,
+                "creation_time": 1677131252.6851346,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-18499805.pt"
+                ]
+            },
+            {
+                "steps": 18999931,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-18999931.onnx",
+                "reward": -17.162336333592734,
+                "creation_time": 1677132014.6140318,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-18999931.pt"
+                ]
+            },
+            {
+                "steps": 19499807,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-19499807.onnx",
+                "reward": -19.29382660809685,
+                "creation_time": 1677132775.135597,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-19499807.pt"
+                ]
+            },
+            {
+                "steps": 19999993,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-19999993.onnx",
+                "reward": -18.051541585188644,
+                "creation_time": 1677133536.259294,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-19999993.pt"
+                ]
+            },
+            {
+                "steps": 20499865,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-20499865.onnx",
+                "reward": -23.36625349521637,
+                "creation_time": 1677134321.3319051,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-20499865.pt"
+                ]
+            },
+            {
+                "steps": 20999981,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-20999981.onnx",
+                "reward": -23.19643189225878,
+                "creation_time": 1677135090.3719652,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-20999981.pt"
+                ]
+            },
+            {
+                "steps": 21499915,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-21499915.onnx",
+                "reward": -12.855792572623805,
+                "creation_time": 1677135856.9326522,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-21499915.pt"
+                ]
+            },
+            {
+                "steps": 21999837,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-21999837.onnx",
+                "reward": -19.481938692831225,
+                "creation_time": 1677136622.2097845,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-21999837.pt"
+                ]
+            },
+            {
+                "steps": 22499915,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-22499915.onnx",
+                "reward": -23.074213893789995,
+                "creation_time": 1677137391.1959784,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-22499915.pt"
+                ]
+            },
+            {
+                "steps": 22999774,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-22999774.onnx",
+                "reward": -18.826125558541747,
+                "creation_time": 1677138153.604484,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-22999774.pt"
+                ]
+            },
+            {
+                "steps": 23499865,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-23499865.onnx",
+                "reward": -11.022003078460694,
+                "creation_time": 1677138940.4474149,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-23499865.pt"
+                ]
+            },
+            {
+                "steps": 23999924,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-23999924.onnx",
+                "reward": -23.616432206971304,
+                "creation_time": 1677139710.1484678,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-23999924.pt"
+                ]
+            },
+            {
+                "steps": 24499776,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-24499776.onnx",
+                "reward": -1.1977303244850852,
+                "creation_time": 1677140475.0390086,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-24499776.pt"
+                ]
+            },
+            {
+                "steps": 24999840,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-24999840.onnx",
+                "reward": -10.328424378445273,
+                "creation_time": 1677141245.016597,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-24999840.pt"
+                ]
+            },
+            {
+                "steps": 25499939,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-25499939.onnx",
+                "reward": -14.987145750863212,
+                "creation_time": 1677142017.2625318,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-25499939.pt"
+                ]
+            },
+            {
+                "steps": 25999885,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-25999885.onnx",
+                "reward": -12.116318868963342,
+                "creation_time": 1677142781.8591092,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-25999885.pt"
+                ]
+            },
+            {
+                "steps": 26499910,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-26499910.onnx",
+                "reward": -12.514366661418569,
+                "creation_time": 1677143547.9123826,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-26499910.pt"
+                ]
+            },
+            {
+                "steps": 26999843,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-26999843.onnx",
+                "reward": -1.78636680949818,
+                "creation_time": 1677144331.8764646,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-26999843.pt"
+                ]
+            },
+            {
+                "steps": 27499845,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-27499845.onnx",
+                "reward": 2.4853817316202016,
+                "creation_time": 1677145094.8756318,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-27499845.pt"
+                ]
+            },
+            {
+                "steps": 27999744,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-27999744.onnx",
+                "reward": -3.025791971307052,
+                "creation_time": 1677145862.1980228,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-27999744.pt"
+                ]
+            },
+            {
+                "steps": 28499955,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-28499955.onnx",
+                "reward": -6.225716982569013,
+                "creation_time": 1677146628.8598359,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-28499955.pt"
+                ]
+            },
+            {
+                "steps": 28999938,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-28999938.onnx",
+                "reward": -14.985529297276548,
+                "creation_time": 1677147474.5370848,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-28999938.pt"
+                ]
+            },
+            {
+                "steps": 29499825,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-29499825.onnx",
+                "reward": -15.597224873525125,
+                "creation_time": 1677148327.0350912,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-29499825.pt"
+                ]
+            },
+            {
+                "steps": 29999978,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-29999978.onnx",
+                "reward": 14.61333163579305,
+                "creation_time": 1677149130.0153127,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-29999978.pt"
+                ]
+            },
+            {
+                "steps": 30499915,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-30499915.onnx",
+                "reward": -6.412502586841583,
+                "creation_time": 1677149896.415671,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-30499915.pt"
+                ]
+            },
+            {
+                "steps": 30999825,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-30999825.onnx",
+                "reward": -4.011669754981995,
+                "creation_time": 1677150664.2585847,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-30999825.pt"
+                ]
+            },
+            {
+                "steps": 31499779,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-31499779.onnx",
+                "reward": -8.118184382265264,
+                "creation_time": 1677151433.4384174,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-31499779.pt"
+                ]
+            },
+            {
+                "steps": 31999985,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-31999985.onnx",
+                "reward": -15.079357547144737,
+                "creation_time": 1677152194.7963204,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-31999985.pt"
+                ]
+            },
+            {
+                "steps": 32499907,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-32499907.onnx",
+                "reward": -12.87773022326556,
+                "creation_time": 1677152963.8565884,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-32499907.pt"
+                ]
+            },
+            {
+                "steps": 32999926,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-32999926.onnx",
+                "reward": -13.312043692384448,
+                "creation_time": 1677153733.7990398,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-32999926.pt"
+                ]
+            },
+            {
+                "steps": 33499993,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-33499993.onnx",
+                "reward": -12.070003426074981,
+                "creation_time": 1677154516.2369304,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-33499993.pt"
+                ]
+            },
+            {
+                "steps": 33999992,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-33999992.onnx",
+                "reward": 2.8866646024915905,
+                "creation_time": 1677155284.2494888,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-33999992.pt"
+                ]
+            },
+            {
+                "steps": 34499824,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-34499824.onnx",
+                "reward": -5.847502499818802,
+                "creation_time": 1677156055.2079313,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-34499824.pt"
+                ]
+            },
+            {
+                "steps": 34999879,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-34999879.onnx",
+                "reward": -17.177182619388287,
+                "creation_time": 1677156824.5248356,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-34999879.pt"
+                ]
+            },
+            {
+                "steps": 35499786,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-35499786.onnx",
+                "reward": -12.076891570621067,
+                "creation_time": 1677157595.622869,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-35499786.pt"
+                ]
+            },
+            {
+                "steps": 35999984,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-35999984.onnx",
+                "reward": -20.934105903674396,
+                "creation_time": 1677158364.074845,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-35999984.pt"
+                ]
+            },
+            {
+                "steps": 36499863,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-36499863.onnx",
+                "reward": -18.070003271102905,
+                "creation_time": 1677159147.8924901,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-36499863.pt"
+                ]
+            },
+            {
+                "steps": 36999920,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-36999920.onnx",
+                "reward": -16.66533654530843,
+                "creation_time": 1677159918.9237003,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-36999920.pt"
+                ]
+            },
+            {
+                "steps": 37499870,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-37499870.onnx",
+                "reward": -5.103127837181091,
+                "creation_time": 1677160688.0727057,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-37499870.pt"
+                ]
+            },
+            {
+                "steps": 37999909,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-37999909.onnx",
+                "reward": -9.496209646093435,
+                "creation_time": 1677161458.4317677,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-37999909.pt"
+                ]
+            },
+            {
+                "steps": 38499842,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-38499842.onnx",
+                "reward": -11.76484130274865,
+                "creation_time": 1677162262.186496,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-38499842.pt"
+                ]
+            },
+            {
+                "steps": 38999885,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-38999885.onnx",
+                "reward": -8.601947105593151,
+                "creation_time": 1677163042.8203347,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-38999885.pt"
+                ]
+            },
+            {
+                "steps": 39499867,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-39499867.onnx",
+                "reward": -38.48000431060791,
+                "creation_time": 1677163833.9732833,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-39499867.pt"
+                ]
+            },
+            {
+                "steps": 39999945,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-39999945.onnx",
+                "reward": -1.745717167854309,
+                "creation_time": 1677164600.827197,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-39999945.pt"
+                ]
+            },
+            {
+                "steps": 40499967,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-40499967.onnx",
+                "reward": -23.06666976875729,
+                "creation_time": 1677165367.202209,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-40499967.pt"
+                ]
+            },
+            {
+                "steps": 40999824,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-40999824.onnx",
+                "reward": -14.193669740358988,
+                "creation_time": 1677166168.1464474,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-40999824.pt"
+                ]
+            },
+            {
+                "steps": 41499840,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-41499840.onnx",
+                "reward": -9.634752936661243,
+                "creation_time": 1677166970.4870808,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-41499840.pt"
+                ]
+            },
+            {
+                "steps": 41999853,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-41999853.onnx",
+                "reward": -14.58200269639492,
+                "creation_time": 1677167775.6728568,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-41999853.pt"
+                ]
+            },
+            {
+                "steps": 42499811,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-42499811.onnx",
+                "reward": -14.229625852602833,
+                "creation_time": 1677168577.7836053,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-42499811.pt"
+                ]
+            },
+            {
+                "steps": 42999763,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-42999763.onnx",
+                "reward": 2.6159964561462403,
+                "creation_time": 1677169418.6977074,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-42999763.pt"
+                ]
+            },
+            {
+                "steps": 43499937,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-43499937.onnx",
+                "reward": 4.227997970581055,
+                "creation_time": 1677170243.9172041,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-43499937.pt"
+                ]
+            },
+            {
+                "steps": 43999959,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-43999959.onnx",
+                "reward": -23.500003293156624,
+                "creation_time": 1677171063.8334682,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-43999959.pt"
+                ]
+            },
+            {
+                "steps": 44499845,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-44499845.onnx",
+                "reward": -9.07840238571167,
+                "creation_time": 1677171888.80343,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-44499845.pt"
+                ]
+            },
+            {
+                "steps": 44999875,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-44999875.onnx",
+                "reward": -8.969680086258919,
+                "creation_time": 1677172721.6286747,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-44999875.pt"
+                ]
+            },
+            {
+                "steps": 45499798,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-45499798.onnx",
+                "reward": -10.275717156273979,
+                "creation_time": 1677173527.6748784,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-45499798.pt"
+                ]
+            },
+            {
+                "steps": 45999780,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-45999780.onnx",
+                "reward": null,
+                "creation_time": 1677174345.0509,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-45999780.pt"
+                ]
+            },
+            {
+                "steps": 46499752,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-46499752.onnx",
+                "reward": 6.426663716634114,
+                "creation_time": 1677175152.9456894,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-46499752.pt"
+                ]
+            },
+            {
+                "steps": 46999827,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-46999827.onnx",
+                "reward": -6.942943657145781,
+                "creation_time": 1677175958.6405425,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-46999827.pt"
+                ]
+            },
+            {
+                "steps": 47499957,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-47499957.onnx",
+                "reward": -7.228752995530765,
+                "creation_time": 1677176778.931293,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-47499957.pt"
+                ]
+            },
+            {
+                "steps": 47999939,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-47999939.onnx",
+                "reward": -12.748278560309574,
+                "creation_time": 1677177594.6211762,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-47999939.pt"
+                ]
+            },
+            {
+                "steps": 48499911,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-48499911.onnx",
+                "reward": -5.860002328709858,
+                "creation_time": 1677178416.9192064,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-48499911.pt"
+                ]
+            },
+            {
+                "steps": 48999931,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-48999931.onnx",
+                "reward": -7.845187593389441,
+                "creation_time": 1677179231.9017537,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-48999931.pt"
+                ]
+            },
+            {
+                "steps": 49499936,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-49499936.onnx",
+                "reward": -5.6500025325351295,
+                "creation_time": 1677180074.1800728,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-49499936.pt"
+                ]
+            },
+            {
+                "steps": 49999793,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-49999793.onnx",
+                "reward": -9.290771768643307,
+                "creation_time": 1677180895.6474543,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-49999793.pt"
+                ]
+            },
+            {
+                "steps": 50000049,
+                "file_path": "results\\test-11\\SmartRollABall\\SmartRollABall-50000049.onnx",
+                "reward": -9.290771768643307,
+                "creation_time": 1677180895.7766783,
+                "auxillary_file_paths": [
+                    "results\\test-11\\SmartRollABall\\SmartRollABall-50000049.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 50000049,
+            "file_path": "results\\test-11\\SmartRollABall.onnx",
+            "reward": -9.290771768643307,
+            "creation_time": 1677180895.7766783,
+            "auxillary_file_paths": [
+                "results\\test-11\\SmartRollABall\\SmartRollABall-50000049.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}
