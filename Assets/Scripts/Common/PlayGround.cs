@@ -97,7 +97,7 @@ namespace Common
 
         public virtual bool OnPickUp(PickUp pickUp)
         {
-            pickUp.SetLocation(wallsManager.RandomLocation());
+            SetPickUpLocation(pickUp);
             var hasWon = scoreManager.Increase();
 
             //if(hasWon)
@@ -105,7 +105,7 @@ namespace Common
             
             return hasWon;
         }
-        
+
         public virtual bool OnSpecialPickUp(PickUp pickUp)
         {
             postProcessingEffector.ToggleEffect();
@@ -115,6 +115,11 @@ namespace Common
         public virtual void OnPlayerExitBoundary()
         {
             menuManager.OnLoseGame();
+        }
+
+        protected virtual void SetPickUpLocation(PickUp pickUp)
+        {
+            pickUp.SetLocation(wallsManager.RandomLocation());
         }
     }
 }

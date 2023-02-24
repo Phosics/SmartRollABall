@@ -12,8 +12,6 @@ namespace Common
 
         private static AudioManager _instance;
         private static Sound[] _allSounds;
-    
-        // private static bool _disabled = true;
 
         public override void EnterTrainingMode()
         {
@@ -50,46 +48,30 @@ namespace Common
             Play(playOnStart);
         }
 
-        // public static void Disable()
-        // {
-        //     _disabled = true;
-        //     foreach (var s in _allSounds)
-        //         s.source.Stop();
-        // }
-
         public static void Play(string soundName)
         {
-            // if (_disabled)
-            //     return;
-        
             GetSoundByName(soundName)?.source.Play();
         }
 
         public static void Pause(string soundName)
         {
-            // if (_disabled)
-            //     return;
-        
             GetSoundByName(soundName)?.source.Pause();
         }
     
         public static void UnPause(string soundName)
         {
-            // if (_disabled)
-            //     return;
-        
             GetSoundByName(soundName)?.source.UnPause();
         }
 
         [CanBeNull]
         private static Sound GetSoundByName(string soundName)
         {
-            var s = _allSounds.SingleOrDefault(sound => sound.name == soundName);
+            var sound = _allSounds.SingleOrDefault(sound => sound.name == soundName);
         
-            if (s == null)
+            if (sound == null)
                 Debug.LogWarning("Error: Sound " + soundName + " not found");
 
-            return s;
+            return sound;
         }
     }
 }

@@ -2562,6 +2562,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5139715564754565780, guid: b5efb214046dacf40b761f5ae7b7d42d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Boundary
+      objectReference: {fileID: 0}
     - target: {fileID: 5498208122631455929, guid: b5efb214046dacf40b761f5ae7b7d42d,
         type: 3}
       propertyPath: m_Name
@@ -2676,6 +2681,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271461400655843224, guid: b5efb214046dacf40b761f5ae7b7d42d,
+        type: 3}
+      propertyPath: jumpAudio
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271461400655843224, guid: b5efb214046dacf40b761f5ae7b7d42d,
+        type: 3}
+      propertyPath: pickUpAudio
+      value: Pickup
       objectReference: {fileID: 0}
     - target: {fileID: 8995412887177210835, guid: b5efb214046dacf40b761f5ae7b7d42d,
         type: 3}
@@ -3841,22 +3856,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - clip: {fileID: 8300000, guid: cc523a28a1de34d48b8dd22b1703333d, type: 3}
+  - clip: {fileID: 8300000, guid: db47d06646201e24984a97c6d1b5357a, type: 3}
     name: Theme
     loop: 1
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 6e460796520c66a469317f36a6c2363d, type: 3}
+  - clip: {fileID: 8300000, guid: 139c8c687bf2ede499f13cbc6c996beb, type: 3}
     name: Pickup
     loop: 0
-    volume: 0.513
+    volume: 0.794
     pitch: 2.61
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 4001763999d216343ab18b4c13c09c37, type: 3}
+  - clip: {fileID: 8300000, guid: c3a3af1f5f02c3444841bb2199bd4bd6, type: 3}
     name: Jump
     loop: 0
-    volume: 0.513
+    volume: 0.864
     pitch: 2.61
     source: {fileID: 0}
   playOnStart: Theme
