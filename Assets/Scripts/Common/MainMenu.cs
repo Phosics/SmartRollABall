@@ -7,7 +7,7 @@ namespace Common
     public class MainMenu : MonoBehaviour
     {
         public Toggle toggleAI;
-    
+
         public void Start()
         {
             toggleAI.onValueChanged.AddListener(shouldUseAI => PlayerPrefs.SetInt("with_ai", shouldUseAI ? 1 : 0));
@@ -25,7 +25,7 @@ namespace Common
     
         public void StartStage3()
         {
-        
+            SceneManager.LoadScene("Stage - 03");
         }
     }
 }
