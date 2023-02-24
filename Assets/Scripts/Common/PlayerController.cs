@@ -54,12 +54,10 @@ namespace Common
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.CompareTag("Ground"))
-                _isGrounded = true;
-            
-            if (collision.gameObject.CompareTag("Boundary"))
-                playGround.OnPlayerExitBoundary();
-
-            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                _isGrounded = true;   
+            }
+            else if (collision.gameObject.CompareTag("Enemy"))
             {
                 AudioManager.Play(enemyHitAudio);
                 _rb.AddForce(new Vector3(0, enemyCollisionJumpForce, 0) * speed);
@@ -79,11 +77,14 @@ namespace Common
                 AudioManager.Play(pickUpAudio);
                 playGround.OnPickUp(other.gameObject.GetComponent<PickUp>());
             }
-
-            if (other.gameObject.CompareTag("Enemy"))
+            else if (other.gameObject.CompareTag("Enemy"))
             {
                 AudioManager.Play(enemyHitAudio);
                 _rb.AddForce(new Vector3(0, enemyCollisionJumpForce, 0) * speed);
+            }
+            else if (other.gameObject.CompareTag("Boundary"))
+            {
+                playGround.OnPlayerExitBoundary(); 
             }
         }
     }
