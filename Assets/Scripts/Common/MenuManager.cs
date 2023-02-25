@@ -72,9 +72,6 @@ namespace Common
         
         private void OnEndGame(bool won)
         {
-            if (trainingMode)
-                return;
-
             StopTime();
             EnableEndGameMenu();
 

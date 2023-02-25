@@ -606,6 +606,11 @@ PrefabInstance:
       objectReference: {fileID: 1179677888}
     - target: {fileID: 8271461399371329053, guid: b5efb214046dacf40b761f5ae7b7d42d,
         type: 3}
+      propertyPath: targetScore
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271461399371329053, guid: b5efb214046dacf40b761f5ae7b7d42d,
+        type: 3}
       propertyPath: topPlaysAmount
       value: 3
       objectReference: {fileID: 0}
