@@ -1,9 +1,9 @@
-using Unity.VisualScripting;
+using Common;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Common
+namespace MainMenu
 {
     public class MainMenu : MonoBehaviour
     {
@@ -23,68 +23,65 @@ namespace Common
 
         public void Start()
         {
-            toggleAI.onValueChanged.AddListener(shouldUseAI => PlayerPrefs.SetInt("with_ai", shouldUseAI ? 1 : 0));
+            toggleAI.onValueChanged.AddListener(shouldUseAI => SceneSettings.useAI = shouldUseAI);
         }
 
         public void StartStage1()
         {
+            Debug.Log("Loading Stage 01");
             SetTimeScale();
             SceneManager.LoadScene("Stage - 01");
         }
     
         public void StartStage2()
         {
+            Debug.Log("Loading Stage 02");
             SetTimeScale();
             SceneManager.LoadScene("Stage - 02");
         }
     
         public void StartStage3()
         {
+            Debug.Log("Loading Stage 03");
             SetTimeScale();
             SceneManager.LoadScene("Stage - 03");
         }
 
         public void ShowScoreboard(int stageNumber)
         {
-            stage1.SetActive(false);
-            stage2.SetActive(false);
-            stage3.SetActive(false);
-            toggleAI.gameObject.SetActive(false);
+            Debug.Log("Showing the high score board");
 
-            switch (stageNumber)
-            {
-                case 1:
-                    highScoreController.scoreManager.stage = StageNumber.One;
-                    break;
-                case 2:
-                    highScoreController.scoreManager.stage = StageNumber.Two;
-                    break;
-                case 3:
-                    highScoreController.scoreManager.stage = StageNumber.Three;
-                    break;
-            }
-            
+            highScoreController.scoreManager.stage = (StageNumber)stageNumber;
             highScoreController.ViewScoreBoard();
-            
-            highScoreMenu.SetActive(true);
+
+            SetActiveToUIElements(false);
         }
 
         public void SuppressScoreboard()
         {
-            stage1.SetActive(true);
-            stage2.SetActive(true);
-            stage3.SetActive(true);
-            toggleAI.gameObject.SetActive(true);
+            Debug.Log("Suppressing the high score board");
+            SetActiveToUIElements(true);
+        }
+
+        private void SetActiveToUIElements(bool isActive)
+        {
+            stage1.SetActive(isActive);
+            stage2.SetActive(isActive);
+            stage3.SetActive(isActive);
+            toggleAI.gameObject.SetActive(isActive);
             
-            highScoreMenu.SetActive(false);
+            highScoreMenu.SetActive(!isActive);
         }
 
         private static void SetTimeScale()
         {
-            if (Time.timeScale == 0)
+            if (Time.timeScale != 0)
             {
-                Time.timeScale = 1;
+                return;
             }
+            
+            Debug.Log("Time scale is 0, Changing it to 1");
+            Time.timeScale = 1;
         }
     }
 }
