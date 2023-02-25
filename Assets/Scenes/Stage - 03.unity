@@ -926,6 +926,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1273414191447393744, guid: 32a9842092a7a6b44b52f738475bd7c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6040597102065372843, guid: 32a9842092a7a6b44b52f738475bd7c9,
         type: 3}
       propertyPath: m_RootOrder
@@ -5350,7 +5355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2019379628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5646,6 +5651,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2326176713794124760, guid: f5459335aa2587849b9b15966983a045,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2326176714520827265, guid: f5459335aa2587849b9b15966983a045,
         type: 3}
       propertyPath: scoreManager
@@ -5759,6 +5769,11 @@ PrefabInstance:
     - target: {fileID: 2326176714520827291, guid: f5459335aa2587849b9b15966983a045,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326176715549794473, guid: f5459335aa2587849b9b15966983a045,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
