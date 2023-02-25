@@ -77,7 +77,7 @@ namespace Common
 
         private void FindCoinsAndEnemies(Transform parent)
         {
-            for (int i = 0; i < parent.childCount; i++)
+            for (var i = 0; i < parent.childCount; i++)
             {
                 var child = parent.GetChild(i);
             
@@ -100,9 +100,11 @@ namespace Common
             SetPickUpLocation(pickUp);
             var hasWon = scoreManager.Increase();
 
-            //if(hasWon)
-            //    menuManager.OnWinGame();
-            
+            if (hasWon && menuManager != null)
+            {
+                menuManager.OnWinGame();   
+            }
+
             return hasWon;
         }
 

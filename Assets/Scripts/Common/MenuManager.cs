@@ -14,47 +14,41 @@ namespace Common
         [Header("Menus")]
         public GameObject pauseMenu;
         public GameObject endGameMenu;
+        public GameObject highScoreMenu;
     
         [Space(5)]
         [Header("UI")]
-        public TextMeshProUGUI player1Name;
-        public TextMeshProUGUI player2Name;
-        public TextMeshProUGUI player3Name;
-        public TextMeshProUGUI player1Time;
-        public TextMeshProUGUI player2Time;
-        public TextMeshProUGUI player3Time;
         public TextMeshProUGUI endScreenTitle;
         public TextMeshProUGUI replayButtonText;
 
-        private ScoreManager _scoreManager;
-        private float _prevTimeScale;
+        private const int NormalTimeScale = 1;
         
+        private HighScoreController _highScoreController;
+
         private float _playTimeInSecs = 0;
         private float _lastTimedTime;
 
         private void Start()
         {
-            _scoreManager = GetComponent<ScoreManager>();
-            _prevTimeScale = Time.timeScale;
+            _highScoreController = GetComponent<HighScoreController>();
+
+            highScoreMenu.SetActive(false);
             pauseMenu.SetActive(false);
             endGameMenu.SetActive(false);
+            
             ResetLastTimedTime();
         }
 
         private void OnPause()
         {
-            if (trainingMode)
-                return;
-
+            Debug.Log("Game paused");
             pauseMenu.SetActive(true);
             StopTime();
         }
     
         public void OnResume()
         {
-            if (trainingMode)
-                return;
-
+            Debug.Log("Game resumed");
             pauseMenu.SetActive(false);
             ResumeTime();
             ResetLastTimedTime();
@@ -62,59 +56,37 @@ namespace Common
 
         public void OnLoseGame()
         {
+            Debug.Log("Game lost");
             endScreenTitle.text = "YOU LOST!";
             replayButtonText.text = "Try again";
-            OnEndGame();
+            OnEndGame(false);
         }
         
         public void OnWinGame()
         {
+            Debug.Log("Game won");
             endScreenTitle.text = "YOU WON!";
             replayButtonText.text = "Play again";
-            OnEndGame();
+            OnEndGame(true);
         }
         
-        private void OnEndGame(string winnerText = null)
+        private void OnEndGame(bool won)
         {
             if (trainingMode)
                 return;
 
             StopTime();
-            endGameMenu.SetActive(true);
-            
-            var topPlayersToTimes = string.IsNullOrEmpty(winnerText) ?
-                _scoreManager.GetTopPlayersToPlayTime() :
-                _scoreManager.UpdateAndGetTopPlayersToPlayTime("USER NAME", _playTimeInSecs);
+            EnableEndGameMenu();
 
-            string GetTimeText(double secs) => (Math.Floor(secs * 100) / 100) + " seconds";
-
-            var firstElement = topPlayersToTimes.ElementAt(0);
-            player1Name.text = firstElement.Key;
-            player1Time.text = GetTimeText(firstElement.Value);
-            
-            var secondElement = topPlayersToTimes.ElementAt(1);
-            if (secondElement.Equals(default(KeyValuePair<string, double>)))
+            if (won)
             {
-                player2Name.enabled = false;
-                player3Name.enabled = false;
-                player2Time.enabled = false;
-                player3Time.enabled = false;
-                return;
+                _highScoreController.ViewScoreBoard("Test Player", _playTimeInSecs);
+            }
+            else
+            {
+                _highScoreController.ViewScoreBoard();
             }
 
-            player2Name.text = secondElement.Key;
-            player2Time.text = GetTimeText(secondElement.Value);
-
-            var thirdElement = topPlayersToTimes.ElementAt(2);
-            if (thirdElement.Equals(default(KeyValuePair<string, double>)))
-            {
-                player3Name.enabled = false;
-                player3Time.enabled = false;
-                return;
-            }
-            
-            player3Name.text = thirdElement.Key;
-            player3Time.text = GetTimeText(thirdElement.Value);
         }
     
         public void ResetGame()
@@ -126,13 +98,11 @@ namespace Common
         public void Quit()
         {
             SceneManager.LoadScene("Main Menu");
-            Time.timeScale = _prevTimeScale;
         }
 
         private void StopTime()
         {
             AddTimeSinceLastTimedTime();
-            _prevTimeScale = Time.timeScale;
             Time.timeScale = 0;
             AudioManager.Pause("Theme");
         }
@@ -140,7 +110,7 @@ namespace Common
         private void ResumeTime()
         {
             ResetLastTimedTime();
-            Time.timeScale = _prevTimeScale;
+            Time.timeScale = NormalTimeScale;
             AudioManager.UnPause("Theme");
         }
         
@@ -152,6 +122,12 @@ namespace Common
         private void AddTimeSinceLastTimedTime()
         {
             _playTimeInSecs += Time.time - _lastTimedTime;
+        }
+        
+        private void EnableEndGameMenu()
+        {
+            endGameMenu.SetActive(true);
+            highScoreMenu.SetActive(true);
         }
     }
 }

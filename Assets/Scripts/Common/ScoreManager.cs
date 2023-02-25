@@ -39,7 +39,7 @@ namespace Common
             return _score >= targetScore;
         }
 
-        public List<KeyValuePair<string, double>> UpdateAndGetTopPlayersToPlayTime(string playerName, double playTime)
+        public List<KeyValuePair<string, double>> UpdateHighScore(string playerName, double playTime)
         {
             var currentTop = GetTopPlayersToPlayTime();
             currentTop.Add(new KeyValuePair<string, double>(playerName, playTime));
@@ -51,17 +51,20 @@ namespace Common
             var newTopString = string.Join(Environment.NewLine, newTop.Select(kvp => kvp.Key + "=" + kvp.Value));
             
             PlayerPrefs.SetString(GetTopPlayersKey(), newTopString);
+            
             return newTop.ToList();
         }
         
         public List<KeyValuePair<string, double>> GetTopPlayersToPlayTime()
         {
             var topString = PlayerPrefs.GetString(GetTopPlayersKey());
-            if (string.IsNullOrEmpty(topString))
-                return new List<KeyValuePair<string, double>>();
 
-            return topString.Split(Environment.NewLine)
-                .Select(playerToTimeString =>
+            if (string.IsNullOrEmpty(topString))
+            {
+                return new List<KeyValuePair<string, double>>();   
+            }
+
+            return topString.Split(Environment.NewLine).Select(playerToTimeString => 
                 {
                     var separatorIndex = playerToTimeString.LastIndexOf('=');
                     var playerName = playerToTimeString[..separatorIndex];
@@ -78,9 +81,11 @@ namespace Common
         private void SetCountText()
         {
             if (countText == null)
-                return;
-        
-            countText.text = $"Score: {_score}";
+            {
+                return;   
+            }
+
+            countText.text = $"Score: {_score} / {targetScore}";
         }
     }
 }
