@@ -12,11 +12,13 @@ namespace Common
         
         public List<PickUp> PickUps { get; private set; }
         public List<Enemy> Enemies { get; protected set; }
+        public List<MovingWall> MovingWalls { get; protected set; }
 
         public virtual void ResetPlayGround()
         {
             scoreManager.Reset();
-        
+
+            ResetMovingWalls();
             ResetPickUps();
             ResetEnemies();
         }
@@ -50,22 +52,55 @@ namespace Common
             return closestPickUp;
         }
 
+        protected virtual void ResetMovingWalls()
+        {
+            foreach (var MovingWall in MovingWalls)
+            {
+                MovingWall.SetLocation(wallsManager.RandomLocation());
+            }
+        }
+
         protected virtual void ResetPickUps()
         {
             foreach (var pickUp in PickUps)
-                pickUp.SetLocation(wallsManager.RandomLocation());
+            {
+                var potentialPosition = FindSafeLocation();
+                pickUp.SetLocation(potentialPosition);
+            }
         }
-    
+
         protected virtual void ResetEnemies()
         {
             foreach (var enemy in Enemies)
-                enemy.SetLocation(wallsManager.RandomLocation());
+            {
+                var potentialPosition = FindSafeLocation();
+                enemy.SetLocation(potentialPosition);
+            }
+        }
+
+        public Vector3 FindSafeLocation(float height = 0.5f)
+        {
+            var possibleLocation = wallsManager.RandomLocation(height);
+
+            var Colliders = Physics.OverlapBox(possibleLocation, new Vector3(0.25f, 0.25f, 0.25f));
+
+            while (Colliders.Length > 1 || (Colliders.Length == 1 && Colliders[0].tag != "Ground" ))
+            {
+                Debug.LogWarning("PickUp collided with " + Colliders[0].tag + ", setting new place");
+
+                possibleLocation = wallsManager.RandomLocation(height);
+
+                Colliders = Physics.OverlapBox(possibleLocation, new Vector3(0.25f, 0.25f, 0.25f));
+            }
+
+            return possibleLocation;
         }
 
         private void Awake()
         {
             PickUps = new List<PickUp>();
             Enemies = new List<Enemy>();
+            MovingWalls= new List<MovingWall>();
         }
 
         private void Start()
@@ -89,7 +124,10 @@ namespace Common
             
                 else if (child.CompareTag("Enemy"))
                     Enemies.Add(child.GetComponent<Enemy>());
-            
+
+                else if (child.CompareTag("MovingWall"))
+                    MovingWalls.Add(child.GetComponent<MovingWall>());
+
                 else
                     FindCoinsAndEnemies(child);
             }
@@ -121,7 +159,8 @@ namespace Common
 
         protected virtual void SetPickUpLocation(PickUp pickUp)
         {
-            pickUp.SetLocation(wallsManager.RandomLocation());
+            var potentialPosition = FindSafeLocation();
+            pickUp.SetLocation(potentialPosition);
         }
     }
 }

@@ -194,6 +194,8 @@ MonoBehaviour:
   m_SensorName: RayPerceptionSensor_10
   m_DetectableTags:
   - PickUp
+  - Ground
+  - Boundary
   m_RaysPerDirection: 3
   m_MaxRayDegrees: 60
   m_SphereCastRadius: 0.1
@@ -340,6 +342,8 @@ MonoBehaviour:
   m_SensorName: RayPerceptionSensor_12
   m_DetectableTags:
   - PickUp
+  - Ground
+  - Boundary
   m_RaysPerDirection: 3
   m_MaxRayDegrees: 60
   m_SphereCastRadius: 0.1
@@ -632,6 +636,8 @@ MonoBehaviour:
   m_SensorName: RayPerceptionSensor_9
   m_DetectableTags:
   - PickUp
+  - Ground
+  - Boundary
   m_RaysPerDirection: 3
   m_MaxRayDegrees: 60
   m_SphereCastRadius: 0.1
@@ -705,6 +711,8 @@ MonoBehaviour:
   m_SensorName: RayPerceptionSensor_11
   m_DetectableTags:
   - PickUp
+  - Ground
+  - Boundary
   m_RaysPerDirection: 3
   m_MaxRayDegrees: 60
   m_SphereCastRadius: 0.1
@@ -881,7 +889,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8436736af35346147b307a506ca380b5, type: 2}
+  - {fileID: 2100000, guid: 055a28d933a74c04ea6b523733a629e0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -954,7 +962,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 8d4008374893e694ebf1ba12f8ce05c6, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: cf1e9c3c06dbc874aa522171b22e96ec, type: 3}
   m_InferenceDevice: 3
   m_BehaviorType: 0
   m_BehaviorName: SmartRollABall
@@ -1045,6 +1053,7 @@ MonoBehaviour:
   m_DetectableTags:
   - Wall
   - Enemy
+  - MovingWall
   m_RaysPerDirection: 10
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 0.3

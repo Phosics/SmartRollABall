@@ -17,6 +17,7 @@ TagManager:
   - SpecialPickUp
   - Enemy
   - Ground
+  - MovingWall
   layers:
   - Default
   - TransparentFX

@@ -20,6 +20,7 @@ public class AIPlayerAgent : Agent
     private Rigidbody _rb;
     private Vector3 _startingPosition;
     private bool _isGrounded;
+    private bool _isOnWall;
     
     private PickUp _closestPickUp;
     private Transform _closestPickUpTransform;
@@ -42,17 +43,16 @@ public class AIPlayerAgent : Agent
         _rb.velocity = Vector3.zero;
         _rb.angularVelocity = Vector3.zero;
 
+        // Reset the pickup in a new random location
+        playGround.ResetPlayGround();
+
         // Reset the starting position
         if (Random.Range(0f, 1f) < 0.0f)
             transform.position = _startingPosition;
         else
         {
-            transform.position = playGround.wallsManager.RandomLocation(0.5f);
+            transform.position = playGround.FindSafeLocation();
         }
-            
-
-        // Reset the pickup in a new random location
-        playGround.ResetPlayGround();
         
         // Get the closest PickUp
         FindClosestPickUp();
@@ -72,10 +72,9 @@ public class AIPlayerAgent : Agent
         float moveY = 0;
 
         if (_isGrounded && actions.ContinuousActions[2] > 0.5)
-        {
             moveY += jump;
-            // AddReward(-0.001f);
-        }
+        else if (_isOnWall && actions.ContinuousActions[2] > 0.5)
+            moveY += jump/2;
             
         // Check for collision with the obstacle
         // if (_collideObstacle)
@@ -89,7 +88,7 @@ public class AIPlayerAgent : Agent
         // Add force in the direction of the move vector
         _rb.AddForce(moveXZ * speed);
 
-        AddReward(-0.01f);
+        AddReward(-0.02f);
     }
         
     /// <summary>
@@ -141,7 +140,7 @@ public class AIPlayerAgent : Agent
         }
         else if (other.CompareTag("Boundary"))
         {
-            AddReward(-30f);
+            AddReward(-10f);
             Debug.Log("Loss!");
             _isClosestPickUpTransformInitialized = false;
             EndEpisode();
@@ -163,26 +162,22 @@ public class AIPlayerAgent : Agent
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Wall"))
-        {
-            // Collided with the wall, give a negative reward
-            // AddReward(-0.01f);
-        }
+            _isOnWall = true;
+
         else if (collision.gameObject.CompareTag("Ground"))
-        {
             _isGrounded = true;
-        }
+
         else if (collision.gameObject.CompareTag("Enemy"))
-        {
             _rb.AddForce(new Vector3(0, enemyCollisionJumpForce, 0) * speed);
-        }
     }
 
     private void OnCollisionExit(Collision other)
     {
+        if (other.gameObject.CompareTag("Wall"))
+            _isOnWall = false;
+
         if (other.gameObject.CompareTag("Ground"))
-        {
             _isGrounded = false;
-        }
     }
 
     private float distanceIgnoeY(Vector3 pos1, Vector3 pos2)
@@ -219,7 +214,7 @@ public class AIPlayerAgent : Agent
         //}
 
         //_distance = distanceToTarget;
-        if (transform.position.y < -2)
+        if (transform.position.y < -3)
         {
             Debug.Log("Something bad happen");
             _isClosestPickUpTransformInitialized = false;
