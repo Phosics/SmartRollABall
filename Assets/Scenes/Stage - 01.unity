@@ -449,15 +449,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inside Wall 2
       objectReference: {fileID: 0}
+    - target: {fileID: 852132680678153548, guid: b5efb214046dacf40b761f5ae7b7d42d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 1151719287489170690, guid: b5efb214046dacf40b761f5ae7b7d42d,
         type: 3}
       propertyPath: m_Name
       value: Inside Wall 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1151719287489170690, guid: b5efb214046dacf40b761f5ae7b7d42d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 1155732913815773172, guid: b5efb214046dacf40b761f5ae7b7d42d,
         type: 3}
       propertyPath: m_Name
       value: Inside Wall 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155732913815773172, guid: b5efb214046dacf40b761f5ae7b7d42d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 1997566197828259631, guid: b5efb214046dacf40b761f5ae7b7d42d,
         type: 3}
@@ -484,6 +499,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inside Wall 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4765409361146539268, guid: b5efb214046dacf40b761f5ae7b7d42d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 5139715564754565780, guid: b5efb214046dacf40b761f5ae7b7d42d,
         type: 3}
       propertyPath: m_IsActive
@@ -503,6 +523,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Inside Wall 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498208122631455929, guid: b5efb214046dacf40b761f5ae7b7d42d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 5912405770635283534, guid: b5efb214046dacf40b761f5ae7b7d42d,
         type: 3}
@@ -689,7 +714,12 @@ PrefabInstance:
       propertyPath: m_BoundingSphereOverride.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 384071010139444427, guid: b5efb214046dacf40b761f5ae7b7d42d, type: 3}
+    - {fileID: 8900386547091827039, guid: b5efb214046dacf40b761f5ae7b7d42d, type: 3}
+    - {fileID: 3872459360161192028, guid: b5efb214046dacf40b761f5ae7b7d42d, type: 3}
+    - {fileID: 6520319880593136190, guid: b5efb214046dacf40b761f5ae7b7d42d, type: 3}
+    - {fileID: 1085939203420015204, guid: b5efb214046dacf40b761f5ae7b7d42d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b5efb214046dacf40b761f5ae7b7d42d, type: 3}
 --- !u!114 &816595459 stripped
 MonoBehaviour:

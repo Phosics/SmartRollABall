@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -86,6 +81,7 @@ namespace Common
 
         }
     
+        // Reset the playground without loading the scene
         public void ResetGame()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

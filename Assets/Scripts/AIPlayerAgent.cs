@@ -48,10 +48,12 @@ public class AIPlayerAgent : Agent
 
         // Reset the starting position
         if (Random.Range(0f, 1f) < 0.0f)
+        {
             transform.position = _startingPosition;
+        }
         else
         {
-            transform.position = playGround.FindSafeLocation();
+            transform.position = playGround.FindSafeLocationForPlayer();
         }
         
         // Get the closest PickUp

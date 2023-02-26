@@ -47,7 +47,7 @@ namespace Common
             Debug.Log("Setting empty score for empty players");
             for (var i = topPlayersToTimes.Count; i < highScorePlayers.Length ; i++)
             {
-                SetEmptyHighScorePlayer(highScorePlayers[i], i);
+                SetEmptyHighScorePlayer(highScorePlayers[i]);
             }
             Debug.Log(highScorePlayers.Length - topPlayersToTimes.Count + " players set");
         }
@@ -59,7 +59,7 @@ namespace Common
             highScorePlayerMenu.playerTime.SetText(GetTimeText(keyValuePair.Value));
         }
         
-        private static void SetEmptyHighScorePlayer(HighScorePlayerMenu highScorePlayerMenu, int no)
+        private static void SetEmptyHighScorePlayer(HighScorePlayerMenu highScorePlayerMenu)
         {
             highScorePlayerMenu.playerName.SetText(HighScoreNoPlayerName);
             highScorePlayerMenu.playerTime.SetText(GetTimeText(0.0f));

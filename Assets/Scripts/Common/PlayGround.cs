@@ -51,12 +51,17 @@ namespace Common
 
             return closestPickUp;
         }
+        
+        public virtual Vector3 FindSafeLocationForPlayer()
+        {
+            return wallsManager.RandomLocation();
+        }
 
         protected virtual void ResetMovingWalls()
         {
-            foreach (var MovingWall in MovingWalls)
+            foreach (var movingWall in MovingWalls)
             {
-                MovingWall.SetLocation(wallsManager.RandomLocation());
+                movingWall.SetLocation(wallsManager.RandomLocation());
             }
         }
 
@@ -64,8 +69,7 @@ namespace Common
         {
             foreach (var pickUp in PickUps)
             {
-                var potentialPosition = FindSafeLocation();
-                pickUp.SetLocation(potentialPosition);
+                pickUp.SetLocation(wallsManager.RandomLocation());
             }
         }
 
@@ -73,27 +77,8 @@ namespace Common
         {
             foreach (var enemy in Enemies)
             {
-                var potentialPosition = FindSafeLocation();
-                enemy.SetLocation(potentialPosition);
+                enemy.SetLocation(wallsManager.RandomLocation());
             }
-        }
-
-        public Vector3 FindSafeLocation(float height = 0.5f)
-        {
-            var possibleLocation = wallsManager.RandomLocation(height);
-
-            var Colliders = Physics.OverlapBox(possibleLocation, new Vector3(0.25f, 0.25f, 0.25f));
-
-            while (Colliders.Length > 1 || (Colliders.Length == 1 && Colliders[0].tag != "Ground" ))
-            {
-                Debug.LogWarning("PickUp collided with " + Colliders[0].tag + ", setting new place");
-
-                possibleLocation = wallsManager.RandomLocation(height);
-
-                Colliders = Physics.OverlapBox(possibleLocation, new Vector3(0.25f, 0.25f, 0.25f));
-            }
-
-            return possibleLocation;
         }
 
         private void Awake()
@@ -159,8 +144,7 @@ namespace Common
 
         protected virtual void SetPickUpLocation(PickUp pickUp)
         {
-            var potentialPosition = FindSafeLocation();
-            pickUp.SetLocation(potentialPosition);
+            pickUp.SetLocation(wallsManager.RandomLocation());
         }
     }
 }
