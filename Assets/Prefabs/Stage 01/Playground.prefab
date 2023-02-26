@@ -383,9 +383,10 @@ GameObject:
   - component: {fileID: 325263137163625528}
   - component: {fileID: 6607971666111125244}
   - component: {fileID: 6698273421605542034}
+  - component: {fileID: 8900386547091827039}
   m_Layer: 0
   m_Name: Inside Wall 2
-  m_TagString: Wall
+  m_TagString: MovingWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -468,6 +469,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8900386547091827039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852132680678153548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af706b80df7a9c84fa3ef4a544db9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0
+  moveZ: 0
 --- !u!1 &1151719287489170690
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,9 +495,10 @@ GameObject:
   - component: {fileID: 1100967003700518239}
   - component: {fileID: 1997566197828259631}
   - component: {fileID: 2364297652795967827}
+  - component: {fileID: 6520319880593136190}
   m_Layer: 0
   m_Name: Inside Wall 4
-  m_TagString: Wall
+  m_TagString: MovingWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -565,6 +581,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6520319880593136190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151719287489170690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af706b80df7a9c84fa3ef4a544db9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0
+  moveZ: 0
 --- !u!1 &1155732913815773172
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,9 +607,10 @@ GameObject:
   - component: {fileID: 943421808891302794}
   - component: {fileID: 2899392123370868073}
   - component: {fileID: 8833836670529967551}
+  - component: {fileID: 384071010139444427}
   m_Layer: 0
   m_Name: Inside Wall 1
-  m_TagString: Wall
+  m_TagString: MovingWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -662,6 +693,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &384071010139444427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155732913815773172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af706b80df7a9c84fa3ef4a544db9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0
+  moveZ: 0
 --- !u!1 &1986908816228352606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,9 +1098,10 @@ GameObject:
   - component: {fileID: 6583004329123077165}
   - component: {fileID: 2540021661565748513}
   - component: {fileID: 6668729595561960884}
+  - component: {fileID: 3872459360161192028}
   m_Layer: 0
   m_Name: Inside Wall 3
-  m_TagString: Wall
+  m_TagString: MovingWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1138,6 +1184,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3872459360161192028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4765409361146539268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af706b80df7a9c84fa3ef4a544db9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0
+  moveZ: 0
 --- !u!1 &5139715564754565780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,9 +1308,10 @@ GameObject:
   - component: {fileID: 7914187478597250779}
   - component: {fileID: 5912405770635283534}
   - component: {fileID: 6128432039749921012}
+  - component: {fileID: 1085939203420015204}
   m_Layer: 0
   m_Name: Inside Wall 5
-  m_TagString: Wall
+  m_TagString: MovingWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1333,6 +1394,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1085939203420015204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5498208122631455929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af706b80df7a9c84fa3ef4a544db9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0
+  moveZ: 0
 --- !u!1 &7113970335235107363
 GameObject:
   m_ObjectHideFlags: 0
