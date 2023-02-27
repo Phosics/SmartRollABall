@@ -25,9 +25,9 @@ namespace Common
             }
         }
 
-        public void ViewScoreBoard(string playerName, double playTime)
+        public void ViewScoreBoard(double playTime)
         {
-            ViewScoreBoard(scoreManager.UpdateHighScore(playerName, playTime));
+            ViewScoreBoard(scoreManager.UpdateHighScore(playTime));
         }
         
         public void ViewScoreBoard()

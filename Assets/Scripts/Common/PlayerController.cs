@@ -77,6 +77,11 @@ namespace Common
                 AudioManager.Play(pickUpAudio);
                 playGround.OnPickUp(other.gameObject.GetComponent<PickUp>());
             }
+            else if (other.gameObject.CompareTag("SpecialPickUp"))
+            {
+                AudioManager.Play(pickUpAudio);
+                playGround.OnSpecialPickUp(other.gameObject.GetComponent<PickUp>());
+            }
             else if (other.gameObject.CompareTag("Enemy"))
             {
                 AudioManager.Play(enemyHitAudio);

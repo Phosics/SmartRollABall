@@ -39,9 +39,11 @@ namespace Common
             return _score >= targetScore;
         }
 
-        public List<KeyValuePair<string, double>> UpdateHighScore(string playerName, double playTime)
+        public List<KeyValuePair<string, double>> UpdateHighScore(double playTime)
         {
             var currentTop = GetTopPlayersToPlayTime();
+            
+            var playerName = PlayerPrefs.GetString("current_player") ?? "DEFAULT_PLAYER";
             currentTop.Add(new KeyValuePair<string, double>(playerName, playTime));
 
             var newTop = currentTop

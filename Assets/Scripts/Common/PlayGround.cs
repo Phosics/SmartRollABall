@@ -8,6 +8,7 @@ namespace Common
         public WallsManager wallsManager;
         public ScoreManager scoreManager;
         public PostProcessingEffector postProcessingEffector;
+        public ParticlesEffector particlesEffector;
         public MenuManager menuManager;
         
         public List<PickUp> PickUps { get; private set; }
@@ -92,7 +93,6 @@ namespace Common
         {
             FindCoinsAndEnemies(transform);
             ResetPlayGround();
-            //postProcessingEffector.EnterTrainingMode();
         }
 
         private void FindCoinsAndEnemies(Transform parent)
@@ -131,9 +131,15 @@ namespace Common
             return hasWon;
         }
 
+        private bool _isPp = true;
         public virtual bool OnSpecialPickUp(PickUp pickUp)
         {
-            postProcessingEffector.ToggleEffect();
+            _isPp = !_isPp;
+            if(_isPp)
+                postProcessingEffector.ToggleEffect();
+            else
+                particlesEffector.StartParticles(pickUp.transform.position);
+            
             return OnPickUp(pickUp);
         }
 

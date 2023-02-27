@@ -1,4 +1,6 @@
 using Common;
+using TMPro;
+using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,14 +18,43 @@ namespace MainMenu
         [Header("High Score")]
         public GameObject highScoreMenu;
         public HighScoreController highScoreController;
-        
-        [Space(5)]
-        [Header("Options")]
+
+        [Space(5)] 
+        [Header("Options")] 
+        public GameObject gameTitle;
+        public TMP_InputField inputField;
         public Toggle toggleAI;
 
         public void Start()
         {
-            toggleAI.onValueChanged.AddListener(shouldUseAI => SceneSettings.useAI = shouldUseAI);
+            toggleAI.isOn = PlayerPrefs.GetInt("is_ai") == 1;
+            toggleAI.onValueChanged.AddListener(ChooseAI);
+
+            inputField.text = PlayerPrefs.GetString("current_player");
+            inputField.onValueChanged.AddListener(ChangePlayerName);
+
+            SetStartGamesInteractability();
+        }
+
+        public void ChangePlayerName(string playerName)
+        {
+            PlayerPrefs.SetString("current_player", playerName);
+            SetStartGamesInteractability();
+        }
+        
+        public void ChooseAI(bool withAi)
+        {
+            SceneSettings.useAI = withAi;
+            PlayerPrefs.SetInt("is_ai", withAi ? 1 : 0);
+            SetStartGamesInteractability();
+        }
+
+        private void SetStartGamesInteractability()
+        {
+            var canStartGame = !string.IsNullOrWhiteSpace(PlayerPrefs.GetString("current_player")) || PlayerPrefs.GetInt("is_ai") == 1;
+            stage1.GetComponentInChildren<Button>().interactable = canStartGame;
+            stage2.GetComponentInChildren<Button>().interactable = canStartGame;
+            stage3.GetComponentInChildren<Button>().interactable = canStartGame;
         }
 
         public void StartStage1()
@@ -69,7 +100,8 @@ namespace MainMenu
             stage2.SetActive(isActive);
             stage3.SetActive(isActive);
             toggleAI.gameObject.SetActive(isActive);
-            
+            inputField.gameObject.SetActive(isActive);
+            gameTitle.SetActive(isActive);
             highScoreMenu.SetActive(!isActive);
         }
 

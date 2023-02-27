@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2241242351230483610}
   - component: {fileID: 2241242351230483609}
   m_Layer: 5
-  m_Name: Scoreboard
+  m_Name: Leaderboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Scoreboard
+  m_text: 'Leaderboard
 
 '
   m_isRightToLeft: 0

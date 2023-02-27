@@ -2,32 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingWall : MonoBehaviour
+namespace Common
 {
-    public bool moveX;
-    public bool moveZ;
-    // Start is called before the first frame update
-    void Start()
+    public class MovingWall: MonoBehaviour
     {
-        
-    }
+        public bool moveX;
 
-    public void SetLocation(Vector3 newLocation)
-    {
-        var posX = transform.position.x;
-        var posZ = transform.position.z;
-        if (moveX)
-            posX = newLocation.x;
+        public bool moveZ;
 
-        if (moveZ)
-            posZ = newLocation.z;
+        // Start is called before the first frame update
+        void Start()
+        {
+            
+        }
 
-        transform.position = new Vector3(posX, transform.position.y, posZ);
-    }
+        public void SetLocation(Vector3 newLocation)
+        {
+            var posX = transform.position.x;
+            var posZ = transform.position.z;
+            if (moveX)
+                posX = newLocation.x;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            if (moveZ)
+                posZ = newLocation.z;
+
+            transform.position = new Vector3(posX, transform.position.y, posZ);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }

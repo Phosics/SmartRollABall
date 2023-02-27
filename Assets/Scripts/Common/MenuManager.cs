@@ -71,13 +71,9 @@ namespace Common
             EnableEndGameMenu();
 
             if (won)
-            {
-                _highScoreController.ViewScoreBoard("Test Player", _playTimeInSecs);
-            }
+                _highScoreController.ViewScoreBoard(_playTimeInSecs);
             else
-            {
                 _highScoreController.ViewScoreBoard();
-            }
 
         }
     
