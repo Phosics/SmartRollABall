@@ -74,7 +74,7 @@ public class AIPlayerAgent : Agent
         if (_isGrounded && actions.ContinuousActions[2] > 0.5)
             moveY += jump;
         else if (_isOnWall && actions.ContinuousActions[2] > 0.5)
-            moveY += jump/2;
+            moveY += jump/4;
             
         // Check for collision with the obstacle
         // if (_collideObstacle)
@@ -88,7 +88,7 @@ public class AIPlayerAgent : Agent
         // Add force in the direction of the move vector
         _rb.AddForce(moveXZ * speed);
 
-        AddReward(-0.02f);
+        AddReward(-0.01f);
     }
         
     /// <summary>
@@ -133,7 +133,7 @@ public class AIPlayerAgent : Agent
             else
             {
                 Debug.Log("Wrong pickup");
-                AddReward(0.5f);
+                AddReward(1f);
             }
             FindClosestPickUp();
             Debug.Log("Total Picked");
