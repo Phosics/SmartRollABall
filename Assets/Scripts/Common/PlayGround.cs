@@ -104,7 +104,7 @@ namespace Common
                 if(!child.gameObject.activeSelf)
                     continue;
             
-                if (child.CompareTag("PickUp") || child.CompareTag("Post Process Pickup"))
+                if (child.CompareTag("PickUp") || child.CompareTag("SpecialPickUp"))
                     PickUps.Add(child.GetComponent<PickUp>());
             
                 else if (child.CompareTag("Enemy"))

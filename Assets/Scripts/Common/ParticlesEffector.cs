@@ -7,12 +7,7 @@ namespace Common
     {
         protected ParticleSystem _particleSystem;
 
-        private void Start()
-        {
-            OnStart();
-        }
-
-        protected void OnStart()
+        protected void Start()
         {
             _particleSystem = GetComponent<ParticleSystem>();
             _particleSystem.Stop();

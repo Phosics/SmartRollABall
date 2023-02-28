@@ -1,21 +1,17 @@
 using System;
+using Common;
 using UnityEngine;
 
-namespace Common
+namespace Stage1
 {
     public class PlayerFollowingParticlesEffector : ParticlesEffector
     {
-        public GameObject _player;
+        public GameObject player;
 
-        private void Start()
-        {
-            OnStart();
-        }
-        
         private void FixedUpdate()
         {
             if(_particleSystem.isPlaying)
-                transform.position = _player.transform.position;
+                transform.position = player.transform.position;
         }
     }
 }
