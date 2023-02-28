@@ -4,50 +4,15 @@ using UnityEngine;
 
 namespace Common
 {
-    public class AudioManager : TrainLogicable
+    public class AudioManager
     {
-        public Sound[] sounds;
-
-        public string playOnStart = "Theme";
-
-        private static AudioManager _instance;
         private static Sound[] _allSounds;
 
-        public override void EnterTrainingMode()
+        public static void SetAudios(Sound[] audios)
         {
-            base.EnterTrainingMode();
-            gameObject.SetActive(false);
+            _allSounds = audios;
         }
-
-        // Use this for initialization
-        private void Awake()
-        {
-            if (_instance == null)
-                _instance = this;
-            else
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            DontDestroyOnLoad(gameObject);
-            foreach (var s in sounds)
-            {
-                s.source = gameObject.AddComponent<AudioSource>();
-                s.source.clip = s.clip;
-                s.source.volume = s.volume;
-                s.source.pitch = s.pitch;
-                s.source.loop = s.loop;
-            }
-
-            _allSounds = sounds;
-        }
-
-        private void Start()
-        {
-            Play(playOnStart);
-        }
-
+        
         public static void Play(string soundName)
         {
             GetSoundByName(soundName)?.source.Play();

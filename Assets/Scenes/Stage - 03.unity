@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.41227594, g: 0.48922873, b: 0.60328513, a: 1}
+  m_IndirectSpecularColor: {r: 0.41227594, g: 0.48922887, b: 0.603285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1191,6 +1191,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a9842092a7a6b44b52f738475bd7c9, type: 3}
+--- !u!114 &272239223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7757476682236284138, guid: 32a9842092a7a6b44b52f738475bd7c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 272239222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100ed1121e8b24f089ce8af1da9faa60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &317957977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7341569883312389064, guid: d2e51ac5d27cee7479ca0bbc0507d1d2,
@@ -2123,6 +2135,7 @@ MonoBehaviour:
   highScoreMenu: {fileID: 0}
   endScreenTitle: {fileID: 0}
   replayButtonText: {fileID: 0}
+  playGround: {fileID: 0}
 --- !u!114 &522644905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3030,6 +3043,7 @@ MonoBehaviour:
   highScoreMenu: {fileID: 0}
   endScreenTitle: {fileID: 0}
   replayButtonText: {fileID: 0}
+  playGround: {fileID: 0}
 --- !u!114 &912469965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5909,6 +5923,11 @@ PrefabInstance:
       propertyPath: scoreManager
       value: 
       objectReference: {fileID: 1093070053}
+    - target: {fileID: 2326176714520827288, guid: f5459335aa2587849b9b15966983a045,
+        type: 3}
+      propertyPath: playGround
+      value: 
+      objectReference: {fileID: 272239223}
     - target: {fileID: 2326176714520827289, guid: f5459335aa2587849b9b15966983a045,
         type: 3}
       propertyPath: m_Name

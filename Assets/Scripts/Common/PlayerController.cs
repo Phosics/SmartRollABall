@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,15 +20,24 @@ namespace Common
         [Space(5)]
         [Header("Other Objects")]
         public PlayGround playGround;
-    
+
         private Rigidbody _rb;
         private float _movementX;
         private float _movementZ;
         private bool _isGrounded;
+        private Vector3 _startingPosition;
 
-        private void Start()
+        private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
+            _startingPosition = transform.position;
+        }
+
+        public void ResetPlayer()
+        {
+            transform.position = _startingPosition;
+            _rb.velocity = Vector3.zero;
+            _rb.angularVelocity = Vector3.zero;
         }
     
         private void OnMove(InputValue movementValue)

@@ -14,6 +14,9 @@ namespace Common
         public List<PickUp> PickUps { get; private set; }
         public List<Enemy> Enemies { get; protected set; }
         public List<MovingWall> MovingWalls { get; protected set; }
+        
+        
+        private PlayerController _player;
 
         public virtual void ResetPlayGround()
         {
@@ -22,6 +25,7 @@ namespace Common
             ResetMovingWalls();
             ResetPickUps();
             ResetEnemies();
+            _player.ResetPlayer();
         }
 
         public PickUp FindClosestPickUp(Vector3 location)
@@ -86,11 +90,12 @@ namespace Common
         {
             PickUps = new List<PickUp>();
             Enemies = new List<Enemy>();
-            MovingWalls= new List<MovingWall>();
+            MovingWalls = new List<MovingWall>();
         }
 
         private void Start()
         {
+            _player = GetComponentInChildren<PlayerController>();
             FindCoinsAndEnemies(transform);
             ResetPlayGround();
         }

@@ -16,6 +16,10 @@ namespace Common
         public TextMeshProUGUI endScreenTitle;
         public TextMeshProUGUI replayButtonText;
 
+        [Space(5)] 
+        [Header("Other")] 
+        public PlayGround playGround;
+
         private const int NormalTimeScale = 1;
         
         private HighScoreController _highScoreController;
@@ -68,7 +72,7 @@ namespace Common
         private void OnEndGame(bool won)
         {
             StopTime();
-            EnableEndGameMenu();
+            SetActiveEndGameMenu(true);
 
             if (won)
                 _highScoreController.ViewScoreBoard(_playTimeInSecs);
@@ -80,12 +84,14 @@ namespace Common
         // Reset the playground without loading the scene
         public void ResetGame()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            playGround.ResetPlayGround();
+            SetActiveEndGameMenu(false);
             ResumeTime();
         }
     
         public void Quit()
         {
+            AudioManager.Pause("Theme");
             SceneManager.LoadScene("Main Menu");
         }
 
@@ -93,14 +99,14 @@ namespace Common
         {
             AddTimeSinceLastTimedTime();
             Time.timeScale = 0;
-            AudioManager.Pause("Theme");
+            //AudioManager.Pause("Theme");
         }
     
         private void ResumeTime()
         {
             ResetLastTimedTime();
             Time.timeScale = NormalTimeScale;
-            AudioManager.UnPause("Theme");
+            //AudioManager.UnPause("Theme");
         }
         
         private void ResetLastTimedTime()
@@ -113,10 +119,10 @@ namespace Common
             _playTimeInSecs += Time.time - _lastTimedTime;
         }
         
-        private void EnableEndGameMenu()
+        private void SetActiveEndGameMenu(bool enable)
         {
-            endGameMenu.SetActive(true);
-            highScoreMenu.SetActive(true);
+            endGameMenu.SetActive(enable);
+            highScoreMenu.SetActive(enable);
         }
     }
 }
