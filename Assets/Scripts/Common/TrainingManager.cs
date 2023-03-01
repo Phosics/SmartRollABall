@@ -6,16 +6,16 @@ namespace Common
     {
         public bool trainingMode = false;
 
+        [Space(3)]
+        public GameObject[] gameObjects;
+        
         private void Awake()
         {
             if (!trainingMode)
                 return;
-        
-            // AudioManager.Disable();
             
-            var scriptToEnterToTrain = GetComponentsInChildren<TrainLogicable>();
-            foreach (var s in scriptToEnterToTrain)
-                s.EnterTrainingMode();
+            foreach (var gameObjectToDisable in gameObjects)
+                gameObjectToDisable.SetActive(false);
         }
     }
 }

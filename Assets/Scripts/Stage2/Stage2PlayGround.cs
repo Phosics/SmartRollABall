@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Common;
+using Common.Objects;
 using UnityEngine;
 
 namespace Stage2
@@ -11,15 +12,18 @@ namespace Stage2
 
         public override void ResetPlayGround()
         {
-            foreach (var enemy in Enemies.Skip(1))
+            if (Enemies.Count > 0)
             {
-                if (enemy != null)
+                foreach (var enemy in Enemies.Skip(1))
                 {
-                    Destroy(enemy.gameObject);   
+                    if (enemy != null)
+                    {
+                        Destroy(enemy.gameObject);   
+                    }
                 }
-            }
 
-            Enemies = new List<Enemy>() {Enemies.First()};
+                Enemies = new List<Enemy>() {Enemies.First()};
+            }
             
             base.ResetPlayGround();
         }

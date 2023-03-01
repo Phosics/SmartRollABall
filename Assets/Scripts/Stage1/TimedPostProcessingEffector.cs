@@ -1,26 +1,29 @@
-using Common;
+using Common.Effects;
 using UnityEngine;
 
-public class TimedPostProcessingEffector : PostProcessingEffector
+namespace Stage1
 {
-    public int timeForEffect = 2;
-    private float _timeLeft = 0;
-
-    public override void ToggleEffect()
+    public class TimedPostProcessingEffector : PostProcessingEffector
     {
-        base.EnableEffect();
-        _timeLeft += timeForEffect;
-    }
+        public int timeForEffect = 2;
+        private float _timeLeft = 0;
 
-    public void Update()
-    {
-        if (_timeLeft > 0)
+        public override void ToggleEffect()
         {
-            _timeLeft -= Time.deltaTime;
-            return;
+            base.EnableEffect();
+            _timeLeft += timeForEffect;
         }
+
+        public void Update()
+        {
+            if (_timeLeft > 0)
+            {
+                _timeLeft -= Time.deltaTime;
+                return;
+            }
         
-        _timeLeft = 0;
-        base.StopEffect();
+            _timeLeft = 0;
+            base.StopEffect();
+        }
     }
 }
