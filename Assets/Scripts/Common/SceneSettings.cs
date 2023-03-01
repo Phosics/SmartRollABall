@@ -2,6 +2,6 @@
 {
     public static class SceneSettings
     {
-        public static bool useAI = false;
+        public static bool useAI = true;
     }
 }

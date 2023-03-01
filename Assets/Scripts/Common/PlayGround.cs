@@ -1,31 +1,42 @@
 using System.Collections.Generic;
+using Common.Effects;
+using Common.Menus;
+using Common.Objects;
+using Common.Player;
 using UnityEngine;
 
 namespace Common
 {
-    public class PlayGround : MonoBehaviour
+    public class PlayGround : TrainLogicable
     {
-        public WallsManager wallsManager;
-        public ScoreManager scoreManager;
+        [Header("Managers")]
+        public MenuManager menuManager;
+
+        [Space(5)]
+        [Header("Effects")]
         public PostProcessingEffector postProcessingEffector;
         public ParticlesEffector particlesEffector;
-        public MenuManager menuManager;
+        
+        [HideInInspector]
+        public WallsManager wallsManager;
+
+        private PlayerManager _playerManager;
+        private ScoreManager _scoreManager;
+        private TrainingManager _trainingManager;
+        private bool _isPp = true;
         
         public List<PickUp> PickUps { get; private set; }
         public List<Enemy> Enemies { get; protected set; }
         public List<MovingWall> MovingWalls { get; protected set; }
         
-        
-        private PlayerController _player;
-
         public virtual void ResetPlayGround()
         {
-            scoreManager.Reset();
+            _scoreManager.Reset();
 
             ResetMovingWalls();
             ResetPickUps();
             ResetEnemies();
-            _player.ResetPlayer();
+            _playerManager.ResetPlayer();
         }
 
         public PickUp FindClosestPickUp(Vector3 location)
@@ -95,9 +106,27 @@ namespace Common
 
         private void Start()
         {
-            _player = GetComponentInChildren<PlayerController>();
+            _playerManager = GetComponentInChildren<PlayerManager>();
+            wallsManager = GetComponentInChildren<WallsManager>();
+            _scoreManager = GetComponentInChildren<ScoreManager>();
+            _trainingManager = GetComponent<TrainingManager>();
+            
+            UpdateCurrentPlayer();
+        }
+
+        private void UpdateCurrentPlayer()
+        {
+            var isAIPlayer = SceneSettings.useAI;
+
             FindCoinsAndEnemies(transform);
             ResetPlayGround();
+            SetPlayersActive(isAIPlayer);
+        }
+
+        private void SetPlayersActive(bool isAIPlayer)
+        {
+            _playerManager.aiPlayer.gameObject.SetActive(isAIPlayer);
+            _playerManager.manualPlayer.gameObject.SetActive(!isAIPlayer);
         }
 
         private void FindCoinsAndEnemies(Transform parent)
@@ -125,8 +154,22 @@ namespace Common
 
         public virtual bool OnPickUp(PickUp pickUp)
         {
+            if (!_trainingManager.trainingMode)
+            {
+                AudioManager.Play(_playerManager.pickUpAudio);
+                
+                if (pickUp.CompareTag("SpecialPickUp"))
+                {
+                    _isPp = !_isPp;
+                    if(_isPp)
+                        postProcessingEffector.ToggleEffect();
+                    else
+                        particlesEffector.StartParticles(pickUp.transform.position);
+                }
+            }
+            
             SetPickUpLocation(pickUp);
-            var hasWon = scoreManager.Increase();
+            var hasWon = _scoreManager.Increase();
 
             if (hasWon && menuManager != null)
             {
@@ -134,18 +177,6 @@ namespace Common
             }
 
             return hasWon;
-        }
-
-        private bool _isPp = true;
-        public virtual bool OnSpecialPickUp(PickUp pickUp)
-        {
-            _isPp = !_isPp;
-            if(_isPp)
-                postProcessingEffector.ToggleEffect();
-            else
-                particlesEffector.StartParticles(pickUp.transform.position);
-            
-            return OnPickUp(pickUp);
         }
 
         public virtual void OnPlayerExitBoundary()

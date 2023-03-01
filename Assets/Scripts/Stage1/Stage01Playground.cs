@@ -1,4 +1,5 @@
 ﻿using Common;
+using Common.Objects;
 using UnityEngine;
 
 namespace Stage1 {
@@ -10,7 +11,7 @@ namespace Stage1 {
         {
             Debug.Log("Finding place for Player to spawn");
             // Using 0.6f so that it will not touch the ground
-            var possibleLocation = wallsManager.RandomLocation(0.6f);
+            var possibleLocation = wallsManager.RandomLocation(0.8f);
 
             Physics.OverlapSphereNonAlloc(possibleLocation, 0.5f, Colliders);
 
@@ -19,7 +20,7 @@ namespace Stage1 {
                 Debug.LogWarning("Player collided with " + Colliders[0].tag + ", setting new place");
                 Colliders[0] = null;
 
-                possibleLocation = wallsManager.RandomLocation();
+                possibleLocation = wallsManager.RandomLocation(0.8f);
 
                 Physics.OverlapSphereNonAlloc(possibleLocation, 0.5f, Colliders);
             }
