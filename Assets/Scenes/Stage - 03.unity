@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.41227594, g: 0.48922887, b: 0.603285, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -492,6 +492,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5417809508398495091, guid: 32a9842092a7a6b44b52f738475bd7c9,
+        type: 3}
+      propertyPath: trainingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5543337941807235209, guid: 32a9842092a7a6b44b52f738475bd7c9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -622,6 +627,11 @@ PrefabInstance:
       propertyPath: countText
       value: 
       objectReference: {fileID: 2099082082}
+    - target: {fileID: 8125065078470757119, guid: 32a9842092a7a6b44b52f738475bd7c9,
+        type: 3}
+      propertyPath: targetScore
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8125065078470757119, guid: 32a9842092a7a6b44b52f738475bd7c9,
         type: 3}
       propertyPath: topPlaysAmount

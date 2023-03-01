@@ -186,6 +186,7 @@ MonoBehaviour:
   postProcessingEffector: {fileID: 0}
   particlesEffector: {fileID: 0}
   wallsManager: {fileID: 3125930854154068194}
+  playerManager: {fileID: 0}
   enemyPrefab: {fileID: 9165798254316988784, guid: af4ebcb35ad81e640aad0042ab9a054e,
     type: 3}
 --- !u!114 &1846104852456914934
@@ -200,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea177eae1fe14e79ba7901827e908e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trainingMode: 0
+  trainingMode: 1
   gameObjects: []
 --- !u!1 &3125930854154068220
 GameObject:

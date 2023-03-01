@@ -1020,7 +1020,7 @@ GameObject:
   - component: {fileID: 5592748069450547041}
   m_Layer: 0
   m_Name: Lava
-  m_TagString: Lava
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1525,6 +1525,7 @@ MonoBehaviour:
   postProcessingEffector: {fileID: 0}
   particlesEffector: {fileID: 0}
   wallsManager: {fileID: 8271461400652660160}
+  playerManager: {fileID: 0}
 --- !u!114 &5444127552826692298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1537,7 +1538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea177eae1fe14e79ba7901827e908e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trainingMode: 0
+  trainingMode: 1
   gameObjects:
   - {fileID: 8271461400090858604}
   - {fileID: 8271461400958630005}

@@ -19,8 +19,8 @@ namespace Common
         
         [HideInInspector]
         public WallsManager wallsManager;
-
-        private PlayerManager _playerManager;
+        public PlayerManager playerManager;
+        
         private ScoreManager _scoreManager;
         private TrainingManager _trainingManager;
         private bool _isPp = true;
@@ -36,7 +36,7 @@ namespace Common
             ResetMovingWalls();
             ResetPickUps();
             ResetEnemies();
-            _playerManager.ResetPlayer();
+            playerManager.ResetPlayer();
         }
 
         public PickUp FindClosestPickUp(Vector3 location)
@@ -106,7 +106,7 @@ namespace Common
 
         private void Start()
         {
-            _playerManager = GetComponentInChildren<PlayerManager>();
+            playerManager = GetComponentInChildren<PlayerManager>();
             wallsManager = GetComponentInChildren<WallsManager>();
             _scoreManager = GetComponentInChildren<ScoreManager>();
             _trainingManager = GetComponent<TrainingManager>();
@@ -125,8 +125,8 @@ namespace Common
 
         private void SetPlayersActive(bool isAIPlayer)
         {
-            _playerManager.aiPlayer.gameObject.SetActive(isAIPlayer);
-            _playerManager.manualPlayer.gameObject.SetActive(!isAIPlayer);
+            playerManager.aiPlayer.gameObject.SetActive(isAIPlayer);
+            playerManager.manualPlayer.gameObject.SetActive(!isAIPlayer);
         }
 
         private void FindCoinsAndEnemies(Transform parent)
@@ -156,7 +156,7 @@ namespace Common
         {
             if (!_trainingManager.trainingMode)
             {
-                AudioManager.Play(_playerManager.pickUpAudio);
+                AudioManager.Play(playerManager.pickUpAudio);
                 
                 if (pickUp.CompareTag("SpecialPickUp"))
                 {
@@ -177,6 +177,11 @@ namespace Common
             }
 
             return hasWon;
+        }
+
+        public bool IsInTrainingMode()
+        {
+            return _trainingManager.trainingMode;
         }
 
         public virtual void OnPlayerExitBoundary()

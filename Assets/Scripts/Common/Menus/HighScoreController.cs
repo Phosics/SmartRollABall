@@ -11,6 +11,10 @@ namespace Common.Menus
         public ScoreManager scoreManager;
         
         [Space(5)]
+        [Header("AI Player")] 
+        public HighScorePlayerMenu highScoreAIPlayer;
+        
+        [Space(2)]
         [Header("Players")] 
         public HighScorePlayerMenu[] highScorePlayers;
         
@@ -27,7 +31,15 @@ namespace Common.Menus
 
         public void ViewScoreBoard(double playTime)
         {
-            ViewScoreBoard(scoreManager.UpdateHighScore(playTime));
+            if (SceneSettings.useAI)
+            {
+                scoreManager.SetAIPlayerHighScore(playTime);
+                ViewScoreBoard();
+            }
+            else
+            {
+                ViewScoreBoard(scoreManager.UpdateHighScore(playTime));
+            }
         }
         
         public void ViewScoreBoard()
@@ -37,19 +49,20 @@ namespace Common.Menus
 
         private void ViewScoreBoard(IReadOnlyCollection<KeyValuePair<string, double>> topPlayersToTimes)
         {
-            Debug.Log("Setting high score for players");
+            // Setting the AI Player high score
+            highScoreAIPlayer.playerName.SetText("AI");
+            highScoreAIPlayer.playerTime.SetText(GetTimeText(scoreManager.GetAIPlayerHighScore()));
+            
+            // Setting the manual players high score 
             for (var i = 0; i < topPlayersToTimes.Count; i++)
             {
                 SetHighScorePlayer(highScorePlayers[i], topPlayersToTimes.ElementAt(i));
             }
-            Debug.Log(topPlayersToTimes.Count + " players set");
-            
-            Debug.Log("Setting empty score for empty players");
+
             for (var i = topPlayersToTimes.Count; i < highScorePlayers.Length ; i++)
             {
                 SetEmptyHighScorePlayer(highScorePlayers[i]);
             }
-            Debug.Log(highScorePlayers.Length - topPlayersToTimes.Count + " players set");
         }
         
         private static void SetHighScorePlayer(HighScorePlayerMenu highScorePlayerMenu, 

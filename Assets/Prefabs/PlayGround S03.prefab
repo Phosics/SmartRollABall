@@ -267,6 +267,7 @@ MonoBehaviour:
   postProcessingEffector: {fileID: 0}
   particlesEffector: {fileID: 0}
   wallsManager: {fileID: 7757476682247652462}
+  playerManager: {fileID: 0}
 --- !u!114 &5417809508398495091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea177eae1fe14e79ba7901827e908e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trainingMode: 0
+  trainingMode: 1
   gameObjects: []
 --- !u!1 &7757476682247652432
 GameObject:

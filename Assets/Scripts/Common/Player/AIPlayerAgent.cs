@@ -13,8 +13,6 @@ namespace Common.Player
         [FormerlySerializedAs("playerParameters")]
         public PlayerManager playerManager;
 
-        [Space(5)] [Header("Game style")] public bool isTrainingMode = true;
-
         private Rigidbody _rb;
         private Vector3 _startingPosition;
         private bool _isGrounded;
@@ -45,7 +43,10 @@ namespace Common.Player
             _rb.angularVelocity = Vector3.zero;
 
             // Reset the pickup in a new random location
-            playerManager.playGround.ResetPlayGround();
+            if (playerManager.playGround.IsInTrainingMode())
+            {
+                playerManager.playGround.ResetPlayGround();
+            }
 
             // Get the closest PickUp
             FindClosestPickUp();
@@ -53,7 +54,7 @@ namespace Common.Player
 
         public void ResetPlayer()
         {
-            if (!isTrainingMode || Random.Range(0f, 1f) < 0.0f)
+            if (SceneSettings.useAI || Random.Range(0f, 1f) < 0.0f)
             {
                 transform.position = _startingPosition;
             }
@@ -134,6 +135,11 @@ namespace Common.Player
                     AddReward(30f);
                     Debug.Log("Win!");
                     EndEpisode();
+                    
+                    if (!SceneSettings.useAI)
+                    {
+                        playerManager.playGround.OnPlayerExitBoundary();
+                    }
                 }
 
                 if (other.gameObject.transform == _closestPickUpTransform)

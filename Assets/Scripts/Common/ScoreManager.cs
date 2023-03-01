@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -56,6 +57,28 @@ namespace Common
             
             return newTop.ToList();
         }
+
+        public void SetAIPlayerHighScore(double playTime)
+        {
+            var currentHighScore = GetAIPlayerHighScore();
+
+            if (playTime < currentHighScore)
+            {
+                PlayerPrefs.SetString(GetAIPlayerKey(), playTime.ToString(CultureInfo.CurrentCulture));
+            }
+        }
+        
+        public double GetAIPlayerHighScore()
+        { 
+            var highScoreText = PlayerPrefs.GetString(GetAIPlayerKey());
+
+            if (!string.IsNullOrEmpty(highScoreText))
+            {
+                return double.Parse(highScoreText);
+            }
+
+            return double.PositiveInfinity;
+        }
         
         public List<KeyValuePair<string, double>> GetTopPlayersToPlayTime()
         {
@@ -75,6 +98,11 @@ namespace Common
                 }).ToList();
         }
 
+        private string GetAIPlayerKey()
+        {
+            return $"ai_player{stage}";
+        }
+        
         private string GetTopPlayersKey()
         {
             return $"top_players{stage}";

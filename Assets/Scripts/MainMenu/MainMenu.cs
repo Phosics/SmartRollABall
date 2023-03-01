@@ -28,7 +28,7 @@ namespace MainMenu
 
         public void Start()
         {
-            toggleAI.isOn = PlayerPrefs.GetInt("is_ai") == 1;
+            toggleAI.isOn = SceneSettings.useAI;
             toggleAI.onValueChanged.AddListener(ChooseAI);
 
             inputField.text = PlayerPrefs.GetString("current_player");

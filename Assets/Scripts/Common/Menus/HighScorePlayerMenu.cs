@@ -17,7 +17,14 @@ namespace Common.Menus
 
         public void Start()
         {
-            playerNumber.SetText("#" + rank);
+            if (rank != 0)
+            {
+                playerNumber.SetText("#" + rank);   
+            }
+            else
+            {
+                playerNumber.SetText("#AI");   
+            }
         }
     }
 }

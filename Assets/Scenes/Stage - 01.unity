@@ -5575,6 +5575,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3ff25f059b576904aae8f10038cb9a6e, type: 2}
+    - target: {fileID: 5444127552826692298, guid: 5e482b75fc310fa4ea221383efe9caa1,
+        type: 3}
+      propertyPath: trainingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6766820966293233683, guid: 5e482b75fc310fa4ea221383efe9caa1,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
@@ -5697,6 +5702,11 @@ PrefabInstance:
       objectReference: {fileID: 2326176714620188722}
     - target: {fileID: 8271461399371329053, guid: 5e482b75fc310fa4ea221383efe9caa1,
         type: 3}
+      propertyPath: targetScore
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271461399371329053, guid: 5e482b75fc310fa4ea221383efe9caa1,
+        type: 3}
       propertyPath: topPlaysAmount
       value: 3
       objectReference: {fileID: 0}
@@ -5773,7 +5783,7 @@ PrefabInstance:
     - target: {fileID: 2326176713794124760, guid: f5459335aa2587849b9b15966983a045,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2326176713794124763, guid: f5459335aa2587849b9b15966983a045,
         type: 3}
@@ -5903,7 +5913,12 @@ PrefabInstance:
     - target: {fileID: 2326176715549794473, guid: f5459335aa2587849b9b15966983a045,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326176715815818638, guid: f5459335aa2587849b9b15966983a045,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5459335aa2587849b9b15966983a045, type: 3}

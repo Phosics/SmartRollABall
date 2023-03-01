@@ -8,7 +8,7 @@ namespace Common.Player
 {
     public class PlayerController : MonoBehaviour, IPlayerFunctions
     {
-        [FormerlySerializedAs("playerParameters")] public PlayerManager playerManager;
+        public PlayerManager playerManager;
 
         private Rigidbody _rb;
         private float _movementX;

@@ -2038,6 +2038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2326176713794124763, guid: f5459335aa2587849b9b15966983a045,
         type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326176713794124763, guid: f5459335aa2587849b9b15966983a045,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -250
       objectReference: {fileID: 0}
@@ -7282,6 +7287,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1846104852456914934, guid: 631774db54098424d9ef88853f67e262,
+        type: 3}
+      propertyPath: trainingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2973483617895448145, guid: 631774db54098424d9ef88853f67e262,
         type: 3}
       propertyPath: stage
@@ -7295,7 +7305,7 @@ PrefabInstance:
     - target: {fileID: 2973483617895448145, guid: 631774db54098424d9ef88853f67e262,
         type: 3}
       propertyPath: targetScore
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2973483617895448145, guid: 631774db54098424d9ef88853f67e262,
         type: 3}

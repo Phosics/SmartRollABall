@@ -83,14 +83,31 @@ namespace Common.Menus
         }
     
         // Reset the playground without loading the scene
-        public void ResetGame()
+        public void ResetGameOnEnd()
+        {
+            SetActiveEndGameMenu(false);
+            ResetGame();
+        }
+
+        public void ResetGameOnMiddle()
+        {
+            if (SceneSettings.useAI)
+            {
+                playGround.playerManager.aiPlayer.EndEpisode();
+            }
+
+            pauseMenu.SetActive(false);
+            ResetGame();
+        }
+
+        private void ResetGame()
         {
             playGround.ResetPlayGround();
             playGround.particlesEffector.StopEffect();
             playGround.postProcessingEffector.StopEffect();
-            SetActiveEndGameMenu(false);
             ResumeTime();
         }
+        
     
         public void Quit()
         {

@@ -23,10 +23,13 @@ namespace Common.Effects
 
         public void StopEffect()
         {
-            if (sceneParticleSystem.isPlaying)
+            if (!sceneParticleSystem.isPlaying)
             {
-                sceneParticleSystem.Stop();
+                return;
             }
+            
+            sceneParticleSystem.Stop();
+            sceneParticleSystem.Clear();
         }
     }
 }
