@@ -19,6 +19,7 @@ namespace Common
         
         [HideInInspector]
         public WallsManager wallsManager;
+        [HideInInspector]
         public PlayerManager playerManager;
         
         private ScoreManager _scoreManager;
@@ -111,6 +112,8 @@ namespace Common
             _scoreManager = GetComponentInChildren<ScoreManager>();
             _trainingManager = GetComponent<TrainingManager>();
             
+            playerManager.UpdateCurrentPlayer();
+            
             UpdateCurrentPlayer();
         }
 
@@ -120,7 +123,7 @@ namespace Common
 
             FindCoinsAndEnemies(transform);
             ResetPlayGround();
-            SetPlayersActive(isAIPlayer);
+            SetPlayersActive(isAIPlayer || IsInTrainingMode());
         }
 
         private void SetPlayersActive(bool isAIPlayer)
@@ -156,7 +159,7 @@ namespace Common
         {
             if (!_trainingManager.trainingMode)
             {
-                AudioManager.Play(playerManager.pickUpAudio);
+                AudioManager.Play(playerManager.pickUpAudio, IsInTrainingMode());
                 
                 if (pickUp.CompareTag("SpecialPickUp"))
                 {

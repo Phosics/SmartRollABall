@@ -41,7 +41,7 @@ namespace Common.Player
             if (!_isGrounded) 
                 return;
 
-            AudioManager.Play(playerManager.jumpAudio);
+            AudioManager.Play(playerManager.jumpAudio, playerManager.playGround.IsInTrainingMode());
             _rb.AddForce(new Vector3(0, playerManager.jump, 0) * playerManager.speed);
         }
 
@@ -58,7 +58,7 @@ namespace Common.Player
             }
             else if (collision.gameObject.CompareTag("Enemy"))
             {
-                AudioManager.Play(playerManager.enemyHitAudio);
+                AudioManager.Play(playerManager.enemyHitAudio, playerManager.playGround.IsInTrainingMode());
                 _rb.AddForce(new Vector3(0, playerManager.enemyCollisionJumpForce, 0) * playerManager.speed);
             }
         }
@@ -77,7 +77,7 @@ namespace Common.Player
             }
             else if (other.gameObject.CompareTag("Enemy"))
             {
-                AudioManager.Play(playerManager.enemyHitAudio);
+                AudioManager.Play(playerManager.enemyHitAudio, playerManager.playGround.IsInTrainingMode());
                 _rb.AddForce(new Vector3(0, playerManager.enemyCollisionJumpForce, 0) * playerManager.speed);
             }
             else if (other.gameObject.CompareTag("Boundary"))

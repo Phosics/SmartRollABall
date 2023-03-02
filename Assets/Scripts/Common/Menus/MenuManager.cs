@@ -111,7 +111,7 @@ namespace Common.Menus
     
         public void Quit()
         {
-            AudioManager.Pause("Theme");
+            AudioManager.Pause("Theme", false);
             SceneManager.LoadScene("Main Menu");
         }
 

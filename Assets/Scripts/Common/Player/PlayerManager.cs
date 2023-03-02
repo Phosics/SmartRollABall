@@ -27,17 +27,17 @@ namespace Common.Player
         private IPlayerFunctions _currentPlayer;
         private GameObject _currentPlayerGameObject;
 
-        private void Awake()
+        public void UpdateCurrentPlayer()
         {
-            if (!SceneSettings.useAI)
-            {
-                _currentPlayer = manualPlayer;
-                _currentPlayerGameObject = manualPlayer.gameObject;
-            }
-            else
+            if (SceneSettings.useAI || playGround.IsInTrainingMode())
             {
                 _currentPlayer = aiPlayer;
                 _currentPlayerGameObject = aiPlayer.gameObject;
+            }
+            else
+            {
+                _currentPlayer = manualPlayer;
+                _currentPlayerGameObject = manualPlayer.gameObject;
             }
         }
 
@@ -48,7 +48,12 @@ namespace Common.Player
 
         public Transform GetPlayerTransform()
         {
-            return _currentPlayerGameObject.transform;
+            if (_currentPlayerGameObject != null)
+            {
+                return _currentPlayerGameObject.transform;
+            }
+
+            return manualPlayer.transform;
         }
     }
 }

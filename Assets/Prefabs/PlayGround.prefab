@@ -1455,11 +1455,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d596f95b379f0cb4a9ccd387b460a55a, type: 2}
+    - target: {fileID: 4236524178233838835, guid: 3a17f5692b360e84b8649e29fce8c17d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381976781304716199, guid: 3a17f5692b360e84b8649e29fce8c17d,
+        type: 3}
+      propertyPath: playGround
+      value: 
+      objectReference: {fileID: 3125930853660418078}
     - target: {fileID: 8891902719137265368, guid: 3a17f5692b360e84b8649e29fce8c17d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d596f95b379f0cb4a9ccd387b460a55a, type: 2}
+    - target: {fileID: 8891902719137265370, guid: 3a17f5692b360e84b8649e29fce8c17d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9138500374891070639, guid: 3a17f5692b360e84b8649e29fce8c17d,
         type: 3}
       propertyPath: m_RootOrder

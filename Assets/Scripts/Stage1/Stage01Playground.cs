@@ -9,7 +9,6 @@ namespace Stage1 {
 
         public override Vector3 FindSafeLocationForPlayer()
         {
-            Debug.Log("Finding place for Player to spawn");
             // Using 0.6f so that it will not touch the ground
             var possibleLocation = wallsManager.RandomLocation(0.8f);
 
@@ -48,7 +47,6 @@ namespace Stage1 {
         
         protected override void SetPickUpLocation(PickUp pickUp)
         {
-            Debug.Log("Finding place for PickUp to spawn");
             var possibleLocation = wallsManager.RandomLocation();
 
             Physics.OverlapBoxNonAlloc(possibleLocation, new Vector3(0.25f, 0.25f, 0.25f),
