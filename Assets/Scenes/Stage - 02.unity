@@ -7287,6 +7287,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1668567898427899153, guid: 631774db54098424d9ef88853f67e262,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1846104852456914934, guid: 631774db54098424d9ef88853f67e262,
         type: 3}
       propertyPath: trainingMode
@@ -7442,6 +7447,11 @@ PrefabInstance:
       propertyPath: playGround
       value: 
       objectReference: {fileID: 3125930854714001813}
+    - target: {fileID: 6236002843599357752, guid: 631774db54098424d9ef88853f67e262,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6761116570249238411, guid: 631774db54098424d9ef88853f67e262,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
