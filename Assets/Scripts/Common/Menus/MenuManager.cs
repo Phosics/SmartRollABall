@@ -93,7 +93,7 @@ namespace Common.Menus
         {
             if (SceneSettings.useAI)
             {
-                playGround.playerManager.aiPlayer.EndEpisode();
+                playGround.playerManager.EndEpisode();
             }
 
             pauseMenu.SetActive(false);

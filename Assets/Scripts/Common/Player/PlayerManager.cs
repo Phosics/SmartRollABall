@@ -6,7 +6,7 @@ namespace Common.Player
     {
         [Header("Players")] 
         public PlayerController manualPlayer;
-        public AIPlayerAgent aiPlayer;
+        public AIPlayerContainer aiPlayerContainer;
         
         [Space(5)]
         [Header("Player Attributes")]
@@ -27,18 +27,24 @@ namespace Common.Player
         private IPlayerFunctions _currentPlayer;
         private GameObject _currentPlayerGameObject;
 
+        private bool _isCurrentPlayerInitialized = false;
+
         public void UpdateCurrentPlayer()
         {
             if (SceneSettings.useAI || playGround.IsInTrainingMode())
             {
-                _currentPlayer = aiPlayer;
-                _currentPlayerGameObject = aiPlayer.gameObject;
+                var aiPlayerAgent = aiPlayerContainer.aiPlayers[SceneSettings.brain];
+                
+                _currentPlayer = aiPlayerAgent;
+                _currentPlayerGameObject = aiPlayerAgent.gameObject;
             }
             else
             {
                 _currentPlayer = manualPlayer;
                 _currentPlayerGameObject = manualPlayer.gameObject;
             }
+            
+            _isCurrentPlayerInitialized = true;
         }
 
         public void ResetPlayer()
@@ -48,12 +54,20 @@ namespace Common.Player
 
         public Transform GetPlayerTransform()
         {
-            if (_currentPlayerGameObject != null)
-            {
-                return _currentPlayerGameObject.transform;
-            }
+            return _isCurrentPlayerInitialized ? _currentPlayerGameObject.transform : manualPlayer.transform;
+        }
 
-            return manualPlayer.transform;
+        public void SetActiveAIPlayer(bool active)
+        {
+            for (var i = 0; i < aiPlayerContainer.aiPlayers.Length; i++)
+            {
+                aiPlayerContainer.aiPlayers[i].gameObject.SetActive(i == SceneSettings.brain && active);
+            }
+        }
+
+        public void EndEpisode()
+        {
+            aiPlayerContainer.aiPlayers[SceneSettings.brain].EndEpisode();
         }
     }
 }

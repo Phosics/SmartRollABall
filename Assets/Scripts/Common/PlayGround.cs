@@ -128,7 +128,7 @@ namespace Common
 
         private void SetPlayersActive(bool isAIPlayer)
         {
-            playerManager.aiPlayer.gameObject.SetActive(isAIPlayer);
+            playerManager.SetActiveAIPlayer(isAIPlayer);
             playerManager.manualPlayer.gameObject.SetActive(!isAIPlayer);
         }
 
