@@ -25,7 +25,7 @@ namespace Common.Effects
 
         private void Start()
         {
-            AudioManager.Play(playOnStart, true);
+            AudioManager.Play(playOnStart, false);
         }
     }
 }

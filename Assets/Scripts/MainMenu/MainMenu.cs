@@ -1,7 +1,6 @@
 using Common;
 using Common.Menus;
 using TMPro;
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -25,29 +24,36 @@ namespace MainMenu
         public GameObject gameTitle;
         public TMP_InputField inputField;
         public Toggle toggleAI;
+        public TMP_Dropdown aiBrainOptions;
 
         public void Start()
         {
             toggleAI.isOn = SceneSettings.useAI;
-            toggleAI.onValueChanged.AddListener(ChooseAI);
-
+            aiBrainOptions.interactable = SceneSettings.useAI;
+            aiBrainOptions.value = SceneSettings.brain;
             inputField.text = PlayerPrefs.GetString("current_player");
-            inputField.onValueChanged.AddListener(ChangePlayerName);
 
             SetStartGamesInteractability();
         }
 
-        public void ChangePlayerName(string playerName)
+        public void OnPlayerNameChange()
         {
-            PlayerPrefs.SetString("current_player", playerName);
+            PlayerPrefs.SetString("current_player", inputField.text);
             SetStartGamesInteractability();
         }
         
-        public void ChooseAI(bool withAi)
+        public void OnAIValueChange()
         {
-            SceneSettings.useAI = withAi;
-            PlayerPrefs.SetInt("is_ai", withAi ? 1 : 0);
+            var value = toggleAI.isOn;
+            SceneSettings.useAI = value;
+            aiBrainOptions.interactable = value;
+            PlayerPrefs.SetInt("is_ai", value ? 1 : 0);
             SetStartGamesInteractability();
+        }
+
+        public void OnBrainChange()
+        {
+            SceneSettings.brain = aiBrainOptions.value;
         }
 
         private void SetStartGamesInteractability()

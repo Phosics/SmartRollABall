@@ -1019,7 +1019,6 @@ GameObject:
   m_Component:
   - component: {fileID: 832575519}
   - component: {fileID: 832575518}
-  - component: {fileID: 832575520}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -1059,18 +1058,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &832575520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832575517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d732f7ff29cade488a826288610e3f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &842421498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,7 +1091,7 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 436aff1836a985242afee77e4e373f97, type: 3}
     name: Theme
     loop: 1
-    volume: 0.05
+    volume: 0.207
     pitch: 1
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 24dca184e278796449f7ae9988a66a82, type: 3}
