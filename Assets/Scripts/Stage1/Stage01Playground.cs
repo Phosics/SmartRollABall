@@ -16,7 +16,7 @@ namespace Stage1 {
 
             while (Colliders[0] != null)
             {
-                Debug.LogWarning("Player collided with " + Colliders[0].tag + ", setting new place");
+                Debug.Log("Player collided with " + Colliders[0].tag + ", setting new place");
                 Colliders[0] = null;
 
                 possibleLocation = wallsManager.RandomLocation(0.8f);

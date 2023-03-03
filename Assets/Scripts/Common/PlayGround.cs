@@ -189,7 +189,8 @@ namespace Common
 
         public virtual void OnPlayerExitBoundary()
         {
-            menuManager.OnLoseGame();
+            if (menuManager != null)
+                menuManager.OnLoseGame();
         }
 
         protected virtual void SetPickUpLocation(PickUp pickUp)

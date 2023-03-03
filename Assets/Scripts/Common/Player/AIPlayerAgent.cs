@@ -94,7 +94,7 @@ namespace Common.Player
             // Add force in the direction of the move vector
             _rb.AddForce(moveXZ * playerManager.speed);
 
-            AddReward(-0.01f);
+            AddReward(-0.015f);
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace Common.Player
                 if (playerManager.playGround.OnPickUp(other.gameObject.GetComponent<PickUp>()))
                 {
                     AddReward(30f);
-                    Debug.Log("Win!");
+                    Debug.LogWarning("Win!");
                     EndEpisode();
                     
                     if (!SceneSettings.useAI)
@@ -144,22 +144,21 @@ namespace Common.Player
 
                 if (other.gameObject.transform == _closestPickUpTransform)
                 {
-                    Debug.Log("Right pickup");
+                    Debug.LogWarning("Right pickup");
                     AddReward(1f);
                 }
                 else
                 {
-                    Debug.Log("Wrong pickup");
+                    Debug.LogWarning("Wrong pickup");
                     AddReward(1f);
                 }
 
                 FindClosestPickUp();
-                Debug.Log("Total Picked");
             }
             else if (other.CompareTag("Boundary"))
             {
                 AddReward(-10f);
-                Debug.Log("Loss!");
+                Debug.LogWarning("Loss!");
                 _isClosestPickUpTransformInitialized = false;
                 EndEpisode();
             }

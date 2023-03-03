@@ -962,7 +962,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: cf1e9c3c06dbc874aa522171b22e96ec, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 3
   m_BehaviorType: 0
   m_BehaviorName: SmartRollABall
@@ -986,11 +986,7 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 5000
-  speed: 10
-  jump: 20
-  enemyCollisionJumpForce: 40
-  playGround: {fileID: 0}
-  isTrainingMode: 1
+  playerManager: {fileID: 0}
 --- !u!114 &8320632328018266142
 MonoBehaviour:
   m_ObjectHideFlags: 0
