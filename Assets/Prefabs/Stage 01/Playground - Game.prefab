@@ -127,9 +127,10 @@ GameObject:
   - component: {fileID: 2050377896616420071}
   - component: {fileID: 7961151837181262686}
   - component: {fileID: 5032404250170738183}
+  - component: {fileID: 8637629468875059286}
   m_Layer: 0
   m_Name: Inside Wall 6
-  m_TagString: Wall
+  m_TagString: MovingWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -212,6 +213,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8637629468875059286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776027472724595607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af706b80df7a9c84fa3ef4a544db9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0
+  moveZ: 0
 --- !u!1 &852132680678153548
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,9 +239,10 @@ GameObject:
   - component: {fileID: 325263137163625528}
   - component: {fileID: 6607971666111125244}
   - component: {fileID: 6698273421605542034}
+  - component: {fileID: 9129074936450066236}
   m_Layer: 0
   m_Name: Inside Wall 2
-  m_TagString: Wall
+  m_TagString: MovingWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -309,6 +325,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9129074936450066236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852132680678153548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af706b80df7a9c84fa3ef4a544db9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0
+  moveZ: 0
 --- !u!1 &1151719287489170690
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,9 +351,10 @@ GameObject:
   - component: {fileID: 1100967003700518239}
   - component: {fileID: 1997566197828259631}
   - component: {fileID: 2364297652795967827}
+  - component: {fileID: 3945501047558367373}
   m_Layer: 0
   m_Name: Inside Wall 4
-  m_TagString: Wall
+  m_TagString: MovingWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -406,6 +437,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3945501047558367373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151719287489170690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af706b80df7a9c84fa3ef4a544db9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0
+  moveZ: 0
 --- !u!1 &1155732913815773172
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,9 +463,10 @@ GameObject:
   - component: {fileID: 943421808891302794}
   - component: {fileID: 2899392123370868073}
   - component: {fileID: 8833836670529967551}
+  - component: {fileID: 5385227877124759283}
   m_Layer: 0
   m_Name: Inside Wall 1
-  m_TagString: Wall
+  m_TagString: MovingWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -503,6 +549,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5385227877124759283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155732913815773172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af706b80df7a9c84fa3ef4a544db9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0
+  moveZ: 0
 --- !u!1 &1423220354798898575
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,9 +575,10 @@ GameObject:
   - component: {fileID: 5236120707879949349}
   - component: {fileID: 4776486153696907520}
   - component: {fileID: 728467271199331589}
+  - component: {fileID: 3376735008946080148}
   m_Layer: 0
   m_Name: Inside Wall 9
-  m_TagString: Wall
+  m_TagString: MovingWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -600,6 +661,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3376735008946080148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423220354798898575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af706b80df7a9c84fa3ef4a544db9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0
+  moveZ: 0
 --- !u!1 &1986908816228352606
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,9 +802,10 @@ GameObject:
   - component: {fileID: 1945005973783776965}
   - component: {fileID: 7383232278558406975}
   - component: {fileID: 4889356301079430718}
+  - component: {fileID: 3437014476619564309}
   m_Layer: 0
   m_Name: Inside Wall 8
-  m_TagString: Wall
+  m_TagString: MovingWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -812,6 +888,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3437014476619564309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2352415529194738035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af706b80df7a9c84fa3ef4a544db9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0
+  moveZ: 0
 --- !u!1 &3010586686098128122
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,9 +914,10 @@ GameObject:
   - component: {fileID: 8942336556284247341}
   - component: {fileID: 1845691801312916667}
   - component: {fileID: 2760527967288126206}
+  - component: {fileID: 1807154979818165091}
   m_Layer: 0
   m_Name: Inside Wall 7
-  m_TagString: Wall
+  m_TagString: MovingWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -909,6 +1000,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1807154979818165091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3010586686098128122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af706b80df7a9c84fa3ef4a544db9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0
+  moveZ: 0
 --- !u!1 &4765409361146539268
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,9 +1026,10 @@ GameObject:
   - component: {fileID: 6583004329123077165}
   - component: {fileID: 2540021661565748513}
   - component: {fileID: 6668729595561960884}
+  - component: {fileID: 23600678515119612}
   m_Layer: 0
   m_Name: Inside Wall 3
-  m_TagString: Wall
+  m_TagString: MovingWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1006,6 +1112,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &23600678515119612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4765409361146539268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af706b80df7a9c84fa3ef4a544db9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0
+  moveZ: 0
 --- !u!1 &5139715564754565780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,9 +1236,10 @@ GameObject:
   - component: {fileID: 7914187478597250779}
   - component: {fileID: 5912405770635283534}
   - component: {fileID: 6128432039749921012}
+  - component: {fileID: 5413649157370491261}
   m_Layer: 0
   m_Name: Inside Wall 5
-  m_TagString: Wall
+  m_TagString: MovingWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1201,6 +1322,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5413649157370491261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5498208122631455929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af706b80df7a9c84fa3ef4a544db9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0
+  moveZ: 0
 --- !u!1 &7113970335235107363
 GameObject:
   m_ObjectHideFlags: 0
