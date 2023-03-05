@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "91047a39-ee86-4eca-981f-c9c54c755fe7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "9215b6ef-61c1-4fcc-aa23-03f410bd75a4",
@@ -134,27 +143,10 @@
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "UI Control",
-            "id": "a1d99070-3f9b-431c-8179-2ee92b169ed9",
-            "actions": [
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "1161fdea-3d9b-4be7-95b3-175cd759ecf6",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "102acbe5-3f26-4d20-81d1-b86527fa9ca8",
+                    "id": "46a7cdf3-ae4c-4a55-b3da-0fee6d363d7b",
                     "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",

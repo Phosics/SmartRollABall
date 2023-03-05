@@ -39,7 +39,7 @@ namespace Common.Menus
             ResetLastTimedTime();
         }
 
-        private void OnPause()
+        public void OnPause()
         {
             Debug.Log("Game paused");
             pauseMenu.SetActive(true);

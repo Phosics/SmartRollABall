@@ -29,14 +29,14 @@ namespace Common.Player
             _rb.angularVelocity = Vector3.zero;
         }
 
-        private void OnMove(InputValue movementValue)
+        public void OnMove(InputValue movementValue)
         {
             var movementVector = movementValue.Get<Vector2>();
             _movementX = movementVector.x;
             _movementZ = movementVector.y;
         }
     
-        private void OnJump()
+        public void OnJump()
         {
             if (!_isGrounded) 
                 return;
