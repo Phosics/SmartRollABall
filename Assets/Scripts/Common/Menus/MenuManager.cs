@@ -16,6 +16,7 @@ namespace Common.Menus
         [Header("UI")]
         public TextMeshProUGUI endScreenTitle;
         public TextMeshProUGUI replayButtonText;
+        public Timer timer;
 
         [Space(5)] 
         [Header("Other")] 
@@ -25,8 +26,8 @@ namespace Common.Menus
         
         private HighScoreController _highScoreController;
 
-        private float _playTimeInSecs = 0;
-        private float _lastTimedTime;
+        // private float _playTimeInSecs = 0;
+        // private float _lastTimedTime;
 
         private void Start()
         {
@@ -35,23 +36,25 @@ namespace Common.Menus
             highScoreMenu.SetActive(false);
             pauseMenu.SetActive(false);
             endGameMenu.SetActive(false);
-            
-            ResetLastTimedTime();
+
+            timer.StartTimer();
+            // ResetLastTimedTime();
         }
 
         public void OnPause()
         {
             Debug.Log("Game paused");
             pauseMenu.SetActive(true);
-            StopTime();
+            timer.StopTimer();
+            Time.timeScale = 0;
         }
     
         public void OnResume()
         {
             Debug.Log("Game resumed");
             pauseMenu.SetActive(false);
-            ResumeTime();
-            ResetLastTimedTime();
+            timer.ResumeTimer();
+            Time.timeScale = NormalTimeScale;
         }
 
         public void OnLoseGame()
@@ -72,11 +75,14 @@ namespace Common.Menus
         
         private void OnEndGame(bool won)
         {
-            StopTime();
+            timer.StopTimer();
+            Time.timeScale = 0;
+            // StopTime();
             SetActiveEndGameMenu(true);
 
             if (won)
-                _highScoreController.ViewScoreBoard(_playTimeInSecs);
+                _highScoreController.ViewScoreBoard(timer.TimeInGame);
+                // _highScoreController.ViewScoreBoard(_playTimeInSecs);
             else
                 _highScoreController.ViewScoreBoard();
 
@@ -105,7 +111,9 @@ namespace Common.Menus
             playGround.ResetPlayGround();
             playGround.particlesEffector.StopEffect();
             playGround.postProcessingEffector.StopEffect();
-            ResumeTime();
+            timer.StartTimer();
+            Time.timeScale = NormalTimeScale;
+            // ResumeTime();
         }
         
     
@@ -115,30 +123,6 @@ namespace Common.Menus
             SceneManager.LoadScene("Main Menu");
         }
 
-        private void StopTime()
-        {
-            AddTimeSinceLastTimedTime();
-            Time.timeScale = 0;
-            //AudioManager.Pause("Theme");
-        }
-    
-        private void ResumeTime()
-        {
-            ResetLastTimedTime();
-            Time.timeScale = NormalTimeScale;
-            //AudioManager.UnPause("Theme");
-        }
-        
-        private void ResetLastTimedTime()
-        {
-            _lastTimedTime = Time.time;
-        }
-        
-        private void AddTimeSinceLastTimedTime()
-        {
-            _playTimeInSecs += Time.time - _lastTimedTime;
-        }
-        
         private void SetActiveEndGameMenu(bool enable)
         {
             endGameMenu.SetActive(enable);
