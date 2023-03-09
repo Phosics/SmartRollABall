@@ -16,8 +16,9 @@ namespace MainMenu
         
         [Space(5)]
         [Header("High Score")]
-        public GameObject highScoreMenu;
-        public HighScoreController highScoreController;
+        public HighscoreTable HighscoreTable;
+        // public GameObject highScoreMenu;
+        // public HighScoreController highScoreController;
 
         [Space(5)] 
         [Header("Options")] 
@@ -25,6 +26,10 @@ namespace MainMenu
         public TMP_InputField inputField;
         public Toggle toggleAI;
         public TMP_Dropdown aiBrainOptions;
+        public GameObject eagle;
+
+        private Vector3 eaglePos;
+        private Vector3 eagleTablePos;
 
         public void Start()
         {
@@ -32,7 +37,8 @@ namespace MainMenu
             aiBrainOptions.interactable = SceneSettings.useAI;
             aiBrainOptions.value = SceneSettings.brain;
             inputField.text = PlayerPrefs.GetString("current_player");
-
+            eaglePos = eagle.transform.position;
+            eagleTablePos = new Vector3(1f, 2.57f, eaglePos.z);
             SetStartGamesInteractability();
         }
 
@@ -62,10 +68,12 @@ namespace MainMenu
             stage1.GetComponentInChildren<Button>().interactable = canStartGame;
             stage2.GetComponentInChildren<Button>().interactable = canStartGame;
             stage3.GetComponentInChildren<Button>().interactable = canStartGame;
+            // Debug.Log("canStartGame = " + canStartGame);
         }
 
         public void StartStage1()
         {
+            PlayerPrefs.SetString("stage_number", "1");
             Debug.Log("Loading Stage 01");
             SetTimeScale();
             SceneManager.LoadScene("Stage - 01");
@@ -73,6 +81,7 @@ namespace MainMenu
     
         public void StartStage2()
         {
+            PlayerPrefs.SetString("stage_number", "2");
             Debug.Log("Loading Stage 02");
             SetTimeScale();
             SceneManager.LoadScene("Stage - 02");
@@ -80,6 +89,7 @@ namespace MainMenu
     
         public void StartStage3()
         {
+            PlayerPrefs.SetString("stage_number", "3");
             Debug.Log("Loading Stage 03");
             SetTimeScale();
             SceneManager.LoadScene("Stage - 03");
@@ -87,11 +97,8 @@ namespace MainMenu
 
         public void ShowScoreboard(int stageNumber)
         {
-            Debug.Log("Showing the high score board");
-
-            highScoreController.scoreManager.stage = (StageNumber)stageNumber;
-            highScoreController.ViewScoreBoard();
-
+            Debug.Log("Showing the high score board for stage " + stageNumber);
+            PlayerPrefs.SetString("stage_number", stageNumber.ToString());
             SetActiveToUIElements(false);
         }
 
@@ -109,7 +116,9 @@ namespace MainMenu
             toggleAI.gameObject.SetActive(isActive);
             inputField.gameObject.SetActive(isActive);
             gameTitle.SetActive(isActive);
-            highScoreMenu.SetActive(!isActive);
+            aiBrainOptions.gameObject.SetActive(isActive);
+            eagle.transform.position = isActive ? eaglePos : eagleTablePos;
+            HighscoreTable.gameObject.SetActive(!isActive);
         }
 
         private static void SetTimeScale()

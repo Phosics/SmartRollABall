@@ -17,14 +17,14 @@ namespace Common.Menus
 
         public void Start()
         {
-            if (rank != 0)
-            {
-                playerNumber.SetText("#" + rank);   
-            }
-            else
-            {
-                playerNumber.SetText("#AI");   
-            }
+            //if (rank != 0)
+            //{
+            //    playerNumber.SetText("#" + rank);   
+            //}
+            //else
+            //{
+            //    playerNumber.SetText("#AI");   
+            //}
         }
     }
 }

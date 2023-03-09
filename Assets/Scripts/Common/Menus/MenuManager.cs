@@ -10,7 +10,6 @@ namespace Common.Menus
         [Header("Menus")]
         public GameObject pauseMenu;
         public GameObject endGameMenu;
-        public GameObject highScoreMenu;
     
         [Space(5)]
         [Header("UI")]
@@ -24,19 +23,22 @@ namespace Common.Menus
 
         private const int NormalTimeScale = 1;
         
-        private HighScoreController _highScoreController;
+        // private HighScoreController _highScoreController;
+        private HighscoreTable _HighscoreTable;
 
         // private float _playTimeInSecs = 0;
         // private float _lastTimedTime;
 
         private void Start()
         {
-            _highScoreController = GetComponent<HighScoreController>();
+            // _highScoreController = GetComponent<HighScoreController>();
+            _HighscoreTable = GetComponentInChildren<HighscoreTable>();
 
-            highScoreMenu.SetActive(false);
             pauseMenu.SetActive(false);
             endGameMenu.SetActive(false);
+            _HighscoreTable.gameObject.SetActive(false);
 
+            timer.ResetTimer();
             timer.StartTimer();
             // ResetLastTimedTime();
         }
@@ -53,6 +55,7 @@ namespace Common.Menus
         {
             Debug.Log("Game resumed");
             pauseMenu.SetActive(false);
+            _HighscoreTable.gameObject.SetActive(false);
             timer.ResumeTimer();
             Time.timeScale = NormalTimeScale;
         }
@@ -81,10 +84,17 @@ namespace Common.Menus
             SetActiveEndGameMenu(true);
 
             if (won)
-                _highScoreController.ViewScoreBoard(timer.TimeInGame);
+            {
+                name = SceneSettings.useAI ? "Brain_" + (SceneSettings.brain + 1) : PlayerPrefs.GetString("current_player") ?? "DEFAULT_PLAYER";
+                if (name == "")
+                    name = "Unknown";
+
+                _HighscoreTable.AddHighscoreEntry(timer.TimeInGame, name);
+            }
+                // _highScoreController.ViewScoreBoard(timer.TimeInGame);
                 // _highScoreController.ViewScoreBoard(_playTimeInSecs);
-            else
-                _highScoreController.ViewScoreBoard();
+            _HighscoreTable.gameObject.SetActive(true);
+            // _highScoreController.ViewScoreBoard();
 
         }
     
@@ -103,6 +113,7 @@ namespace Common.Menus
             }
 
             pauseMenu.SetActive(false);
+            _HighscoreTable.gameObject.SetActive(false);
             ResetGame();
         }
 
@@ -111,6 +122,8 @@ namespace Common.Menus
             playGround.ResetPlayGround();
             playGround.particlesEffector.StopEffect();
             playGround.postProcessingEffector.StopEffect();
+            _HighscoreTable.gameObject.SetActive(false);
+            timer.ResetTimer();
             timer.StartTimer();
             Time.timeScale = NormalTimeScale;
             // ResumeTime();
@@ -126,7 +139,6 @@ namespace Common.Menus
         private void SetActiveEndGameMenu(bool enable)
         {
             endGameMenu.SetActive(enable);
-            highScoreMenu.SetActive(enable);
         }
     }
 }

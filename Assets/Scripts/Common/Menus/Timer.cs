@@ -43,10 +43,16 @@ public class Timer : MonoBehaviour
         ResumeTimer();
     }
 
-    void DisplayTime(float timeToDisplay)
+    public static string TimeToString(float timeToDisplay)
     {
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        return string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    private void DisplayTime(float timeToDisplay)
+    {
+        string time = TimeToString(timeToDisplay);
+        timeText.text = time;
     }
 }
