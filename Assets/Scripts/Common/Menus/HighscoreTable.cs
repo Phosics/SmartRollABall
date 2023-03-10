@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Assertions;
 
 public class HighscoreTable : MonoBehaviour
 {
@@ -11,14 +12,13 @@ public class HighscoreTable : MonoBehaviour
     private Highscores highscores;
     private string stageName;
 
-    private void Awake()
-    {
-        entryContainer = transform.Find("HighscoreEntryContainer");
-        entryTemplate = entryContainer.Find("HighscoreEntryTemplate");
-    }
-
     private void OnEnable()
     {
+        entryContainer = transform.Find("HighscoreEntryContainer");
+        Assert.IsNotNull(entryContainer);
+        entryTemplate = entryContainer.Find("HighscoreEntryTemplate");
+        Assert.IsNotNull(entryTemplate);
+
         // Load saved Highscore
         string stageNumber = PlayerPrefs.GetString("stage_number");
         stageName = "highscoreTable_" + stageNumber;
