@@ -109,6 +109,13 @@ public class HighscoreTable : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void ResetScoreBoard()
+    {
+        Debug.Log("reseting the highscore board of stage " + stageName);
+        PlayerPrefs.SetString(stageName, "");
+        OnEnable();
+    }
+
     private class Highscores
     {
         public List<HighscoreEntry> highscoreEntryList;

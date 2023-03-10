@@ -432,6 +432,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MainMenu.MainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 1044169977593341581, guid: f77ef45fb04602547869a80177f86134,
+        type: 3}
+      propertyPath: m_Name
+      value: BackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085066541134281880, guid: f77ef45fb04602547869a80177f86134,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278384467269085705, guid: f77ef45fb04602547869a80177f86134,
+        type: 3}
+      propertyPath: m_text
+      value: Reset Table
+      objectReference: {fileID: 0}
     - target: {fileID: 1582588946919572048, guid: f77ef45fb04602547869a80177f86134,
         type: 3}
       propertyPath: m_Pivot.x
@@ -537,6 +552,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2034166689700494061, guid: f77ef45fb04602547869a80177f86134,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 3232120354825094588, guid: f77ef45fb04602547869a80177f86134,
         type: 3}
       propertyPath: m_Name
@@ -546,6 +566,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819309873127923055, guid: f77ef45fb04602547869a80177f86134,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1292618404}
+    - target: {fileID: 3819309873127923055, guid: f77ef45fb04602547869a80177f86134,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetScoreBoard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819309873127923055, guid: f77ef45fb04602547869a80177f86134,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HighscoreTable, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f77ef45fb04602547869a80177f86134, type: 3}
