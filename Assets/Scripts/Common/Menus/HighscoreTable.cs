@@ -20,9 +20,10 @@ public class HighscoreTable : MonoBehaviour
         Assert.IsNotNull(entryTemplate);
 
         // Load saved Highscore
-        string stageNumber = PlayerPrefs.GetString("stage_number");
+        string stageNumber = PlayerPrefs.GetString("stage_number", "");
+        Assert.AreNotEqual(stageNumber, "");
         stageName = "highscoreTable_" + stageNumber;
-        string jsonString = PlayerPrefs.GetString(stageName);
+        string jsonString = PlayerPrefs.GetString(stageName, "");
         highscores = JsonUtility.FromJson<Highscores>(jsonString);
         if (highscores == null)
         {
@@ -41,8 +42,8 @@ public class HighscoreTable : MonoBehaviour
             CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntriesTransformList);
         }
 
-        Highscores Highscores = new Highscores { highscoreEntryList = highscores.highscoreEntryList };
-        string json = JsonUtility.ToJson(Highscores);
+        // Highscores Highscores = new Highscores { highscoreEntryList = highscores.highscoreEntryList };
+        // string json = JsonUtility.ToJson(Highscores);
         // PlayerPrefs.SetString("highscoreTable", json);
         // PlayerPrefs.Save();
     }
@@ -84,19 +85,7 @@ public class HighscoreTable : MonoBehaviour
         // Add new entry to Highscore
         highscores.highscoreEntryList.Add(highscoreEntry);
 
-        for (int i = 0; i < highscores.highscoreEntryList.Count; i++)
-        {
-            for (int j = i + 1; j < highscores.highscoreEntryList.Count; j++)
-            {
-                if (highscores.highscoreEntryList[j].time < highscores.highscoreEntryList[i].time)
-                {
-                    // swap
-                    HighscoreEntry tmp = highscores.highscoreEntryList[i];
-                    highscores.highscoreEntryList[i] = highscores.highscoreEntryList[j];
-                    highscores.highscoreEntryList[j] = tmp;
-                }
-            }
-        }
+        highscores.highscoreEntryList.Sort((s1, s2) => s1.time.CompareTo(s2.time));
 
         while (highscores.highscoreEntryList.Count > 10)
         {

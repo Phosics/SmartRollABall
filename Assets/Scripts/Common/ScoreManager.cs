@@ -13,7 +13,6 @@ namespace Common
     {
         public StageNumber stage;
         public int targetScore;
-        public int topPlaysAmount;
 
         [Space(5)]
         [Header("UI")]
@@ -23,6 +22,13 @@ namespace Common
 
         private void Start()
         {
+            int _targetScore = PlayerPrefs.GetInt("target_score", -1);
+            if (_targetScore != -1)
+                targetScore = _targetScore;
+
+            PlayerPrefs.SetInt("target_score", targetScore);
+            Debug.Log("targetScore = " + targetScore);
+
             Reset();
         }
 
@@ -38,74 +44,6 @@ namespace Common
             SetCountText();
         
             return _score >= targetScore;
-        }
-
-        public List<KeyValuePair<string, double>> UpdateHighScore(double playTime)
-        {
-            var currentTop = GetTopPlayersToPlayTime();
-            
-            var playerName = PlayerPrefs.GetString("current_player") ?? "DEFAULT_PLAYER";
-            currentTop.Add(new KeyValuePair<string, double>(playerName, playTime));
-
-            var newTop = currentTop
-                .OrderBy(kvp => kvp.Value)
-                .Take(topPlaysAmount);
-
-            var newTopString = string.Join(Environment.NewLine, newTop.Select(kvp => kvp.Key + "=" + kvp.Value));
-            
-            PlayerPrefs.SetString(GetTopPlayersKey(), newTopString);
-            
-            return newTop.ToList();
-        }
-
-        public void SetAIPlayerHighScore(double playTime)
-        {
-            var currentHighScore = GetAIPlayerHighScore();
-
-            if (playTime < currentHighScore)
-            {
-                PlayerPrefs.SetString(GetAIPlayerKey(), playTime.ToString(CultureInfo.CurrentCulture));
-            }
-        }
-        
-        public double GetAIPlayerHighScore()
-        { 
-            var highScoreText = PlayerPrefs.GetString(GetAIPlayerKey());
-
-            if (!string.IsNullOrEmpty(highScoreText))
-            {
-                return double.Parse(highScoreText);
-            }
-
-            return double.PositiveInfinity;
-        }
-        
-        public List<KeyValuePair<string, double>> GetTopPlayersToPlayTime()
-        {
-            var topString = PlayerPrefs.GetString(GetTopPlayersKey());
-
-            if (string.IsNullOrEmpty(topString))
-            {
-                return new List<KeyValuePair<string, double>>();   
-            }
-
-            return topString.Split(Environment.NewLine).Select(playerToTimeString => 
-                {
-                    var separatorIndex = playerToTimeString.LastIndexOf('=');
-                    var playerName = playerToTimeString[..separatorIndex];
-                    var playTime = double.Parse(playerToTimeString[(separatorIndex + 1)..]);
-                    return new KeyValuePair<string, double>(playerName, playTime);
-                }).ToList();
-        }
-
-        private string GetAIPlayerKey()
-        {
-            return $"ai_player{stage}";
-        }
-        
-        private string GetTopPlayersKey()
-        {
-            return $"top_players{stage}";
         }
 
         private void SetCountText()

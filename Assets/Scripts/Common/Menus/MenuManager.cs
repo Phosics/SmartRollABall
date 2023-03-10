@@ -16,6 +16,7 @@ namespace Common.Menus
         public TextMeshProUGUI endScreenTitle;
         public TextMeshProUGUI replayButtonText;
         public Timer timer;
+        public ScoreLog scoreLog;
 
         [Space(5)] 
         [Header("Other")] 
@@ -83,19 +84,17 @@ namespace Common.Menus
             // StopTime();
             SetActiveEndGameMenu(true);
 
+            name = SceneSettings.useAI ? "Brain_" + (SceneSettings.brain + 1) : PlayerPrefs.GetString("current_player", "Unkonw");
+            string stageNumber = PlayerPrefs.GetString("stage_number", "");
+            int targetScore = PlayerPrefs.GetInt("target_score", -1);
+
+            scoreLog.WriteCSV(stageNumber, name, timer.TimeInGame, targetScore, won);
+
             if (won)
             {
-                name = SceneSettings.useAI ? "Brain_" + (SceneSettings.brain + 1) : PlayerPrefs.GetString("current_player") ?? "DEFAULT_PLAYER";
-                if (name == "")
-                    name = "Unknown";
-
                 _HighscoreTable.AddHighscoreEntry(timer.TimeInGame, name);
             }
-                // _highScoreController.ViewScoreBoard(timer.TimeInGame);
-                // _highScoreController.ViewScoreBoard(_playTimeInSecs);
             _HighscoreTable.gameObject.SetActive(true);
-            // _highScoreController.ViewScoreBoard();
-
         }
     
         // Reset the playground without loading the scene

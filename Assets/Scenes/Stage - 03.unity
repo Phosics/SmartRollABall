@@ -614,7 +614,7 @@ PrefabInstance:
     - target: {fileID: 7546497238838163046, guid: 32a9842092a7a6b44b52f738475bd7c9,
         type: 3}
       propertyPath: enemyHitAudio
-      value: 
+      value: Jump
       objectReference: {fileID: 0}
     - target: {fileID: 7757476682236284138, guid: 32a9842092a7a6b44b52f738475bd7c9,
         type: 3}
@@ -2021,16 +2021,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2326176715549794473, guid: f5459335aa2587849b9b15966983a045,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2326176715815818638, guid: f5459335aa2587849b9b15966983a045,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5077547494157855054, guid: f5459335aa2587849b9b15966983a045,
         type: 3}

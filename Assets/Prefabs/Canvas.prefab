@@ -820,8 +820,8 @@ GameObject:
   - component: {fileID: 2326176714520827295}
   - component: {fileID: 2326176714520827292}
   - component: {fileID: 2326176714520827288}
-  - component: {fileID: 2326176714520827265}
   - component: {fileID: 5297043344999971667}
+  - component: {fileID: 3286295151609375118}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -932,20 +932,8 @@ MonoBehaviour:
   endScreenTitle: {fileID: 2326176714063178168}
   replayButtonText: {fileID: 2326176714136807300}
   timer: {fileID: 5297043344999971667}
+  scoreLog: {fileID: 3286295151609375118}
   playGround: {fileID: 0}
---- !u!114 &2326176714520827265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2326176714520827289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c1f4232c20d41fe91ef613ef7db01fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreManager: {fileID: 0}
 --- !u!114 &5297043344999971667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,6 +948,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerIsRunning: 0
   timeText: {fileID: 5828040496544379020}
+--- !u!114 &3286295151609375118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2326176714520827289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 512d5b85e97c1ed44a49828c68eb913c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: games_log.csv
 --- !u!1 &2326176714577369981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,7 +1515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2326176715549794472
 RectTransform:
   m_ObjectHideFlags: 0

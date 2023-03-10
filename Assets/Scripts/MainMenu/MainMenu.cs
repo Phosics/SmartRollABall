@@ -27,6 +27,7 @@ namespace MainMenu
         public Toggle toggleAI;
         public TMP_Dropdown aiBrainOptions;
         public GameObject eagle;
+        public TMP_InputField targetSacore;
 
         private Vector3 eaglePos;
         private Vector3 eagleTablePos;
@@ -36,7 +37,8 @@ namespace MainMenu
             toggleAI.isOn = SceneSettings.useAI;
             aiBrainOptions.interactable = SceneSettings.useAI;
             aiBrainOptions.value = SceneSettings.brain;
-            inputField.text = PlayerPrefs.GetString("current_player");
+            inputField.text = PlayerPrefs.GetString("current_player", "Unkown");
+            targetSacore.text = PlayerPrefs.GetInt("target_score", 5).ToString();
             eaglePos = eagle.transform.position;
             eagleTablePos = new Vector3(1f, 2.57f, eaglePos.z);
             SetStartGamesInteractability();
@@ -46,6 +48,11 @@ namespace MainMenu
         {
             PlayerPrefs.SetString("current_player", inputField.text);
             SetStartGamesInteractability();
+        }
+
+        public void OnTargetScoreChange()
+        {
+            PlayerPrefs.SetInt("target_score", int.Parse(targetSacore.text));
         }
         
         public void OnAIValueChange()
@@ -115,6 +122,7 @@ namespace MainMenu
             stage3.SetActive(isActive);
             toggleAI.gameObject.SetActive(isActive);
             inputField.gameObject.SetActive(isActive);
+            targetSacore.gameObject.SetActive(isActive);
             gameTitle.SetActive(isActive);
             aiBrainOptions.gameObject.SetActive(isActive);
             eagle.transform.position = isActive ? eaglePos : eagleTablePos;
@@ -130,6 +138,17 @@ namespace MainMenu
             
             Debug.Log("Time scale is 0, Changing it to 1");
             Time.timeScale = 1;
+        }
+
+        public void OnClickExit()
+        {
+            #if UNITY_EDITOR
+            // Application.Quit() does not work in the editor so
+            // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+            UnityEditor.EditorApplication.isPlaying = false;
+            #else
+            Application.Quit();
+            #endif
         }
     }
 }
