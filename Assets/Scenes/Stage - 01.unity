@@ -5886,6 +5886,11 @@ PrefabInstance:
       objectReference: {fileID: 2326176714620188723}
     - target: {fileID: 2326176714520827288, guid: f5459335aa2587849b9b15966983a045,
         type: 3}
+      propertyPath: scoreLog
+      value: 
+      objectReference: {fileID: 2326176714620188724}
+    - target: {fileID: 2326176714520827288, guid: f5459335aa2587849b9b15966983a045,
+        type: 3}
       propertyPath: playGround
       value: 
       objectReference: {fileID: 1595012598}
@@ -6033,5 +6038,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94732434744656c46a2b6ebdee4475ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2326176714620188724 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3914970360379736601, guid: f5459335aa2587849b9b15966983a045,
+    type: 3}
+  m_PrefabInstance: {fileID: 2326176714620188721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b4d7737ceac4179b444c7175857e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

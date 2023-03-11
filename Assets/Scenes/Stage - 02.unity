@@ -2077,16 +2077,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -250
       objectReference: {fileID: 0}
-    - target: {fileID: 2326176713829554925, guid: f5459335aa2587849b9b15966983a045,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2326176713829554925, guid: f5459335aa2587849b9b15966983a045,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -150
-      objectReference: {fileID: 0}
     - target: {fileID: 2326176714063178166, guid: f5459335aa2587849b9b15966983a045,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2112,6 +2102,11 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 1158523184}
+    - target: {fileID: 2326176714520827288, guid: f5459335aa2587849b9b15966983a045,
+        type: 3}
+      propertyPath: scoreLog
+      value: 
+      objectReference: {fileID: 1870728453}
     - target: {fileID: 2326176714520827288, guid: f5459335aa2587849b9b15966983a045,
         type: 3}
       propertyPath: playGround
@@ -2232,16 +2227,6 @@ PrefabInstance:
       propertyPath: m_DefaultControlScheme
       value: Keyboard&Mouse
       objectReference: {fileID: 0}
-    - target: {fileID: 2326176715505454395, guid: f5459335aa2587849b9b15966983a045,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2326176715505454395, guid: f5459335aa2587849b9b15966983a045,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -150
-      objectReference: {fileID: 0}
     - target: {fileID: 2326176715549794472, guid: f5459335aa2587849b9b15966983a045,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2262,11 +2247,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2326176715815818638, guid: f5459335aa2587849b9b15966983a045,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5077547494157855054, guid: f5459335aa2587849b9b15966983a045,
         type: 3}
       propertyPath: m_text
@@ -2280,6 +2260,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2326176714520827293, guid: f5459335aa2587849b9b15966983a045, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f5459335aa2587849b9b15966983a045, type: 3}
+--- !u!114 &1870728453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3914970360379736601, guid: f5459335aa2587849b9b15966983a045,
+    type: 3}
+  m_PrefabInstance: {fileID: 1870728452}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b4d7737ceac4179b444c7175857e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1961700614
 GameObject:
   m_ObjectHideFlags: 0
