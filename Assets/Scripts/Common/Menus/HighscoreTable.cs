@@ -61,11 +61,18 @@ public class HighscoreTable : MonoBehaviour
         switch (rank)
         {
             default:
-                rankString = rank + "TH"; break;
+                rankString = rank + "TH";
+                break;
 
-            case 1: rankString = "1ST"; break;
-            case 2: rankString = "2ND"; break;
-            case 3: rankString = "3RD"; break;
+            case 1: rankString = "1ST";
+                entryTransform.Find("IconFirstPlace").gameObject.SetActive(true);
+                break;
+            case 2: rankString = "2ND";
+                entryTransform.Find("IconSeconPlace").gameObject.SetActive(true);
+                break;
+            case 3: rankString = "3RD";
+                entryTransform.Find("IconThirdPlace").gameObject.SetActive(true);
+                break;
         }
 
         float gametime = highscoreEntry.time;
@@ -74,13 +81,15 @@ public class HighscoreTable : MonoBehaviour
         entryTransform.Find("TimeText").GetComponent<TextMeshProUGUI>().text = Timer.TimeToString(gametime);
         entryTransform.Find("NameText").GetComponent<TextMeshProUGUI>().text = name;
         entryTransform.Find("BackgroundScore").gameObject.SetActive(rank % 2 == 1);
+        entryTransform.Find("IconAIBrain").gameObject.SetActive(highscoreEntry.isAI);
+        entryTransform.Find("IconPlayer").gameObject.SetActive(!highscoreEntry.isAI);
         transformList.Add(entryTransform);
     }
 
-    public void AddHighscoreEntry(float time, string name)
+    public void AddHighscoreEntry(float time, string name, bool isAI)
     {
         // Create HighscoreEntry
-        HighscoreEntry highscoreEntry = new HighscoreEntry { name = name, time = time };
+        HighscoreEntry highscoreEntry = new HighscoreEntry { name = name, time = time, isAI = isAI };
 
         // Add new entry to Highscore
         highscores.highscoreEntryList.Add(highscoreEntry);
@@ -118,5 +127,6 @@ public class HighscoreTable : MonoBehaviour
     {
         public float time;
         public string name;
+        public bool isAI;
     }
 }

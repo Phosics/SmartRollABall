@@ -92,7 +92,7 @@ namespace Common.Menus
 
             if (won)
             {
-                _HighscoreTable.AddHighscoreEntry(timer.TimeInGame, name);
+                _HighscoreTable.AddHighscoreEntry(timer.TimeInGame, name, SceneSettings.useAI);
             }
             _HighscoreTable.gameObject.SetActive(true);
         }

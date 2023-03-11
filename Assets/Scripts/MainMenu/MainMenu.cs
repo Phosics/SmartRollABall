@@ -28,6 +28,7 @@ namespace MainMenu
         public TMP_Dropdown aiBrainOptions;
         public GameObject eagle;
         public TMP_InputField targetSacore;
+        public GameObject exitButton;
 
         private Vector3 eaglePos;
         private Vector3 eagleTablePos;
@@ -125,6 +126,7 @@ namespace MainMenu
             targetSacore.gameObject.SetActive(isActive);
             gameTitle.SetActive(isActive);
             aiBrainOptions.gameObject.SetActive(isActive);
+            exitButton.SetActive(isActive);
             eagle.transform.position = isActive ? eaglePos : eagleTablePos;
             HighscoreTable.gameObject.SetActive(!isActive);
         }
