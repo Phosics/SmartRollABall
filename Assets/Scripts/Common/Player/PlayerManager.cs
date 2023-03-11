@@ -11,7 +11,7 @@ namespace Common.Player
         [Space(5)]
         [Header("Player Attributes")]
         public float speed = 10f;
-        public float jump = 20f;
+        public float jump = 40f;
         public float enemyCollisionJumpForce = 40f;
         
         [Space(5)]

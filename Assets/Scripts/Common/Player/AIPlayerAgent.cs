@@ -22,12 +22,7 @@ namespace Common.Player
 
         private Transform _closestPickUpTransform;
 
-        // private float _distance;
-        private float _minDistance;
-        private float _maxDistance;
-
         private bool _isClosestPickUpTransformInitialized;
-        //private bool _collideObstacle;
 
         public override void Initialize()
         {
@@ -78,15 +73,12 @@ namespace Common.Player
             float moveY = 0;
 
             if (_isGrounded && actions.ContinuousActions[2] > 0.5)
+            {
                 moveY += playerManager.jump;
+                _isGrounded = false;
+            }
             else if (_isOnWall && actions.ContinuousActions[2] > 0.5)
                 moveY += playerManager.jump / 4;
-
-            // Check for collision with the obstacle
-            // if (_collideObstacle)
-            // {
-            //     moveY.y += jump * 2;
-            // }
 
             // Calculate movement vector
             Vector3 moveXZ = new Vector3(actions.ContinuousActions[0], moveY, actions.ContinuousActions[1]);
@@ -193,39 +185,8 @@ namespace Common.Player
                 _isGrounded = false;
         }
 
-        private float distanceIgnoeY(Vector3 pos1, Vector3 pos2)
-        {
-            var newDistance = pos1 - pos2;
-            newDistance.y = 0;
-            return newDistance.magnitude;
-        }
-
         private void FixedUpdate()
         {
-            //if (!_isClosestPickUpTransformInitialized)
-            //{
-            //    return;
-            //}
-
-            //// var newDistance = Vector3.Distance(transform.position, _closestPickUpTransform.position);
-            //var distanceToTarget = distanceIgnoeY(transform.position, _closestPickUpTransform.position);
-            //if (distanceToTarget < _minDistance)
-            //{
-            //    AddReward(0.01f * (1 + Mathf.Pow(_minDistance - distanceToTarget, 2)));
-            //    _minDistance = distanceToTarget;
-
-            //}
-            //else if (distanceToTarget > _maxDistance)
-            //{
-            //    AddReward(-0.01f * (1 + Mathf.Pow(distanceToTarget - _maxDistance, 2)));
-            //    _maxDistance = distanceToTarget;
-            //}
-            //else
-            //{
-            //    _minDistance = 0.9f * _minDistance + 0.1f * distanceToTarget;
-            //    _maxDistance = 0.9f * _maxDistance + 0.1f * distanceToTarget;
-            //}
-
             //_distance = distanceToTarget;
             if (transform.position.y < -3)
             {
@@ -258,8 +219,6 @@ namespace Common.Player
             }
 
             _closestPickUpTransform = _closestPickUp.transform;
-            //_distance = Vector3.Distance(position, _closestPickUpTransform.position);
-            _minDistance = _maxDistance = distanceIgnoeY(position, _closestPickUpTransform.position);
             _isClosestPickUpTransformInitialized = true;
         }
     }

@@ -260,7 +260,7 @@ MonoBehaviour:
   manualPlayer: {fileID: 4236524178233838824}
   aiPlayerContainer: {fileID: 361988435542471195}
   speed: 10
-  jump: 20
+  jump: 40
   enemyCollisionJumpForce: 40
   jumpAudio: Jump
   pickUpAudio: Pickup

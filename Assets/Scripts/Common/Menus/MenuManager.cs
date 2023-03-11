@@ -24,15 +24,10 @@ namespace Common.Menus
 
         private const int NormalTimeScale = 1;
         
-        // private HighScoreController _highScoreController;
         private HighscoreTable _HighscoreTable;
-
-        // private float _playTimeInSecs = 0;
-        // private float _lastTimedTime;
 
         private void Start()
         {
-            // _highScoreController = GetComponent<HighScoreController>();
             _HighscoreTable = GetComponentInChildren<HighscoreTable>();
 
             pauseMenu.SetActive(false);
@@ -41,7 +36,6 @@ namespace Common.Menus
 
             timer.ResetTimer();
             timer.StartTimer();
-            // ResetLastTimedTime();
         }
 
         public void OnPause()
@@ -81,10 +75,9 @@ namespace Common.Menus
         {
             timer.StopTimer();
             Time.timeScale = 0;
-            // StopTime();
             SetActiveEndGameMenu(true);
 
-            name = SceneSettings.useAI ? "Brain_" + (SceneSettings.brain + 1) : PlayerPrefs.GetString("current_player", "Unkonw");
+            name = SceneSettings.useAI ? "Brain_" + (SceneSettings.brain + 1) : PlayerPrefs.GetString("current_player", "Unknown");
             string stageNumber = PlayerPrefs.GetString("stage_number", "");
             int targetScore = PlayerPrefs.GetInt("target_score", -1);
 
@@ -125,7 +118,6 @@ namespace Common.Menus
             timer.ResetTimer();
             timer.StartTimer();
             Time.timeScale = NormalTimeScale;
-            // ResumeTime();
         }
         
     
