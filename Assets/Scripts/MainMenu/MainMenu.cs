@@ -53,7 +53,18 @@ namespace MainMenu
 
         public void OnTargetScoreChange()
         {
-            PlayerPrefs.SetInt("target_score", int.Parse(targetSacore.text));
+            var value = 0;
+
+            var parsed = int.TryParse(targetSacore.text, out value);
+
+            if (parsed)
+            {
+                PlayerPrefs.SetInt("target_score", int.Parse(targetSacore.text));
+            }
+            else
+            {
+                targetSacore.text = "1";
+            }
         }
         
         public void OnAIValueChange()

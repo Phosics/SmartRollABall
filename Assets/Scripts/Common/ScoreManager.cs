@@ -22,12 +22,11 @@ namespace Common
 
         private void Start()
         {
-            int _targetScore = PlayerPrefs.GetInt("target_score", -1);
-            if (_targetScore != -1)
-                targetScore = _targetScore;
+            var targetScorePrefValue = PlayerPrefs.GetInt("target_score", -1);
+            if (targetScorePrefValue != -1)
+                targetScore = targetScorePrefValue;
 
             PlayerPrefs.SetInt("target_score", targetScore);
-            Debug.Log("targetScore = " + targetScore);
 
             Reset();
         }
