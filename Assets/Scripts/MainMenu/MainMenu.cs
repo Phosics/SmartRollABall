@@ -1,5 +1,4 @@
 using Common;
-using Common.Menus;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,38 +15,31 @@ namespace MainMenu
         
         [Space(5)]
         [Header("High Score")]
-        public HighscoreTable HighscoreTable;
-        // public GameObject highScoreMenu;
-        // public HighScoreController highScoreController;
+        public HighscoreTable highScoreTable;
 
         [Space(5)] 
         [Header("Options")] 
         public GameObject gameTitle;
-        public TMP_InputField inputField;
+        public TMP_InputField playerName;
         public Toggle toggleAI;
         public TMP_Dropdown aiBrainOptions;
         public GameObject eagle;
-        public TMP_InputField targetSacore;
+        public TMP_InputField targetScore;
         public GameObject exitButton;
-
-        private Vector3 eaglePos;
-        private Vector3 eagleTablePos;
 
         public void Start()
         {
             toggleAI.isOn = SceneSettings.useAI;
             aiBrainOptions.interactable = SceneSettings.useAI;
             aiBrainOptions.value = SceneSettings.brain;
-            inputField.text = PlayerPrefs.GetString("current_player", "Unkown");
-            targetSacore.text = PlayerPrefs.GetInt("target_score", 5).ToString();
-            eaglePos = eagle.transform.position;
-            eagleTablePos = new Vector3(1f, 2.57f, eaglePos.z);
+            playerName.text = PlayerPrefs.GetString("current_player", "Unknown");
+            targetScore.text = PlayerPrefs.GetInt("target_score", 5).ToString();
             SetStartGamesInteractability();
         }
 
         public void OnPlayerNameChange()
         {
-            PlayerPrefs.SetString("current_player", inputField.text);
+            PlayerPrefs.SetString("current_player", playerName.text);
             SetStartGamesInteractability();
         }
 
@@ -55,15 +47,15 @@ namespace MainMenu
         {
             var value = 0;
 
-            var parsed = int.TryParse(targetSacore.text, out value);
+            var parsed = int.TryParse(targetScore.text, out value);
 
             if (parsed)
             {
-                PlayerPrefs.SetInt("target_score", int.Parse(targetSacore.text));
+                PlayerPrefs.SetInt("target_score", int.Parse(targetScore.text));
             }
             else
             {
-                targetSacore.text = "1";
+                targetScore.text = "1";
             }
         }
         
@@ -133,13 +125,13 @@ namespace MainMenu
             stage2.SetActive(isActive);
             stage3.SetActive(isActive);
             toggleAI.gameObject.SetActive(isActive);
-            inputField.gameObject.SetActive(isActive);
-            targetSacore.gameObject.SetActive(isActive);
+            playerName.gameObject.SetActive(isActive);
+            targetScore.gameObject.SetActive(isActive);
             gameTitle.SetActive(isActive);
             aiBrainOptions.gameObject.SetActive(isActive);
             exitButton.SetActive(isActive);
-            eagle.transform.position = isActive ? eaglePos : eagleTablePos;
-            HighscoreTable.gameObject.SetActive(!isActive);
+            eagle.SetActive(isActive);
+            highScoreTable.gameObject.SetActive(!isActive);
         }
 
         private static void SetTimeScale()
