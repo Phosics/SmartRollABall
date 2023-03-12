@@ -77,25 +77,19 @@ namespace Common
         protected virtual void ResetMovingWalls()
         {
             foreach (var movingWall in MovingWalls)
-            {
                 movingWall.SetLocation(wallsManager.RandomLocation());
-            }
         }
 
         protected virtual void ResetPickUps()
         {
             foreach (var pickUp in PickUps)
-            {
                 pickUp.SetLocation(wallsManager.RandomLocation());
-            }
         }
 
         protected virtual void ResetEnemies()
         {
             foreach (var enemy in Enemies)
-            {
                 enemy.SetLocation(wallsManager.RandomLocation());
-            }
         }
 
         private void Awake()

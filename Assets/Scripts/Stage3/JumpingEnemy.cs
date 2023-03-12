@@ -37,10 +37,7 @@ namespace Stage3
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                if (miniJumping != null)
-                {
-                    miniJumping.Invoke();
-                }
+                miniJumping?.Invoke();
                 SetMove();
             }        
         }
@@ -48,14 +45,10 @@ namespace Stage3
         private void OnCollisionStay(Collision collision)
         {
             if (collision.gameObject.CompareTag("Wall"))
-            {
                 SetMove();
-            }
 
             if (collision.gameObject.CompareTag("Enemy"))
-            {
                 SetMove();
-            }
         }
     }
 }

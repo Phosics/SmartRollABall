@@ -16,7 +16,6 @@ namespace Stage1 {
 
             while (Colliders[0] != null)
             {
-                Debug.Log("Player collided with " + Colliders[0].tag + ", setting new place");
                 Colliders[0] = null;
 
                 possibleLocation = wallsManager.RandomLocation(0.8f);
@@ -24,25 +23,20 @@ namespace Stage1 {
                 Physics.OverlapSphereNonAlloc(possibleLocation, 0.5f, Colliders);
             }
 
-            Debug.Log("Found location for Player:" + possibleLocation);
             possibleLocation.y = 0.5f;
             return possibleLocation;
         }
         
         protected override void ResetEnemies()
         {
-            foreach (EnemyBall enemy in Enemies)
-            {
-                enemy.SetStartLocation(wallsManager);
-            }
+            foreach (var enemy in Enemies)
+                ((EnemyBall)enemy).SetStartLocation(wallsManager);
         }
 
         protected override void ResetPickUps()
         {
-            foreach (CubePickUp pickUp in PickUps)
-            {
-                pickUp.SetStartLocation(wallsManager);
-            }
+            foreach (var pickUp in PickUps)
+                ((CubePickUp)pickUp).SetStartLocation(wallsManager);
         }
         
         protected override void SetPickUpLocation(PickUp pickUp)
@@ -54,7 +48,6 @@ namespace Stage1 {
 
             while (Colliders[0] != null)
             {
-                Debug.LogWarning("PickUp collided with " + Colliders[0].tag + ", setting new place");
                 Colliders[0] = null;
 
                 possibleLocation = wallsManager.RandomLocation();
@@ -63,7 +56,6 @@ namespace Stage1 {
                     Colliders, pickUp.transform.rotation);
             }
 
-            Debug.Log("Found location for PickUp:" + possibleLocation);
             pickUp.SetLocation(possibleLocation);
         }
     }

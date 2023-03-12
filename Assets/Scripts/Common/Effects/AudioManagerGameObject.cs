@@ -7,8 +7,7 @@ namespace Common.Effects
         public Sound[] sounds;
 
         public string playOnStart = "Theme";
-
-        // Use this for initialization
+        
         private void Awake()
         {
             foreach (var s in sounds)

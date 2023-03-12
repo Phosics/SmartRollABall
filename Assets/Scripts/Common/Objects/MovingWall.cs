@@ -7,15 +7,8 @@ namespace Common.Objects
     public class MovingWall: MonoBehaviour
     {
         public bool moveX;
-
         public bool moveZ;
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            
-        }
-
+        
         public void SetLocation(Vector3 newLocation)
         {
             var posX = transform.position.x;
@@ -27,12 +20,6 @@ namespace Common.Objects
                 posZ = newLocation.z;
 
             transform.position = new Vector3(posX, transform.position.y, posZ);
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
     }
 }

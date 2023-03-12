@@ -128,7 +128,6 @@ namespace Common.Player
                 if (playerManager.playGround.OnPickUp(other.gameObject.GetComponent<PickUp>()))
                 {
                     AddReward(30f);
-                    Debug.LogWarning("Win!");
                     EndEpisode();
                     
                     if (!SceneSettings.useAI)
@@ -138,22 +137,15 @@ namespace Common.Player
                 }
 
                 if (other.gameObject.transform == _closestPickUpTransform)
-                {
-                    Debug.LogWarning("Right pickup");
                     AddReward(1f);
-                }
                 else
-                {
-                    Debug.LogWarning("Wrong pickup");
                     AddReward(1f);
-                }
 
                 FindClosestPickUp();
             }
             else if (other.CompareTag("Boundary"))
             {
                 AddReward(-10f);
-                Debug.LogWarning("Loss!");
                 _isClosestPickUpTransformInitialized = false;
                 EndEpisode();
             }
@@ -189,19 +181,13 @@ namespace Common.Player
 
         private void FixedUpdate()
         {
-            //_distance = distanceToTarget;
-            if (transform.position.y < -3)
-            {
-                Debug.Log("Something bad happen");
-                _isClosestPickUpTransformInitialized = false;
-                EndEpisode();
-            }
-
+            if (transform.position.y >= -3)
+                return;
+            
+            _isClosestPickUpTransformInitialized = false;
+            EndEpisode();
         }
 
-        /// <summary>
-        /// Called every frame
-        /// </summary>
         private void Update()
         {
             if (_isClosestPickUpTransformInitialized)

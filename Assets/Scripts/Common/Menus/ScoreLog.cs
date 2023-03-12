@@ -7,8 +7,8 @@ public class ScoreLog : MonoBehaviour
     public string fileName;
 
     private string filePath;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
         filePath = Path.Combine(Application.dataPath, fileName);
         if (!File.Exists(filePath))
@@ -20,10 +20,6 @@ public class ScoreLog : MonoBehaviour
         }
         else
             Debug.Log("log file exist at " + filePath);
-
-        Debug.Log(Application.dataPath);
-        Debug.Log(Application.persistentDataPath);
-        Debug.Log(Application.dataPath.Replace(Application.persistentDataPath, ""));
     }
 
     public void WriteCSV(string map, string name, float time, int pickups, bool isWin)

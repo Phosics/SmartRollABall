@@ -78,8 +78,8 @@ namespace Common.Menus
             SetActiveEndGameMenu(true);
 
             name = SceneSettings.useAI ? "Brain_" + (SceneSettings.brain + 1) : PlayerPrefs.GetString("current_player", "Unknown");
-            string stageNumber = PlayerPrefs.GetString("stage_number", "");
-            int targetScore = PlayerPrefs.GetInt("target_score", -1);
+            var stageNumber = PlayerPrefs.GetString("stage_number", "");
+            var targetScore = PlayerPrefs.GetInt("target_score", -1);
 
             scoreLog.WriteCSV(stageNumber, name, timer.TimeInGame, targetScore, won);
 

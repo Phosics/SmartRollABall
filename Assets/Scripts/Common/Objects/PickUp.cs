@@ -9,7 +9,7 @@ namespace Common.Objects
         public bool isMoving;
         public bool isFlying;
         public float moveSpeed;
-        private float Height = 0;
+        private float _height = 0;
 
         protected const float DefaultHeight = 0.5f;
 
@@ -20,7 +20,7 @@ namespace Common.Objects
                 newLocation.y = Random.Range(1.5f, 2.5f);
             }
 
-            Height = newLocation.y;
+            _height = newLocation.y;
             transform.position = newLocation;
         }
 
@@ -34,7 +34,7 @@ namespace Common.Objects
 
         private float CalculateHeight(Vector3 position)
         {
-            return isMoving ? Mathf.Max(Mathf.Lerp(Height - 1, Height + 1, Mathf.PingPong(Time.time / moveSpeed, 1)), DefaultHeight) : position.y;
+            return isMoving ? Mathf.Max(Mathf.Lerp(_height - 1, _height + 1, Mathf.PingPong(Time.time / moveSpeed, 1)), DefaultHeight) : position.y;
         }
     }
 }
