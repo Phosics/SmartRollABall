@@ -25,7 +25,6 @@ public class ScoreLog : MonoBehaviour
     public void WriteCSV(string map, string name, float time, int pickups, bool isWin)
     {
         int seconds = (int)time;
-        Debug.Log("save to csv: " + map + "," + name + "," + seconds + "," + pickups + "," + isWin);
         TextWriter textWriter = new StreamWriter(filePath, true);
         textWriter.WriteLine(map + "," + name + "," + seconds + "," + pickups + "," + isWin);
         textWriter.Close();
