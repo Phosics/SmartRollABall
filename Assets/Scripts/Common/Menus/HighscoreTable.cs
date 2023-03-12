@@ -11,7 +11,7 @@ namespace Common.Menus
         private Transform entryTemplate;
         private List<Transform> highscoreEntriesTransformList;
         private Highscores highscores;
-        private string stageName;
+        private string stageName = "highscoreTable_";
 
         private void OnEnable()
         {
@@ -24,7 +24,7 @@ namespace Common.Menus
             var stageNumber = PlayerPrefs.GetString("stage_number", "");
             Assert.AreNotEqual(stageNumber, "");
 
-            var jsonString = PlayerPrefs.GetString("highscoreTable_" + stageNumber, "");
+            var jsonString = PlayerPrefs.GetString(stageName + stageNumber, "");
             highscores = JsonUtility.FromJson<Highscores>(jsonString) ?? new Highscores { highscoreEntryList = new List<HighscoreEntry>() };
 
             for (var i = 0; i < entryContainer.childCount; i++)
@@ -89,14 +89,20 @@ namespace Common.Menus
 
             // save updated Highscore
             string json = JsonUtility.ToJson(highscores);
-            PlayerPrefs.SetString(stageName, json);
+            var stageNumber = PlayerPrefs.GetString("stage_number", "");
+            Assert.AreNotEqual(stageNumber, "");
+
+            PlayerPrefs.SetString(stageName + stageNumber, json);
             PlayerPrefs.Save();
         }
 
         public void ResetScoreBoard()
         {
+            var stageNumber = PlayerPrefs.GetString("stage_number", "");
+            Assert.AreNotEqual(stageNumber, "");
+
             Debug.Log("reseting the highscore board of stage " + stageName);
-            PlayerPrefs.SetString(stageName, "");
+            PlayerPrefs.SetString(stageName + stageNumber, "");
             OnEnable();
         }
 
