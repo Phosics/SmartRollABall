@@ -1900,12 +1900,12 @@ PrefabInstance:
     - target: {fileID: 5374833090116031879, guid: ad3baaa2ca403794db86e1b8329f5b55,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5374833090116031879, guid: ad3baaa2ca403794db86e1b8329f5b55,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5374833090116031879, guid: ad3baaa2ca403794db86e1b8329f5b55,
         type: 3}
@@ -2277,7 +2277,7 @@ MonoBehaviour:
   stage1: {fileID: 1612773814}
   stage2: {fileID: 1637080747}
   stage3: {fileID: 465397294}
-  highScoreTable: {fileID: 0}
+  highScoreTable: {fileID: 906581275}
   gameTitle: {fileID: 37719986}
   playerName: {fileID: 1755226367}
   toggleAI: {fileID: 1301440270}
@@ -4676,8 +4676,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -278, y: -0.5}
-  m_SizeDelta: {x: 320, y: -3}
+  m_AnchoredPosition: {x: -126.5, y: -0.5}
+  m_SizeDelta: {x: 17, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1828302646
 MonoBehaviour:
