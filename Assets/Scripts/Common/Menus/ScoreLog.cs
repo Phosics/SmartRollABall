@@ -33,6 +33,5 @@ public class ScoreLog : MonoBehaviour
         TextWriter textWriter = new StreamWriter(filePath, true);
         textWriter.WriteLine(map + "," + name + "," + seconds + "," + pickups + "," + isWin);
         textWriter.Close();
-        AssetDatabase.ImportAsset("Assets/" + fileName);
     }
 }
