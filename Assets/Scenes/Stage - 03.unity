@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.41227594, g: 0.48922887, b: 0.603285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -146,7 +146,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 272239225}
+      objectReference: {fileID: 823753657}
     - target: {fileID: 4066759779536049373, guid: 9209f22eca4a0e94eaffd281daed1ce0,
         type: 3}
       propertyPath: m_RootOrder
@@ -543,30 +543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100ed1121e8b24f089ce8af1da9faa60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &272239224 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7546497238838163046, guid: 32a9842092a7a6b44b52f738475bd7c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 272239222}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19c5e1bafc8d458f800c9ca169687c23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &272239225 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 783895835516870953, guid: 32a9842092a7a6b44b52f738475bd7c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 272239222}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c6631b5efd86a1418627321804b1913, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,7 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b42cf06366491396927275aefbc3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerManager: {fileID: 272239224}
+  playerManager: {fileID: 1978379155}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +790,18 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &823753657 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 783895835516870953, guid: 32a9842092a7a6b44b52f738475bd7c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 272239222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c6631b5efd86a1418627321804b1913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1028,18 @@ Transform:
   m_Father: {fileID: 1425997996}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1978379155 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7546497238838163046, guid: 32a9842092a7a6b44b52f738475bd7c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 272239222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c5e1bafc8d458f800c9ca169687c23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2019379627
 GameObject:
   m_ObjectHideFlags: 0

@@ -78,7 +78,10 @@ namespace Common.Player
                 _isGrounded = false;
             }
             else if (_isOnWall && actions.ContinuousActions[2] > 0.5)
+            {
                 moveY += playerManager.jump / 4;
+                _isOnWall = false;
+            }
 
             // Calculate movement vector
             Vector3 moveXZ = new Vector3(actions.ContinuousActions[0], moveY, actions.ContinuousActions[1]);
@@ -162,7 +165,7 @@ namespace Common.Player
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.collider.CompareTag("Wall"))
+            if (collision.collider.CompareTag("Wall") || collision.collider.CompareTag("MovingWall"))
             {
                 _isOnWall = true;
             }
@@ -178,10 +181,9 @@ namespace Common.Player
 
         private void OnCollisionExit(Collision other)
         {
-            if (other.gameObject.CompareTag("Wall"))
+            if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("MovingWall"))
                 _isOnWall = false;
-
-            if (other.gameObject.CompareTag("Ground"))
+            else if (other.gameObject.CompareTag("Ground"))
                 _isGrounded = false;
         }
 

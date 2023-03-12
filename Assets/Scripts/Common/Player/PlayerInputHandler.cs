@@ -3,7 +3,7 @@ using Common.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Common
+namespace Common.Player
 {
     public class PlayerInputHandler : MonoBehaviour
     {

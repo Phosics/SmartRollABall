@@ -13,6 +13,7 @@ namespace Common.Player
         private float _movementX;
         private float _movementZ;
         private bool _isGrounded;
+        private bool _isOnWall;
         private Vector3 _startingPosition;
 
         private void Awake()
@@ -37,11 +38,19 @@ namespace Common.Player
     
         public void OnJump()
         {
-            if (!_isGrounded) 
+            if (!_isGrounded && !_isOnWall) 
                 return;
-
+            
             AudioManager.Play(playerManager.jumpAudio, playerManager.playGround.IsInTrainingMode());
-            _rb.AddForce(new Vector3(0, playerManager.jump, 0) * playerManager.speed);
+
+            var jump = playerManager.jump;
+
+            if (_isOnWall)
+            {
+                jump /= 4;
+            }
+
+            _rb.AddForce(new Vector3(0, jump, 0) * playerManager.speed);
         }
 
         private void FixedUpdate()
@@ -51,7 +60,11 @@ namespace Common.Player
     
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.CompareTag("Ground"))
+            if (collision.collider.CompareTag("Wall") || collision.collider.CompareTag("MovingWall"))
+            {
+                _isOnWall = true;
+            }
+            else if (collision.gameObject.CompareTag("Ground"))
             {
                 _isGrounded = true;   
             }
@@ -64,6 +77,8 @@ namespace Common.Player
 
         private void OnCollisionExit(Collision collision)
         {
+            if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("MovingWall"))
+                _isOnWall = false;
             if (collision.gameObject.CompareTag("Ground"))
                 _isGrounded = false;
         }
