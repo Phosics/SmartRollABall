@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Common.Player
+﻿namespace Common.Player
 {
     public interface IPlayerFunctions
     {

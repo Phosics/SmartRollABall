@@ -1,5 +1,4 @@
-﻿using Common;
-using Common.Objects;
+﻿using Common.Objects;
 using UnityEngine;
 
 namespace Stage1

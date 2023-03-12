@@ -1,9 +1,5 @@
-using System;
-using Common;
 using Common.Effects;
 using Common.Player;
-using UnityEditor;
-using UnityEngine;
 
 namespace Stage1
 {

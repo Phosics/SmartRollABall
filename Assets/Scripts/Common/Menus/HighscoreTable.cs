@@ -1,132 +1,134 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Assertions;
 
-public class HighscoreTable : MonoBehaviour
+namespace Common.Menus
 {
-    private Transform entryContainer;
-    private Transform entryTemplate;
-    private List<Transform> highscoreEntriesTransformList;
-    private Highscores highscores;
-    private string stageName;
-
-    private void OnEnable()
+    public class HighscoreTable : MonoBehaviour
     {
-        entryContainer = transform.Find("HighscoreEntryContainer");
-        Assert.IsNotNull(entryContainer);
-        entryTemplate = entryContainer.Find("HighscoreEntryTemplate");
-        Assert.IsNotNull(entryTemplate);
+        private Transform entryContainer;
+        private Transform entryTemplate;
+        private List<Transform> highscoreEntriesTransformList;
+        private Highscores highscores;
+        private string stageName;
 
-        // Load saved Highscore
-        string stageNumber = PlayerPrefs.GetString("stage_number", "");
-        Assert.AreNotEqual(stageNumber, "");
-        stageName = "highscoreTable_" + stageNumber;
-        string jsonString = PlayerPrefs.GetString(stageName, "");
-        highscores = JsonUtility.FromJson<Highscores>(jsonString);
-        if (highscores == null)
+        private void OnEnable()
         {
-            highscores = new Highscores { highscoreEntryList = new List<HighscoreEntry>() };
+            entryContainer = transform.Find("HighscoreEntryContainer");
+            Assert.IsNotNull(entryContainer);
+            entryTemplate = entryContainer.Find("HighscoreEntryTemplate");
+            Assert.IsNotNull(entryTemplate);
+
+            // Load saved Highscore
+            string stageNumber = PlayerPrefs.GetString("stage_number", "");
+            Assert.AreNotEqual(stageNumber, "");
+            stageName = "highscoreTable_" + stageNumber;
+            string jsonString = PlayerPrefs.GetString(stageName, "");
+            highscores = JsonUtility.FromJson<Highscores>(jsonString);
+            if (highscores == null)
+            {
+                highscores = new Highscores { highscoreEntryList = new List<HighscoreEntry>() };
+            }
+
+            for (var i = 0; i < entryContainer.childCount; i++)
+            {
+                var child = entryContainer.GetChild(i);
+                child.gameObject.SetActive(false);
+            }
+
+            highscoreEntriesTransformList = new List<Transform>();
+            foreach (HighscoreEntry highscoreEntry in highscores.highscoreEntryList)
+            {
+                CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntriesTransformList);
+            }
+
+            // Highscores Highscores = new Highscores { highscoreEntryList = highscores.highscoreEntryList };
+            // string json = JsonUtility.ToJson(Highscores);
+            // PlayerPrefs.SetString("highscoreTable", json);
+            // PlayerPrefs.Save();
         }
 
-        for (var i = 0; i < entryContainer.childCount; i++)
+        private void CreateHighscoreEntryTransform(HighscoreEntry highscoreEntry, Transform container, List<Transform> transformList)
         {
-            var child = entryContainer.GetChild(i);
-            child.gameObject.SetActive(false);
+            float templateHeight = 30f;
+            Transform entryTransform = Instantiate(entryTemplate, container);
+            RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
+            entryRectTransform.anchoredPosition = new Vector2(0, -templateHeight * transformList.Count);
+            entryTransform.gameObject.SetActive(true);
+
+            int rank = transformList.Count + 1;
+            string rankString;
+            switch (rank)
+            {
+                default:
+                    rankString = rank + "TH";
+                    break;
+
+                case 1: rankString = "1ST";
+                    entryTransform.Find("IconFirstPlace").gameObject.SetActive(true);
+                    break;
+                case 2: rankString = "2ND";
+                    entryTransform.Find("IconSeconPlace").gameObject.SetActive(true);
+                    break;
+                case 3: rankString = "3RD";
+                    entryTransform.Find("IconThirdPlace").gameObject.SetActive(true);
+                    break;
+            }
+
+            float gametime = highscoreEntry.time;
+            string name = highscoreEntry.name;
+            entryTransform.Find("PosText").GetComponent<TextMeshProUGUI>().text = rankString;
+            entryTransform.Find("TimeText").GetComponent<TextMeshProUGUI>().text = Timer.TimeToString(gametime);
+            entryTransform.Find("NameText").GetComponent<TextMeshProUGUI>().text = name;
+            entryTransform.Find("BackgroundScore").gameObject.SetActive(rank % 2 == 1);
+            entryTransform.Find("IconAIBrain").gameObject.SetActive(highscoreEntry.isAI);
+            entryTransform.Find("IconPlayer").gameObject.SetActive(!highscoreEntry.isAI);
+            transformList.Add(entryTransform);
         }
 
-        highscoreEntriesTransformList = new List<Transform>();
-        foreach (HighscoreEntry highscoreEntry in highscores.highscoreEntryList)
+        public void AddHighscoreEntry(float time, string name, bool isAI)
         {
-            CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntriesTransformList);
+            // Create HighscoreEntry
+            HighscoreEntry highscoreEntry = new HighscoreEntry { name = name, time = time, isAI = isAI };
+
+            // Add new entry to Highscore
+            highscores.highscoreEntryList.Add(highscoreEntry);
+
+            highscores.highscoreEntryList.Sort((s1, s2) => s1.time.CompareTo(s2.time));
+
+            while (highscores.highscoreEntryList.Count > 10)
+            {
+                highscores.highscoreEntryList.RemoveAt(highscores.highscoreEntryList.Count - 1);
+            }
+
+            // save updated Highscore
+            string json = JsonUtility.ToJson(highscores);
+            PlayerPrefs.SetString(stageName, json);
+            PlayerPrefs.Save();
         }
 
-        // Highscores Highscores = new Highscores { highscoreEntryList = highscores.highscoreEntryList };
-        // string json = JsonUtility.ToJson(Highscores);
-        // PlayerPrefs.SetString("highscoreTable", json);
-        // PlayerPrefs.Save();
-    }
-
-    private void CreateHighscoreEntryTransform(HighscoreEntry highscoreEntry, Transform container, List<Transform> transformList)
-    {
-        float templateHeight = 30f;
-        Transform entryTransform = Instantiate(entryTemplate, container);
-        RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
-        entryRectTransform.anchoredPosition = new Vector2(0, -templateHeight * transformList.Count);
-        entryTransform.gameObject.SetActive(true);
-
-        int rank = transformList.Count + 1;
-        string rankString;
-        switch (rank)
+        public void ResetScoreBoard()
         {
-            default:
-                rankString = rank + "TH";
-                break;
-
-            case 1: rankString = "1ST";
-                entryTransform.Find("IconFirstPlace").gameObject.SetActive(true);
-                break;
-            case 2: rankString = "2ND";
-                entryTransform.Find("IconSeconPlace").gameObject.SetActive(true);
-                break;
-            case 3: rankString = "3RD";
-                entryTransform.Find("IconThirdPlace").gameObject.SetActive(true);
-                break;
+            Debug.Log("reseting the highscore board of stage " + stageName);
+            PlayerPrefs.SetString(stageName, "");
+            OnEnable();
         }
 
-        float gametime = highscoreEntry.time;
-        string name = highscoreEntry.name;
-        entryTransform.Find("PosText").GetComponent<TextMeshProUGUI>().text = rankString;
-        entryTransform.Find("TimeText").GetComponent<TextMeshProUGUI>().text = Timer.TimeToString(gametime);
-        entryTransform.Find("NameText").GetComponent<TextMeshProUGUI>().text = name;
-        entryTransform.Find("BackgroundScore").gameObject.SetActive(rank % 2 == 1);
-        entryTransform.Find("IconAIBrain").gameObject.SetActive(highscoreEntry.isAI);
-        entryTransform.Find("IconPlayer").gameObject.SetActive(!highscoreEntry.isAI);
-        transformList.Add(entryTransform);
-    }
-
-    public void AddHighscoreEntry(float time, string name, bool isAI)
-    {
-        // Create HighscoreEntry
-        HighscoreEntry highscoreEntry = new HighscoreEntry { name = name, time = time, isAI = isAI };
-
-        // Add new entry to Highscore
-        highscores.highscoreEntryList.Add(highscoreEntry);
-
-        highscores.highscoreEntryList.Sort((s1, s2) => s1.time.CompareTo(s2.time));
-
-        while (highscores.highscoreEntryList.Count > 10)
+        private class Highscores
         {
-            highscores.highscoreEntryList.RemoveAt(highscores.highscoreEntryList.Count - 1);
+            public List<HighscoreEntry> highscoreEntryList;
         }
 
-        // save updated Highscore
-        string json = JsonUtility.ToJson(highscores);
-        PlayerPrefs.SetString(stageName, json);
-        PlayerPrefs.Save();
-    }
-
-    public void ResetScoreBoard()
-    {
-        Debug.Log("reseting the highscore board of stage " + stageName);
-        PlayerPrefs.SetString(stageName, "");
-        OnEnable();
-    }
-
-    private class Highscores
-    {
-        public List<HighscoreEntry> highscoreEntryList;
-    }
-
-    /*
-     * Represents a single Highscore entry
-     */
-    [System.Serializable]
-    private class HighscoreEntry
-    {
-        public float time;
-        public string name;
-        public bool isAI;
+        /*
+         * Represents a single Highscore entry
+         */
+        [System.Serializable]
+        private class HighscoreEntry
+        {
+            public float time;
+            public string name;
+            public bool isAI;
+        }
     }
 }

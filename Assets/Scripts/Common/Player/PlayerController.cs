@@ -2,7 +2,6 @@ using Common.Effects;
 using Common.Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace Common.Player
 {
