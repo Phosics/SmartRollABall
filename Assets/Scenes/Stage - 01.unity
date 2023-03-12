@@ -5879,6 +5879,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 2326176714063178166, guid: f5459335aa2587849b9b15966983a045,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 2326176714520827265, guid: f5459335aa2587849b9b15966983a045,
         type: 3}
       propertyPath: scoreManager
@@ -6008,6 +6013,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326176715549794473, guid: f5459335aa2587849b9b15966983a045,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5077547494157855054, guid: f5459335aa2587849b9b15966983a045,
         type: 3}
