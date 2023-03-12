@@ -80,7 +80,6 @@ namespace MainMenu
             stage1.GetComponentInChildren<Button>().interactable = canStartGame;
             stage2.GetComponentInChildren<Button>().interactable = canStartGame;
             stage3.GetComponentInChildren<Button>().interactable = canStartGame;
-            // Debug.Log("canStartGame = " + canStartGame);
         }
 
         public void StartStage1()
@@ -109,14 +108,12 @@ namespace MainMenu
 
         public void ShowScoreboard(int stageNumber)
         {
-            Debug.Log("Showing the high score board for stage " + stageNumber);
             PlayerPrefs.SetString("stage_number", stageNumber.ToString());
             SetActiveToUIElements(false);
         }
 
         public void SuppressScoreboard()
         {
-            Debug.Log("Suppressing the high score board");
             SetActiveToUIElements(true);
         }
 

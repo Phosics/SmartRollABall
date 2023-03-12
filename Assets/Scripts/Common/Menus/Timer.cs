@@ -47,13 +47,12 @@ namespace Common.Menus
        {
            float minutes = Mathf.FloorToInt(timeToDisplay / 60);
            float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-           return string.Format("{0:00}:{1:00}", minutes, seconds);
+           return $"{minutes:00}:{seconds:00}";
        }
    
        private void DisplayTime(float timeToDisplay)
        {
-           string time = TimeToString(timeToDisplay);
-           timeText.text = time;
+           timeText.text = TimeToString(timeToDisplay);
        }
    } 
 }

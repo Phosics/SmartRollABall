@@ -47,12 +47,8 @@ namespace Common
 
         private void SetCountText()
         {
-            if (countText == null)
-            {
-                return;   
-            }
-
-            countText.text = $"Score: {_score} / {targetScore}";
+            if (countText != null)
+                countText.text = $"Score: {_score} / {targetScore}";
         }
     }
 }
